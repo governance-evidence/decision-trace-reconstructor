@@ -1,0 +1,28 @@
+schema_version: "1.0"
+source_name: homegrown_agent
+fields:
+  fragment_id: id
+  timestamp: ts
+  actor_id: metadata.actor.id
+  payload: null
+kind_field: kind
+kind_map:
+  prompt: agent_message
+  llm: model_generation
+  tool: tool_call
+  retrieval: retrieval_result
+  human_decision: human_approval
+  final: agent_message
+skip_kinds: [heartbeat, internal, debug]
+state_mutation_predicate:
+  field: tool
+  matches_regex: (write|exec|drop|delete|update|insert|push|publish)
+absorb_followups:
+  tool_result:
+    absorbed_by_kind: tool
+    payload_key: result
+    pair_match_field: id
+    parent_match_field: parent_id
+stack_tier_field: tier
+stack_tier_default: within_stack
+architecture: auto

@@ -1,0 +1,351 @@
+{
+  "scenario_id": "pydantic_ai_basic_agent_demo",
+  "architecture": "single_agent",
+  "stack_tier": "within_stack",
+  "fragments": [
+    {
+      "fragment_id": "pydantic_ai_run-001_config",
+      "timestamp": 1777291200.0,
+      "kind": "config_snapshot",
+      "stack_tier": "within_stack",
+      "actor_id": "SupportAgent",
+      "payload": {
+        "agent_name": "SupportAgent",
+        "model": "openai:gpt-4o",
+        "deps_type": "SupportDeps",
+        "result_type": "SupportResult",
+        "result_schema": {
+          "type": "object",
+          "properties": {
+            "answer": {
+              "type": "string"
+            },
+            "approved": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "answer",
+            "approved"
+          ]
+        },
+        "tools": [
+          {
+            "tool_name": "search_docs",
+            "description": "Search support docs",
+            "params_schema": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "description": "https://api.example.com/docs"
+                },
+                "query": {
+                  "type": "string"
+                }
+              }
+            },
+            "is_takeover": false
+          },
+          {
+            "tool_name": "request_human",
+            "description": "Escalate to a supervisor",
+            "params_schema": {
+              "type": "object",
+              "properties": {
+                "reason": {
+                  "type": "string"
+                }
+              }
+            },
+            "is_takeover": true
+          }
+        ]
+      },
+      "parent_trace_id": "run-001",
+      "decision_id_hint": "run-001"
+    },
+    {
+      "fragment_id": "pydantic_ai_run-001_msg_0001_user_2",
+      "timestamp": 1777291201.0,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "SupportAgent",
+      "payload": {
+        "content": "Can I refund this purchase?",
+        "role": "user"
+      },
+      "parent_trace_id": "run-001",
+      "decision_id_hint": "run-001"
+    },
+    {
+      "fragment_id": "pydantic_ai_run-001_msg_0002_model",
+      "timestamp": 1777291202.0,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "SupportAgent",
+      "payload": {
+        "model_id": "openai:gpt-4o",
+        "internal_reasoning": "opaque",
+        "kind_metadata": {},
+        "text": "I need to check the refund policy."
+      },
+      "parent_trace_id": "run-001",
+      "decision_id_hint": "run-001"
+    },
+    {
+      "fragment_id": "pydantic_ai_run-001_search_docs_1777291202200_tool",
+      "timestamp": 1777291202.2,
+      "kind": "tool_call",
+      "stack_tier": "cross_stack",
+      "actor_id": "search_docs",
+      "payload": {
+        "tool_name": "search_docs",
+        "args": {
+          "query": "refund policy"
+        },
+        "result": {
+          "excerpt": "Refunds above $100 require supervisor approval."
+        }
+      },
+      "parent_trace_id": "run-001",
+      "decision_id_hint": "run-001"
+    },
+    {
+      "fragment_id": "pydantic_ai_run-001_msg_0003_retry_2",
+      "timestamp": 1777291203.1,
+      "kind": "error",
+      "stack_tier": "within_stack",
+      "actor_id": "SupportAgent",
+      "payload": {
+        "error": "Validation failed: field 'approved' is required.",
+        "failed_fragment_kind": "tool_call",
+        "failed_fragment_id": "pydantic_ai_run-001_search_docs_1777291202200_tool"
+      },
+      "parent_trace_id": "run-001",
+      "decision_id_hint": "run-001"
+    },
+    {
+      "fragment_id": "pydantic_ai_run-001_msg_0004_model",
+      "timestamp": 1777291204.0,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "SupportAgent",
+      "payload": {
+        "model_id": "openai:gpt-4o",
+        "internal_reasoning": "opaque",
+        "kind_metadata": {},
+        "text": "Refunds above $100 need supervisor approval."
+      },
+      "parent_trace_id": "run-001",
+      "decision_id_hint": "run-001"
+    },
+    {
+      "fragment_id": "pydantic_ai_run-001_request_human_1777291204100_tool",
+      "timestamp": 1777291204.1,
+      "kind": "tool_call",
+      "stack_tier": "within_stack",
+      "actor_id": "request_human",
+      "payload": {
+        "tool_name": "request_human",
+        "args": {
+          "reason": "Refund exceeds policy threshold."
+        },
+        "result": "APPROVED by supervisor"
+      },
+      "parent_trace_id": "run-001",
+      "decision_id_hint": "run-001"
+    },
+    {
+      "fragment_id": "pydantic_ai_run-001_request_human_1777291204100_takeover",
+      "timestamp": 1777291204.1002,
+      "kind": "human_approval",
+      "stack_tier": "human",
+      "actor_id": "request_human",
+      "payload": {
+        "tool_name": "request_human",
+        "content": "APPROVED by supervisor"
+      },
+      "parent_trace_id": "run-001",
+      "decision_id_hint": "run-001"
+    },
+    {
+      "fragment_id": "pydantic_ai_run-001_result",
+      "timestamp": 1777291206.0,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "SupportAgent",
+      "payload": {
+        "result": {
+          "answer": "Refund approved after supervisor review.",
+          "approved": true
+        },
+        "usage": {
+          "requests": 2,
+          "request_tokens": 146,
+          "response_tokens": 77
+        }
+      },
+      "parent_trace_id": "run-001",
+      "decision_id_hint": "run-001"
+    },
+    {
+      "fragment_id": "pydantic_ai_run-002_config",
+      "timestamp": 1777291500.0,
+      "kind": "config_snapshot",
+      "stack_tier": "within_stack",
+      "actor_id": "SupportAgent",
+      "payload": {
+        "agent_name": "SupportAgent",
+        "model": "openai:gpt-4o",
+        "deps_type": "SupportDeps",
+        "result_type": "SupportResult",
+        "result_schema": {
+          "type": "object",
+          "properties": {
+            "answer": {
+              "type": "string"
+            },
+            "approved": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "answer",
+            "approved"
+          ]
+        },
+        "tools": []
+      },
+      "parent_trace_id": "run-002",
+      "decision_id_hint": "run-002"
+    },
+    {
+      "fragment_id": "pydantic_ai_run-002_msg_0001_user_1",
+      "timestamp": 1777291500.0,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "SupportAgent",
+      "payload": {
+        "content": "Summarize the decision.",
+        "role": "user"
+      },
+      "parent_trace_id": "run-002",
+      "decision_id_hint": "run-002"
+    },
+    {
+      "fragment_id": "pydantic_ai_run-002_msg_0002_model",
+      "timestamp": 1777291501.0,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "SupportAgent",
+      "payload": {
+        "model_id": "openai:gpt-4o",
+        "internal_reasoning": "opaque",
+        "kind_metadata": {},
+        "text": "The refund was approved after supervisor confirmation."
+      },
+      "parent_trace_id": "run-002",
+      "decision_id_hint": "run-002"
+    },
+    {
+      "fragment_id": "pydantic_ai_run-002_result",
+      "timestamp": 1777291502.0,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "SupportAgent",
+      "payload": {
+        "result": {
+          "answer": "The refund was approved after supervisor confirmation.",
+          "approved": true
+        },
+        "usage": {
+          "requests": 1,
+          "request_tokens": 20,
+          "response_tokens": 18
+        }
+      },
+      "parent_trace_id": "run-002",
+      "decision_id_hint": "run-002"
+    },
+    {
+      "fragment_id": "pydantic_ai_run-003_config",
+      "timestamp": 1777291560.0,
+      "kind": "config_snapshot",
+      "stack_tier": "within_stack",
+      "actor_id": "SupportAgent",
+      "payload": {
+        "agent_name": "SupportAgent",
+        "model": "openai:gpt-4o",
+        "deps_type": "SupportDeps",
+        "result_type": "SupportResult",
+        "result_schema": {
+          "type": "object",
+          "properties": {
+            "answer": {
+              "type": "string"
+            },
+            "approved": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "answer",
+            "approved"
+          ]
+        },
+        "tools": []
+      },
+      "parent_trace_id": "run-003",
+      "decision_id_hint": "run-003"
+    },
+    {
+      "fragment_id": "pydantic_ai_run-003_msg_0001_user_1",
+      "timestamp": 1777291560.0,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "SupportAgent",
+      "payload": {
+        "content": "Give the final response to the customer.",
+        "role": "user"
+      },
+      "parent_trace_id": "run-003",
+      "decision_id_hint": "run-003"
+    },
+    {
+      "fragment_id": "pydantic_ai_run-003_msg_0002_model",
+      "timestamp": 1777291561.0,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "SupportAgent",
+      "payload": {
+        "model_id": "openai:gpt-4o",
+        "internal_reasoning": "opaque",
+        "kind_metadata": {},
+        "text": "Your refund is approved and will be processed shortly."
+      },
+      "parent_trace_id": "run-003",
+      "decision_id_hint": "run-003"
+    },
+    {
+      "fragment_id": "pydantic_ai_run-003_result",
+      "timestamp": 1777291562.0,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "SupportAgent",
+      "payload": {
+        "result": {
+          "answer": "Your refund is approved and will be processed shortly.",
+          "approved": true
+        },
+        "usage": {
+          "requests": 1,
+          "request_tokens": 17,
+          "response_tokens": 16
+        }
+      },
+      "parent_trace_id": "run-003",
+      "decision_id_hint": "run-003"
+    }
+  ]
+}

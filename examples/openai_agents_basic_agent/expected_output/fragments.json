@@ -1,0 +1,215 @@
+{
+  "scenario_id": "openai_agents_basic_agent_demo",
+  "architecture": "multi_agent",
+  "stack_tier": "within_stack",
+  "fragments": [
+    {
+      "fragment_id": "openai_trace_demo_span-agent_agent",
+      "timestamp": 1744707600.0,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "triage_agent",
+      "payload": {
+        "content": {
+          "input": {
+            "text": "Need help with a refund"
+          },
+          "output": {
+            "status": "triaged"
+          }
+        },
+        "name": "triage_agent",
+        "span_type": "agent"
+      },
+      "parent_trace_id": "trace_demo_openai_001",
+      "decision_id_hint": "trace_demo_openai_001"
+    },
+    {
+      "fragment_id": "openai_trace_demo_span-guardrail_guardrail",
+      "timestamp": 1744707600.1,
+      "kind": "policy_snapshot",
+      "stack_tier": "within_stack",
+      "actor_id": "input_guardrail",
+      "payload": {
+        "constraint_activated": true,
+        "result": "passed",
+        "policy_id": "input_guardrail"
+      },
+      "parent_trace_id": "trace_demo_openai_001",
+      "decision_id_hint": "trace_demo_openai_001"
+    },
+    {
+      "fragment_id": "openai_trace_demo_span-response_model",
+      "timestamp": 1744707601.0,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "triage_agent",
+      "payload": {
+        "model_id": "gpt-4.1-mini",
+        "internal_reasoning": "opaque",
+        "input": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Need help with a refund"
+            }
+          ]
+        },
+        "output": {
+          "text": "Let me check the refund policy.",
+          "reasoning": "billing policy reasoning"
+        },
+        "token_count": 19,
+        "reasoning_summary_length": 24
+      },
+      "parent_trace_id": "trace_demo_openai_001",
+      "decision_id_hint": "trace_demo_openai_001"
+    },
+    {
+      "fragment_id": "openai_trace_demo_span-web_web_tool",
+      "timestamp": 1744707602.0,
+      "kind": "tool_call",
+      "stack_tier": "cross_stack",
+      "actor_id": "triage_agent",
+      "payload": {
+        "tool_name": "web_search",
+        "args": {
+          "query": "refund policy"
+        }
+      },
+      "parent_trace_id": "trace_demo_openai_001",
+      "decision_id_hint": "trace_demo_openai_001"
+    },
+    {
+      "fragment_id": "openai_trace_demo_span-web_web_retrieval",
+      "timestamp": 1744707602.0001,
+      "kind": "retrieval_result",
+      "stack_tier": "cross_stack",
+      "actor_id": "triage_agent",
+      "payload": {
+        "query": {
+          "query": "refund policy"
+        },
+        "retrieved": [
+          {
+            "title": "Refund policy",
+            "url": "https://example.test/refunds"
+          }
+        ]
+      },
+      "parent_trace_id": "trace_demo_openai_001",
+      "decision_id_hint": "trace_demo_openai_001"
+    },
+    {
+      "fragment_id": "openai_trace_demo_span-handoff_handoff",
+      "timestamp": 1744707603.0,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "billing_agent",
+      "payload": {
+        "content": {
+          "reason": "refund requires billing agent"
+        },
+        "handoff_to": "billing_agent"
+      },
+      "parent_trace_id": "trace_demo_openai_001",
+      "decision_id_hint": "trace_demo_openai_001"
+    },
+    {
+      "fragment_id": "openai_trace_demo_span-function_tool",
+      "timestamp": 1744707604.0,
+      "kind": "tool_call",
+      "stack_tier": "within_stack",
+      "actor_id": "billing_agent",
+      "payload": {
+        "tool_name": "write_refund",
+        "args": {
+          "order_id": "A100"
+        },
+        "output": {
+          "status": "submitted"
+        }
+      },
+      "parent_trace_id": "trace_demo_openai_001",
+      "decision_id_hint": "trace_demo_openai_001"
+    },
+    {
+      "fragment_id": "openai_trace_demo_span-function_state",
+      "timestamp": 1744707604.0001,
+      "kind": "state_mutation",
+      "stack_tier": "within_stack",
+      "actor_id": "billing_agent",
+      "payload": {
+        "state_change_magnitude": 1.0,
+        "event": "state mutation via write_refund"
+      },
+      "parent_trace_id": "trace_demo_openai_001",
+      "decision_id_hint": "trace_demo_openai_001"
+    },
+    {
+      "fragment_id": "openai_trace_demo_span-file-search_file_search",
+      "timestamp": 1744707605.0,
+      "kind": "retrieval_result",
+      "stack_tier": "within_stack",
+      "actor_id": "billing_agent",
+      "payload": {
+        "query": {
+          "query": "customer refund history"
+        },
+        "retrieved": [
+          {
+            "file_id": "file-1",
+            "snippet": "Courtesy refund in 2024"
+          }
+        ]
+      },
+      "parent_trace_id": "trace_demo_openai_001",
+      "decision_id_hint": "trace_demo_openai_001"
+    },
+    {
+      "fragment_id": "openai_trace_demo_span-computer_computer_tool",
+      "timestamp": 1744707606.0,
+      "kind": "tool_call",
+      "stack_tier": "cross_stack",
+      "actor_id": "billing_agent",
+      "payload": {
+        "tool_name": "computer_use",
+        "args": {
+          "action": "click",
+          "target": "refund-button"
+        },
+        "output": {
+          "status": "clicked"
+        }
+      },
+      "parent_trace_id": "trace_demo_openai_001",
+      "decision_id_hint": "trace_demo_openai_001"
+    },
+    {
+      "fragment_id": "openai_trace_demo_span-computer_computer_state",
+      "timestamp": 1744707606.0001,
+      "kind": "state_mutation",
+      "stack_tier": "cross_stack",
+      "actor_id": "billing_agent",
+      "payload": {
+        "state_change_magnitude": 1.0,
+        "event": "computer use action executed"
+      },
+      "parent_trace_id": "trace_demo_openai_001",
+      "decision_id_hint": "trace_demo_openai_001"
+    },
+    {
+      "fragment_id": "openai_trace_demo_span-custom_override",
+      "timestamp": 1744707607.0,
+      "kind": "config_snapshot",
+      "stack_tier": "within_stack",
+      "actor_id": "model_config",
+      "payload": {
+        "span_type": "custom",
+        "name": "model_config"
+      },
+      "parent_trace_id": "trace_demo_openai_001",
+      "decision_id_hint": "trace_demo_openai_001"
+    }
+  ]
+}

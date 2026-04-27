@@ -1,0 +1,381 @@
+---
+title: "Decision Trace Reconstructor — Evaluation Report"
+subtitle: "Decision Trace Reconstructor v0.1.0 — Reference Implementation of DEMM"
+author:
+  - name: Oleg Solozobov
+    orcid: 0009-0009-0105-7459
+date: 2026-04-28
+date-format: "YYYY-MM-DD"
+abstract: |
+  This report renders the canonical evaluation results of the
+  Decision Trace Reconstructor (v0.1.0) — the reference
+  implementation of the Decision Evidence Maturity Model (DEMM)
+  property-level reconstructability assessment. Results cover a
+  140-scenario synthetic evaluation across a 3 × 2 architecture
+  × stack-coverage matrix plus a non-agentic baseline, and three
+  named-incident reconstructions admitted under the
+  *public-record evidence / method inference* convention.
+  The numbers below are read directly from `results/*.json` at
+  render time and are the release-pinned evaluation artifacts
+  for this software version.
+keywords:
+  - decision trace reconstructor
+  - DEMM
+  - decision trace reconstruction
+  - agentic AI governance
+  - W3C PROV-O
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    embed-resources: true
+    theme: cosmo
+    number-sections: true
+    fig-width: 8
+    fig-height: 6
+  pdf:
+    toc: true
+    toc-depth: 3
+    documentclass: article
+    geometry:
+      - margin=1in
+    fig-width: 6
+    fig-height: 4
+    number-sections: true
+    colorlinks: true
+execute:
+  echo: false
+  warning: false
+  freeze: false
+---
+
+```{python}
+#| label: setup
+import json
+from pathlib import Path
+
+RESULTS = Path(__file__).resolve().parent.parent / "results" if "__file__" in dir() else Path("../results")
+# Fallback for Quarto execution context (cwd = docs/)
+if not RESULTS.exists():
+    RESULTS = Path("../results")
+
+cells = json.loads((RESULTS / "cells.json").read_text())
+per_property = json.loads((RESULTS / "per_property.json").read_text())
+named_incidents = json.loads((RESULTS / "named_incidents.json").read_text())
+per_scenario = json.loads((RESULTS / "per_scenario.json").read_text())
+
+ARCH_LABELS = {
+    "single_agent": "Single-agent tool-use",
+    "multi_agent": "Multi-agent orchestration",
+    "human_in_the_loop": "Human-in-the-loop agentic",
+    "non_agentic": "Non-agentic baseline",
+}
+TIER_LABELS = {
+    "within_stack": "Within-stack",
+    "cross_stack": "Cross-stack",
+    "baseline": "Baseline",
+}
+ARCH_ORDER = ["single_agent", "multi_agent", "human_in_the_loop", "non_agentic"]
+TIER_ORDER = ["within_stack", "cross_stack", "baseline"]
+
+cells_index = {(c["architecture"], c["stack_tier"]): c for c in cells}
+
+
+def md_table(headers: list[str], rows: list[list[str]]) -> str:
+    """Render a Markdown table; returns the source string."""
+    head = "| " + " | ".join(headers) + " |"
+    sep = "|" + "|".join("---" for _ in headers) + "|"
+    body = "\n".join("| " + " | ".join(r) + " |" for r in rows)
+    return "\n".join([head, sep, body])
+```
+
+# Introduction
+
+The reconstructor is a measurement instrument. It takes stored evidence fragments produced
+during the execution of an agentic AI system — agent logs, tool-call records,
+intermediate outputs, policy snapshots — and reconstructs the decision chain
+post-hoc, projecting each step onto the canonical *Decision Event
+Schema* and classifying every property as `fully_fillable`,
+`partially_fillable`, `structurally_unfillable`, or `opaque`. The per-property
+feasibility tensor is the input to the five-level **Decision Evidence
+Maturity Model (DEMM)** rubric implemented by this package. Companion
+method publications are in preparation and are not cited until public
+identifiers exist.
+
+The pipeline is six stages: fragment collection, temporal ordering, chain
+assembly, decision-boundary detection (four heuristics), decision-event schema
+mapping, and feasibility-report generation. ML-opaque reasoning steps are
+not "reconstructed" — the reconstructor substitutes an authorization envelope (inputs
+available, constraints active, outputs possible).
+
+This report renders the evaluation results from `results/*.json`. The
+numbers below are produced at render time; if a result file changes, this
+report changes with it.
+
+# Evaluation matrix
+
+The reconstructor is evaluated on a 3 × 2 × baseline grid: three agentic architectures
+(single-agent tool-use, multi-agent orchestration, human-in-the-loop
+agentic) crossed with two stack-coverage tiers (within-stack governed
+runtimes, cross-stack boundaries), anchored by a non-agentic baseline.
+Twenty synthetic scenarios per cell, deterministic-given-seed, plus 20
+non-agentic baseline scenarios = **140 total scenarios**.
+
+| Architecture | Within-stack | Cross-stack |
+|---|---|---|
+| Single-agent tool-use | AgentCore / LangGraph + LangSmith | Agent + external MCP / browser tools |
+| Multi-agent orchestration | LangGraph multi-agent / OpenAI Agents SDK | MCP-mediated multi-agent |
+| Human-in-the-loop agentic | Approval-gated HITL runtime | HITL with external tool execution |
+| Non-agentic baseline | Discrete rule + model system with explicit decision point | — |
+
+: Evaluation matrix: architectures × stack-coverage tiers with representative
+systems per cell. {#tbl-matrix}
+
+# Results
+
+## Reconstruction completeness per cell
+
+```{python}
+#| label: tbl-completeness-build
+def fmt_cell(c):
+    if c is None:
+        return "n/a"
+    return f"{c['completeness_pct']:.1f}% [{c['completeness_ci_low']:.1f}, {c['completeness_ci_high']:.1f}]"
+
+rows = []
+for arch in ARCH_ORDER[:-1]:
+    rows.append([
+        ARCH_LABELS[arch],
+        fmt_cell(cells_index.get((arch, "within_stack"))),
+        fmt_cell(cells_index.get((arch, "cross_stack"))),
+    ])
+baseline = cells_index.get(("non_agentic", "within_stack"))
+rows.append([ARCH_LABELS["non_agentic"], fmt_cell(baseline), "—"])
+table_md = md_table(["Architecture", "Within-stack", "Cross-stack"], rows)
+```
+
+```{python}
+#| output: asis
+print(table_md + "\n\n: Reconstruction completeness, mean % [95 % CI bootstrap]. {#tbl-completeness}\n")
+```
+
+The non-agentic baseline (@tbl-completeness, last row) anchors the
+upper bound of property-level reconstructability available when the subject
+system is maximally instrumented by design. The agentic cells degrade
+relative to this anchor — the magnitude and pattern of the degradation are
+what the rest of the report is about.
+
+## Boundary-detection F1
+
+```{python}
+#| output: asis
+rows = []
+for arch in ARCH_ORDER[:-1]:
+    rows.append([
+        ARCH_LABELS[arch],
+        f"{cells_index[(arch, 'within_stack')]['boundary_f1']:.3f}",
+        f"{cells_index[(arch, 'cross_stack')]['boundary_f1']:.3f}",
+    ])
+baseline_f1 = cells_index.get(("non_agentic", "within_stack"), {}).get("boundary_f1", 0.0)
+rows.append([ARCH_LABELS["non_agentic"], f"{baseline_f1:.3f}", "—"])
+print(md_table(["Architecture", "Within-stack F1", "Cross-stack F1"], rows))
+print("\n: Boundary-detection F1 vs ground-truth synthetic boundaries. {#tbl-boundary-f1}\n")
+```
+
+Boundary F1 is a mechanistic diagnostic: it separates *boundary error*
+(the reconstructor partitioning the chain wrong) from *evidence gap* (the property
+genuinely missing). Cross-stack cells have lower F1 because cross-stack
+boundaries are exactly where heuristics fire less reliably.
+
+## 7-mode operational-failure dominance
+
+```{python}
+#| output: asis
+rows = []
+for arch in ARCH_ORDER[:-1]:
+    for tier in ("within_stack", "cross_stack"):
+        c = cells_index.get((arch, tier))
+        if not c:
+            continue
+        mode = c["modal_mode"] if c["modal_mode"] is not None else "—"
+        share = f"{c['modal_mode_share']:.2f}" if c["modal_mode_share"] is not None else "—"
+        brk = c["dominant_break"] or "—"
+        rows.append([ARCH_LABELS[arch], TIER_LABELS[tier], str(mode), share, brk])
+print(md_table(
+    ["Architecture", "Stack tier", "Modal mode", "Mode share", "Dominant break"],
+    rows,
+))
+print(
+    "\n: 7-mode dominance per cell. Modes 1/2/5/6 → decision diffusion; "
+    "modes 3/4 → evidence fragmentation; mode 7 → responsibility ambiguity. "
+    "{#tbl-7mode}\n",
+)
+```
+
+The dominant-break attribution maps the seven operational modes onto the
+three structural-break labels used by the project:
+**decision diffusion** (modes 1, 2, 5, 6), **evidence
+fragmentation** (modes 3, 4), and **responsibility ambiguity** (mode 7).
+
+## Per-property feasibility distribution
+
+```{python}
+#| output: asis
+property_order = [
+    "inputs", "policy_basis", "operator_identity", "authorization_envelope",
+    "reasoning_trace", "output_action", "post_condition_state",
+]
+cat_order = ["fully_fillable", "partially_fillable", "structurally_unfillable", "opaque"]
+rows = []
+for p in property_order:
+    if p not in per_property:
+        continue
+    d = per_property[p]
+    rows.append([
+        p,
+        f"{d.get('fully_fillable', 0):.1f}",
+        f"{d.get('partially_fillable', 0):.1f}",
+        f"{d.get('structurally_unfillable', 0):.1f}",
+        f"{d.get('opaque', 0):.1f}",
+    ])
+print(md_table(
+    ["Property", "Fully", "Partial", "Struct. unfill.", "Opaque"],
+    rows,
+))
+print(
+    "\n: Per-property feasibility distribution across all 120 agentic "
+    "scenarios (% of property-slots). `reasoning_trace` is 100 % opaque by "
+    "design (authorization envelope substituted); `authorization_envelope` is "
+    "100 % fully fillable as the substituted surrogate. {#tbl-perprop}\n",
+)
+```
+
+The two extremes — `reasoning_trace` (100 % opaque) and
+`authorization_envelope` (100 % fully fillable) — are not findings but
+*specifications*: DEMM substitutes the envelope for the opaque trace, by
+construction. The empirical content sits in the middle five rows, where
+`policy_basis`, `operator_identity`, `output_action`, and
+`post_condition_state` show the actual reconstructability gradients across
+the agentic population.
+
+## Named-incident reconstructions
+
+Three named incidents are admitted under a *public-record evidence /
+method inference* convention used by this release. Fragments are hand-authored
+to reflect what a public-record reader can recover; properties
+not disclosed publicly are left un-filled so the reconstructor reports them as
+`structurally_unfillable`.
+
+```{python}
+#| output: asis
+rows = []
+for inc in named_incidents:
+    counts = inc["feasibility_counts"]
+    mode = inc["dominant_mode"] if inc["dominant_mode"] is not None else "—"
+    brk = inc["dominant_break"] or "—"
+    rows.append([
+        inc["incident"],
+        ARCH_LABELS.get(inc["architecture"], inc["architecture"]),
+        TIER_LABELS.get(inc["stack_tier"], inc["stack_tier"]),
+        str(inc["fragments"]),
+        str(inc["units_detected"]),
+        f"{inc['completeness_pct']:.1f}",
+        str(counts["fully_fillable"]),
+        str(counts["partially_fillable"]),
+        str(counts["structurally_unfillable"]),
+        str(counts["opaque"]),
+        str(mode),
+        brk,
+    ])
+print(md_table(
+    [
+        "Incident", "Arch.", "Tier", "Frags", "Units", "Compl. %",
+        "Full", "Part.", "Struct.", "Opaque", "Mode", "Break",
+    ],
+    rows,
+))
+print(
+    "\n: Named-incident reconstruction summary. The recurring 57.1 % "
+    "completeness reflects the same per-property gap profile across all "
+    "three single-agent cross-stack incidents, consistent with the "
+    "synthetic single-agent cross-stack cell (@tbl-completeness). "
+    "{#tbl-named-incidents}\n",
+)
+```
+
+The same per-property gap profile recurs across all three incidents because
+the structural failure is the same: a single-agent cross-stack interaction
+where the agent's reasoning is opaque, the policy basis is implicit, the
+authorization envelope is absent, and the cross-stack boundary discards
+inputs and post-conditions to varying degrees. The reconstructor does not need to know
+the specific destructive command — it reads the same gap-shaped hole the
+public record left behind.
+
+## Severity ranking
+
+The cell-level completeness numbers (@tbl-completeness) admit a severity
+ranking by absolute deficit relative to the non-agentic baseline:
+
+```{python}
+#| output: asis
+baseline_pct = baseline["completeness_pct"] if baseline else 100.0
+rows = []
+for arch in ARCH_ORDER[:-1]:
+    for tier in ("within_stack", "cross_stack"):
+        c = cells_index.get((arch, tier))
+        if not c:
+            continue
+        deficit = baseline_pct - c["completeness_pct"]
+        rows.append([
+            ARCH_LABELS[arch],
+            TIER_LABELS[tier],
+            f"{c['completeness_pct']:.1f}",
+            f"{deficit:.1f}",
+            c["dominant_break"] or "—",
+        ])
+rows.sort(key=lambda r: float(r[3]), reverse=True)
+print(md_table(
+    ["Architecture", "Tier", "Completeness %", "Deficit vs baseline", "Dominant break"],
+    rows,
+))
+print(
+    "\n: Severity ranking by completeness deficit relative to the "
+    "non-agentic baseline. The most degraded cell is multi-agent "
+    "cross-stack; the least degraded is human-in-the-loop within-stack. "
+    "{#tbl-severity}\n",
+)
+```
+
+# Reproducibility
+
+All synthetic scenarios are deterministic given seeds: same seed, bit-identical
+output. The release tag (v0.1.0), the synthetic-generator seed list,
+the JSON input manifests per cell, the raw feasibility reports, and
+the per-property confidence scores are all in this artifact. To regenerate:
+
+```bash
+decision-trace evaluate synthetic --out results/
+decision-trace evaluate named --out results/
+python scripts/export_schemas.py --out docs/schemas/
+quarto render docs/report.qmd
+```
+
+The PROV-O JSON-LD siblings (`results/*.jsonld`) carry the same data as
+W3C PROV vocabulary and parse with `rdflib` into queryable RDF graphs (see
+the SPARQL example in the README).
+
+Named-incident reconstructions are not bit-reproducible in the strong sense
+because they depend on public reporting that may update; the fragment
+manifests in `src/reconstructor/synthetic/named_incidents.py` pin the
+reading of the public record at the time of authorship.
+
+# References
+
+W3C. *PROV-O: The PROV Ontology* (W3C Recommendation, 30 April 2013).
+<https://www.w3.org/TR/prov-o/>
+
+Citation File Format. *CFF v1.2.0*. <https://citation-file-format.github.io/>
+
+Research Object Crate. *RO-Crate v1.1*.
+<https://www.researchobject.org/ro-crate/1.1/>

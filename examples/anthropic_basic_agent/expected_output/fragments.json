@@ -1,0 +1,635 @@
+{
+  "scenario_id": "anthropic_basic_agent_demo",
+  "architecture": "single_agent",
+  "stack_tier": "within_stack",
+  "fragments": [
+    {
+      "fragment_id": "anthropic_round_0001_request_snapshot",
+      "timestamp": 1735689600.0,
+      "kind": "config_snapshot",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model": "claude-3-5-sonnet-20241022",
+        "system": "You are refund support agent.",
+        "tools": [
+          {
+            "name": "computer"
+          },
+          {
+            "name": "bash"
+          },
+          {
+            "name": "text_editor"
+          }
+        ],
+        "metadata": {
+          "user_id": "refund_support_agent"
+        },
+        "cache_control": []
+      },
+      "parent_trace_id": "msg_round_1",
+      "decision_id_hint": "msg_round_1"
+    },
+    {
+      "fragment_id": "anthropic_round_0001_user_1",
+      "timestamp": 1735689600.0,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "content": "Open the refund console and prepare a refund for order A100.",
+        "role": "user"
+      },
+      "parent_trace_id": "msg_round_1",
+      "decision_id_hint": "msg_round_1"
+    },
+    {
+      "fragment_id": "anthropic_round_0001_response_model",
+      "timestamp": 1735689600.00005,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model_id": "claude-3-5-sonnet-20241022",
+        "internal_reasoning": "opaque",
+        "stop_reason": "tool_use",
+        "token_count": 222,
+        "usage": {
+          "input_tokens": 180,
+          "output_tokens": 42
+        }
+      },
+      "parent_trace_id": "msg_round_1",
+      "decision_id_hint": "msg_round_1"
+    },
+    {
+      "fragment_id": "anthropic_round_0001_thinking_1",
+      "timestamp": 1735689600.000051,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model_id": "claude-3-5-sonnet-20241022",
+        "internal_reasoning": "opaque",
+        "thinking": {
+          "sha256": "1cd55af1d6400efec533c249835c3be3f931532e98e5d476cc808ee0fa5d1321",
+          "length": 42
+        }
+      },
+      "parent_trace_id": "msg_round_1",
+      "decision_id_hint": "msg_round_1"
+    },
+    {
+      "fragment_id": "anthropic_round_0001_assistant_text_2",
+      "timestamp": 1735689600.0001009,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "content": "I will inspect the page first.",
+        "role": "assistant"
+      },
+      "parent_trace_id": "msg_round_1",
+      "decision_id_hint": "msg_round_1"
+    },
+    {
+      "fragment_id": "anthropic_round_0001_tool_screen_1_tool",
+      "timestamp": 1735689600.00022,
+      "kind": "tool_call",
+      "stack_tier": "cross_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "tool_name": "computer",
+        "args": {
+          "action": "screenshot"
+        },
+        "result": [
+          {
+            "type": "image",
+            "sha256": "dfa249f4e1ad4fb682255ab739cb92abb56e11a698535d077cdb8fc01b4938ba",
+            "length": 32,
+            "media_type": "image/png"
+          }
+        ]
+      },
+      "parent_trace_id": "msg_round_1",
+      "decision_id_hint": "msg_round_1"
+    },
+    {
+      "fragment_id": "anthropic_round_0002_request_snapshot",
+      "timestamp": 1735689601.0,
+      "kind": "config_snapshot",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model": "claude-3-5-sonnet-20241022",
+        "system": "You are refund support agent.",
+        "tools": [
+          {
+            "name": "computer"
+          },
+          {
+            "name": "bash"
+          },
+          {
+            "name": "text_editor"
+          }
+        ],
+        "metadata": {
+          "user_id": "refund_support_agent"
+        },
+        "cache_control": []
+      },
+      "parent_trace_id": "msg_round_2",
+      "decision_id_hint": "msg_round_2"
+    },
+    {
+      "fragment_id": "anthropic_round_0002_response_model",
+      "timestamp": 1735689601.00005,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model_id": "claude-3-5-sonnet-20241022",
+        "internal_reasoning": "opaque",
+        "stop_reason": "tool_use",
+        "token_count": 244,
+        "usage": {
+          "input_tokens": 200,
+          "output_tokens": 44
+        }
+      },
+      "parent_trace_id": "msg_round_2",
+      "decision_id_hint": "msg_round_2"
+    },
+    {
+      "fragment_id": "anthropic_round_0002_thinking_1",
+      "timestamp": 1735689601.000051,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model_id": "claude-3-5-sonnet-20241022",
+        "internal_reasoning": "opaque",
+        "thinking": {
+          "sha256": "ab71bfd27435aed05d3e50649976ceb021222d62b55f2a5e7c1495a3e4a025a2",
+          "length": 39
+        }
+      },
+      "parent_trace_id": "msg_round_2",
+      "decision_id_hint": "msg_round_2"
+    },
+    {
+      "fragment_id": "anthropic_round_0002_assistant_text_2",
+      "timestamp": 1735689601.0001009,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "content": "I found the refund form.",
+        "role": "assistant"
+      },
+      "parent_trace_id": "msg_round_2",
+      "decision_id_hint": "msg_round_2"
+    },
+    {
+      "fragment_id": "anthropic_round_0002_tool_click_1_tool",
+      "timestamp": 1735689601.00022,
+      "kind": "tool_call",
+      "stack_tier": "cross_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "tool_name": "computer",
+        "args": {
+          "action": "left_click",
+          "coordinate": [
+            640,
+            360
+          ]
+        },
+        "result": [
+          {
+            "type": "text",
+            "text": "clicked refund button"
+          }
+        ]
+      },
+      "parent_trace_id": "msg_round_2",
+      "decision_id_hint": "msg_round_2"
+    },
+    {
+      "fragment_id": "anthropic_round_0002_tool_click_1_state",
+      "timestamp": 1735689601.000221,
+      "kind": "state_mutation",
+      "stack_tier": "cross_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "state_change_magnitude": 1.0,
+        "event": "state mutation via computer"
+      },
+      "parent_trace_id": "msg_round_2",
+      "decision_id_hint": "msg_round_2"
+    },
+    {
+      "fragment_id": "anthropic_round_0003_request_snapshot",
+      "timestamp": 1735689602.0,
+      "kind": "config_snapshot",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model": "claude-3-5-sonnet-20241022",
+        "system": "You are refund support agent.",
+        "tools": [
+          {
+            "name": "computer"
+          },
+          {
+            "name": "bash"
+          },
+          {
+            "name": "text_editor"
+          }
+        ],
+        "metadata": {
+          "user_id": "refund_support_agent"
+        },
+        "cache_control": []
+      },
+      "parent_trace_id": "msg_round_3",
+      "decision_id_hint": "msg_round_3"
+    },
+    {
+      "fragment_id": "anthropic_round_0003_response_model",
+      "timestamp": 1735689602.00005,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model_id": "claude-3-5-sonnet-20241022",
+        "internal_reasoning": "opaque",
+        "stop_reason": "tool_use",
+        "token_count": 258,
+        "usage": {
+          "input_tokens": 210,
+          "output_tokens": 48
+        }
+      },
+      "parent_trace_id": "msg_round_3",
+      "decision_id_hint": "msg_round_3"
+    },
+    {
+      "fragment_id": "anthropic_round_0003_thinking_1",
+      "timestamp": 1735689602.000051,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model_id": "claude-3-5-sonnet-20241022",
+        "internal_reasoning": "opaque",
+        "thinking": {
+          "sha256": "e34f2d9d8f1206cd1cf05a01e57dae3f7b1b5b59831090d09d5e2d863c86dc2c",
+          "length": 40
+        }
+      },
+      "parent_trace_id": "msg_round_3",
+      "decision_id_hint": "msg_round_3"
+    },
+    {
+      "fragment_id": "anthropic_round_0003_assistant_text_2",
+      "timestamp": 1735689602.0001009,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "content": "I am entering the refund note.",
+        "role": "assistant"
+      },
+      "parent_trace_id": "msg_round_3",
+      "decision_id_hint": "msg_round_3"
+    },
+    {
+      "fragment_id": "anthropic_round_0003_tool_type_1_tool",
+      "timestamp": 1735689602.00022,
+      "kind": "tool_call",
+      "stack_tier": "cross_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "tool_name": "computer",
+        "args": {
+          "action": "type",
+          "text": "Refund approved for order A100"
+        },
+        "result": [
+          {
+            "type": "text",
+            "text": "typed refund note"
+          }
+        ]
+      },
+      "parent_trace_id": "msg_round_3",
+      "decision_id_hint": "msg_round_3"
+    },
+    {
+      "fragment_id": "anthropic_round_0003_tool_type_1_state",
+      "timestamp": 1735689602.000221,
+      "kind": "state_mutation",
+      "stack_tier": "cross_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "state_change_magnitude": 1.0,
+        "event": "state mutation via computer"
+      },
+      "parent_trace_id": "msg_round_3",
+      "decision_id_hint": "msg_round_3"
+    },
+    {
+      "fragment_id": "anthropic_round_0004_request_snapshot",
+      "timestamp": 1735689603.0,
+      "kind": "config_snapshot",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model": "claude-3-5-sonnet-20241022",
+        "system": "You are refund support agent.",
+        "tools": [
+          {
+            "name": "computer"
+          },
+          {
+            "name": "bash"
+          },
+          {
+            "name": "text_editor"
+          }
+        ],
+        "metadata": {
+          "user_id": "refund_support_agent"
+        },
+        "cache_control": []
+      },
+      "parent_trace_id": "msg_round_4",
+      "decision_id_hint": "msg_round_4"
+    },
+    {
+      "fragment_id": "anthropic_round_0004_response_model",
+      "timestamp": 1735689603.00005,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model_id": "claude-3-5-sonnet-20241022",
+        "internal_reasoning": "opaque",
+        "stop_reason": "tool_use",
+        "token_count": 231,
+        "usage": {
+          "input_tokens": 198,
+          "output_tokens": 33
+        }
+      },
+      "parent_trace_id": "msg_round_4",
+      "decision_id_hint": "msg_round_4"
+    },
+    {
+      "fragment_id": "anthropic_round_0004_thinking_1",
+      "timestamp": 1735689603.000051,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model_id": "claude-3-5-sonnet-20241022",
+        "internal_reasoning": "opaque",
+        "thinking": {
+          "sha256": "e705dba98344202b02e74fe28d32125f3da49c0e6333986e1ae91c5434a303a2",
+          "length": 47
+        }
+      },
+      "parent_trace_id": "msg_round_4",
+      "decision_id_hint": "msg_round_4"
+    },
+    {
+      "fragment_id": "anthropic_round_0004_assistant_text_2",
+      "timestamp": 1735689603.0001009,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "content": "I am checking the local workspace.",
+        "role": "assistant"
+      },
+      "parent_trace_id": "msg_round_4",
+      "decision_id_hint": "msg_round_4"
+    },
+    {
+      "fragment_id": "anthropic_round_0004_tool_bash_1_tool",
+      "timestamp": 1735689603.00022,
+      "kind": "tool_call",
+      "stack_tier": "cross_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "tool_name": "bash",
+        "args": {
+          "command": "ls -la"
+        },
+        "result": [
+          {
+            "type": "text",
+            "text": "workspace ok"
+          }
+        ]
+      },
+      "parent_trace_id": "msg_round_4",
+      "decision_id_hint": "msg_round_4"
+    },
+    {
+      "fragment_id": "anthropic_round_0005_request_snapshot",
+      "timestamp": 1735689604.0,
+      "kind": "config_snapshot",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model": "claude-3-5-sonnet-20241022",
+        "system": "You are refund support agent.",
+        "tools": [
+          {
+            "name": "computer"
+          },
+          {
+            "name": "bash"
+          },
+          {
+            "name": "text_editor"
+          }
+        ],
+        "metadata": {
+          "user_id": "refund_support_agent"
+        },
+        "cache_control": []
+      },
+      "parent_trace_id": "msg_round_5",
+      "decision_id_hint": "msg_round_5"
+    },
+    {
+      "fragment_id": "anthropic_round_0005_response_model",
+      "timestamp": 1735689604.00005,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model_id": "claude-3-5-sonnet-20241022",
+        "internal_reasoning": "opaque",
+        "stop_reason": "tool_use",
+        "token_count": 246,
+        "usage": {
+          "input_tokens": 205,
+          "output_tokens": 41
+        }
+      },
+      "parent_trace_id": "msg_round_5",
+      "decision_id_hint": "msg_round_5"
+    },
+    {
+      "fragment_id": "anthropic_round_0005_thinking_1",
+      "timestamp": 1735689604.000051,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model_id": "claude-3-5-sonnet-20241022",
+        "internal_reasoning": "opaque",
+        "thinking": {
+          "sha256": "825364ce5fd126baea9829d5307b35a5e5317e377b4bc84652ad3cdb04024320",
+          "length": 49
+        }
+      },
+      "parent_trace_id": "msg_round_5",
+      "decision_id_hint": "msg_round_5"
+    },
+    {
+      "fragment_id": "anthropic_round_0005_assistant_text_2",
+      "timestamp": 1735689604.0001009,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "content": "I am saving the confirmation note.",
+        "role": "assistant"
+      },
+      "parent_trace_id": "msg_round_5",
+      "decision_id_hint": "msg_round_5"
+    },
+    {
+      "fragment_id": "anthropic_round_0005_tool_edit_1_tool",
+      "timestamp": 1735689604.00022,
+      "kind": "tool_call",
+      "stack_tier": "cross_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "tool_name": "text_editor",
+        "args": {
+          "action": "replace",
+          "path": "refund_note.txt",
+          "text": "Refund approved for order A100"
+        },
+        "result": [
+          {
+            "type": "text",
+            "text": "file updated"
+          }
+        ]
+      },
+      "parent_trace_id": "msg_round_5",
+      "decision_id_hint": "msg_round_5"
+    },
+    {
+      "fragment_id": "anthropic_round_0005_tool_edit_1_state",
+      "timestamp": 1735689604.000221,
+      "kind": "state_mutation",
+      "stack_tier": "cross_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "state_change_magnitude": 1.0,
+        "event": "state mutation via text_editor"
+      },
+      "parent_trace_id": "msg_round_5",
+      "decision_id_hint": "msg_round_5"
+    },
+    {
+      "fragment_id": "anthropic_round_0006_request_snapshot",
+      "timestamp": 1735689605.0,
+      "kind": "config_snapshot",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model": "claude-3-5-sonnet-20241022",
+        "system": "You are refund support agent.",
+        "tools": [
+          {
+            "name": "computer"
+          },
+          {
+            "name": "bash"
+          },
+          {
+            "name": "text_editor"
+          }
+        ],
+        "metadata": {
+          "user_id": "refund_support_agent"
+        },
+        "cache_control": []
+      },
+      "parent_trace_id": "msg_round_6",
+      "decision_id_hint": "msg_round_6"
+    },
+    {
+      "fragment_id": "anthropic_round_0006_response_model",
+      "timestamp": 1735689605.00005,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model_id": "claude-3-5-sonnet-20241022",
+        "internal_reasoning": "opaque",
+        "stop_reason": "end_turn",
+        "token_count": 188,
+        "usage": {
+          "input_tokens": 160,
+          "output_tokens": 28
+        }
+      },
+      "parent_trace_id": "msg_round_6",
+      "decision_id_hint": "msg_round_6"
+    },
+    {
+      "fragment_id": "anthropic_round_0006_thinking_1",
+      "timestamp": 1735689605.000051,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "model_id": "claude-3-5-sonnet-20241022",
+        "internal_reasoning": "opaque",
+        "thinking": {
+          "sha256": "c39fbf74beb7b14554e32d835d28f750349ae885725a1682e4d7eed1889c68e1",
+          "length": 28
+        }
+      },
+      "parent_trace_id": "msg_round_6",
+      "decision_id_hint": "msg_round_6"
+    },
+    {
+      "fragment_id": "anthropic_round_0006_assistant_text_2",
+      "timestamp": 1735689605.0001009,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "refund_support_agent",
+      "payload": {
+        "content": "The refund note is saved and the console is ready for submission.",
+        "role": "assistant"
+      },
+      "parent_trace_id": "msg_round_6",
+      "decision_id_hint": "msg_round_6"
+    }
+  ]
+}

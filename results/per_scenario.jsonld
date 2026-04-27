@@ -1,0 +1,2592 @@
+{
+  "@context": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "demm": "https://decisiontrace.org/demm/v1#",
+    "schema": "https://decisiontrace.org/schema/v1#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "DecisionChain": "demm:DecisionChain",
+    "DecisionUnit": "demm:DecisionUnit",
+    "Fragment": "demm:Fragment",
+    "PropertyFeasibility": "demm:PropertyFeasibility",
+    "perPropertyFeasibility": {
+      "@id": "demm:perPropertyFeasibility",
+      "@container": "@set"
+    },
+    "members": {
+      "@id": "prov:hadMember",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "fragments": {
+      "@id": "prov:wasInfluencedBy",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "property": {
+      "@id": "demm:property",
+      "@type": "@id"
+    },
+    "category": {
+      "@id": "demm:category"
+    },
+    "gap": {
+      "@id": "demm:gap"
+    },
+    "completeness": {
+      "@id": "demm:completeness",
+      "@type": "xsd:decimal"
+    },
+    "completenessPct": {
+      "@id": "demm:completenessPct",
+      "@type": "xsd:decimal"
+    },
+    "dominantMode": {
+      "@id": "demm:dominantMode",
+      "@type": "xsd:integer"
+    },
+    "dominantBreak": {
+      "@id": "demm:dominantBreak"
+    },
+    "architecture": {
+      "@id": "demm:architecture"
+    },
+    "stackTier": {
+      "@id": "demm:stackTier"
+    },
+    "actorId": {
+      "@id": "demm:actorId"
+    },
+    "fragmentKind": {
+      "@id": "demm:fragmentKind"
+    },
+    "boundaryReason": {
+      "@id": "demm:boundaryReason"
+    },
+    "boundaryConfidence": {
+      "@id": "demm:boundaryConfidence",
+      "@type": "xsd:decimal"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "trace:single_agent_within_stack_seed1474773569",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed1474773569",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1474773569,
+      "demm:fragmentCount": 42,
+      "demm:unitsDetected": 18,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.7857142857142858,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed1274699713",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed1274699713",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1274699713,
+      "demm:fragmentCount": 38,
+      "demm:unitsDetected": 13,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.9090909090909091,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed657723818",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed657723818",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 657723818,
+      "demm:fragmentCount": 28,
+      "demm:unitsDetected": 11,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.8235294117647058,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed1238630219",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed1238630219",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1238630219,
+      "demm:fragmentCount": 18,
+      "demm:unitsDetected": 8,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.7272727272727273,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed1143959768",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed1143959768",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1143959768,
+      "demm:fragmentCount": 40,
+      "demm:unitsDetected": 14,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.9166666666666666,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed1896346368",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed1896346368",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1896346368,
+      "demm:fragmentCount": 38,
+      "demm:unitsDetected": 14,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.8695652173913044,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed1400901121",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed1400901121",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1400901121,
+      "demm:fragmentCount": 30,
+      "demm:unitsDetected": 10,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.9411764705882353,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed1705331670",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed1705331670",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1705331670,
+      "demm:fragmentCount": 40,
+      "demm:unitsDetected": 16,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.8,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed373378856",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed373378856",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 373378856,
+      "demm:fragmentCount": 23,
+      "demm:unitsDetected": 8,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.8333333333333333,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed931532011",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed931532011",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 931532011,
+      "demm:fragmentCount": 18,
+      "demm:unitsDetected": 7,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.8,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed1801826053",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed1801826053",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1801826053,
+      "demm:fragmentCount": 26,
+      "demm:unitsDetected": 11,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.7499999999999999,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed1169711572",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed1169711572",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1169711572,
+      "demm:fragmentCount": 27,
+      "demm:unitsDetected": 11,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.7499999999999999,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed808199402",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed808199402",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 808199402,
+      "demm:fragmentCount": 17,
+      "demm:unitsDetected": 6,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.888888888888889,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed247923497",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed247923497",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 247923497,
+      "demm:fragmentCount": 30,
+      "demm:unitsDetected": 12,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.7777777777777778,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed432562931",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed432562931",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 432562931,
+      "demm:fragmentCount": 44,
+      "demm:unitsDetected": 14,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.9166666666666666,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed505867113",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed505867113",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 505867113,
+      "demm:fragmentCount": 28,
+      "demm:unitsDetected": 10,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.8750000000000001,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed1263510223",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed1263510223",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1263510223,
+      "demm:fragmentCount": 42,
+      "demm:unitsDetected": 14,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.9166666666666666,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed562564055",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed562564055",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 562564055,
+      "demm:fragmentCount": 42,
+      "demm:unitsDetected": 17,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.8148148148148148,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed148950066",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed148950066",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 148950066,
+      "demm:fragmentCount": 41,
+      "demm:unitsDetected": 15,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.88,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_within_stack_seed217685600",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_within_stack_seed217685600",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 217685600,
+      "demm:fragmentCount": 25,
+      "demm:unitsDetected": 10,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.8,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed2010505817",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed2010505817",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 2010505817,
+      "demm:fragmentCount": 12,
+      "demm:unitsDetected": 5,
+      "completeness": 0.6428571428571429,
+      "demm:boundaryF1": 0.5,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed1239237097",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed1239237097",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1239237097,
+      "demm:fragmentCount": 17,
+      "demm:unitsDetected": 6,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.8000000000000002,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed1359277765",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed1359277765",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1359277765,
+      "demm:fragmentCount": 28,
+      "demm:unitsDetected": 14,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.8695652173913044,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed710340966",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed710340966",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 710340966,
+      "demm:fragmentCount": 24,
+      "demm:unitsDetected": 9,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.75,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed1612465201",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed1612465201",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1612465201,
+      "demm:fragmentCount": 15,
+      "demm:unitsDetected": 3,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.3333333333333333,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed1995615085",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed1995615085",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1995615085,
+      "demm:fragmentCount": 20,
+      "demm:unitsDetected": 9,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.8571428571428571,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed115655717",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed115655717",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 115655717,
+      "demm:fragmentCount": 28,
+      "demm:unitsDetected": 12,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.8181818181818182,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed1313199615",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed1313199615",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1313199615,
+      "demm:fragmentCount": 18,
+      "demm:unitsDetected": 8,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.7692307692307692,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed729244924",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed729244924",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 729244924,
+      "demm:fragmentCount": 26,
+      "demm:unitsDetected": 10,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.8888888888888888,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed1729476500",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed1729476500",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1729476500,
+      "demm:fragmentCount": 22,
+      "demm:unitsDetected": 10,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.8888888888888888,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed513274464",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed513274464",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 513274464,
+      "demm:fragmentCount": 12,
+      "demm:unitsDetected": 4,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.28571428571428575,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed721693693",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed721693693",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 721693693,
+      "demm:fragmentCount": 29,
+      "demm:unitsDetected": 11,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.761904761904762,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed895275430",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed895275430",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 895275430,
+      "demm:fragmentCount": 31,
+      "demm:unitsDetected": 13,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.8,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed263048971",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed263048971",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 263048971,
+      "demm:fragmentCount": 29,
+      "demm:unitsDetected": 12,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.7999999999999999,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed441916879",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed441916879",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 441916879,
+      "demm:fragmentCount": 22,
+      "demm:unitsDetected": 8,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 1.0,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed57291408",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed57291408",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 57291408,
+      "demm:fragmentCount": 31,
+      "demm:unitsDetected": 11,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.8421052631578948,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed1068338211",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed1068338211",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1068338211,
+      "demm:fragmentCount": 25,
+      "demm:unitsDetected": 11,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.7777777777777777,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed837428015",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed837428015",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 837428015,
+      "demm:fragmentCount": 33,
+      "demm:unitsDetected": 13,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.8695652173913043,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed458459853",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed458459853",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 458459853,
+      "demm:fragmentCount": 20,
+      "demm:unitsDetected": 5,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.6666666666666666,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:single_agent_cross_stack_seed1607092602",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "single_agent_cross_stack_seed1607092602",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1607092602,
+      "demm:fragmentCount": 25,
+      "demm:unitsDetected": 10,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.9473684210526316,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed1479874056",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed1479874056",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1479874056,
+      "demm:fragmentCount": 42,
+      "demm:unitsDetected": 11,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.0,
+      "demm:unrecoverableModeCount": 3,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed1659378372",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed1659378372",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1659378372,
+      "demm:fragmentCount": 40,
+      "demm:unitsDetected": 11,
+      "completeness": 0.6428571428571429,
+      "demm:boundaryF1": 0.11111111111111112,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed657891529",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed657891529",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 657891529,
+      "demm:fragmentCount": 42,
+      "demm:unitsDetected": 14,
+      "completeness": 0.6428571428571429,
+      "demm:boundaryF1": 0.1904761904761905,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed296958999",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed296958999",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 296958999,
+      "demm:fragmentCount": 22,
+      "demm:unitsDetected": 6,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.0,
+      "demm:unrecoverableModeCount": 3,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed1242782464",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed1242782464",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1242782464,
+      "demm:fragmentCount": 48,
+      "demm:unitsDetected": 13,
+      "completeness": 0.6428571428571429,
+      "demm:boundaryF1": 0.0909090909090909,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed2005582752",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed2005582752",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 2005582752,
+      "demm:fragmentCount": 28,
+      "demm:unitsDetected": 9,
+      "completeness": 0.6428571428571429,
+      "demm:boundaryF1": 0.3076923076923077,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed1392084867",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed1392084867",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1392084867,
+      "demm:fragmentCount": 32,
+      "demm:unitsDetected": 10,
+      "completeness": 0.6428571428571429,
+      "demm:boundaryF1": 0.0,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed48421546",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed48421546",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 48421546,
+      "demm:fragmentCount": 33,
+      "demm:unitsDetected": 10,
+      "completeness": 0.6428571428571429,
+      "demm:boundaryF1": 0.26666666666666666,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed1586529214",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed1586529214",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1586529214,
+      "demm:fragmentCount": 24,
+      "demm:unitsDetected": 7,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.2,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed1194553111",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed1194553111",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1194553111,
+      "demm:fragmentCount": 27,
+      "demm:unitsDetected": 8,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.0,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed762670368",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed762670368",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 762670368,
+      "demm:fragmentCount": 33,
+      "demm:unitsDetected": 9,
+      "completeness": 0.6428571428571429,
+      "demm:boundaryF1": 0.14285714285714288,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed1009869098",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed1009869098",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1009869098,
+      "demm:fragmentCount": 23,
+      "demm:unitsDetected": 6,
+      "completeness": 0.6428571428571429,
+      "demm:boundaryF1": 0.0,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed1990488527",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed1990488527",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1990488527,
+      "demm:fragmentCount": 25,
+      "demm:unitsDetected": 6,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.0,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed1748256806",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed1748256806",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1748256806,
+      "demm:fragmentCount": 31,
+      "demm:unitsDetected": 9,
+      "completeness": 0.6428571428571429,
+      "demm:boundaryF1": 0.14285714285714288,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed1283343238",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed1283343238",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1283343238,
+      "demm:fragmentCount": 37,
+      "demm:unitsDetected": 11,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.23529411764705882,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed1656441430",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed1656441430",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1656441430,
+      "demm:fragmentCount": 41,
+      "demm:unitsDetected": 12,
+      "completeness": 0.8571428571428571,
+      "demm:boundaryF1": 0.10526315789473685,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed1816081958",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed1816081958",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1816081958,
+      "demm:fragmentCount": 54,
+      "demm:unitsDetected": 15,
+      "completeness": 0.6428571428571429,
+      "demm:boundaryF1": 0.16,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed729780584",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed729780584",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 729780584,
+      "demm:fragmentCount": 46,
+      "demm:unitsDetected": 14,
+      "completeness": 0.6428571428571429,
+      "demm:boundaryF1": 0.18181818181818185,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed2018818316",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed2018818316",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 2018818316,
+      "demm:fragmentCount": 34,
+      "demm:unitsDetected": 10,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.0,
+      "demm:unrecoverableModeCount": 3,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_within_stack_seed1597172133",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_within_stack_seed1597172133",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:seed": 1597172133,
+      "demm:fragmentCount": 43,
+      "demm:unitsDetected": 14,
+      "completeness": 0.6428571428571429,
+      "demm:boundaryF1": 0.380952380952381,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 6,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed97916755",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed97916755",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 97916755,
+      "demm:fragmentCount": 37,
+      "demm:unitsDetected": 9,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.5555555555555556,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed1773876263",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed1773876263",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1773876263,
+      "demm:fragmentCount": 27,
+      "demm:unitsDetected": 9,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.5714285714285715,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed1222210810",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed1222210810",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1222210810,
+      "demm:fragmentCount": 27,
+      "demm:unitsDetected": 7,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.3333333333333333,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed2073139852",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed2073139852",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 2073139852,
+      "demm:fragmentCount": 34,
+      "demm:unitsDetected": 7,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.28571428571428575,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed1928508918",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed1928508918",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1928508918,
+      "demm:fragmentCount": 17,
+      "demm:unitsDetected": 4,
+      "completeness": 0.6428571428571429,
+      "demm:boundaryF1": 0.28571428571428575,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed414372245",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed414372245",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 414372245,
+      "demm:fragmentCount": 23,
+      "demm:unitsDetected": 5,
+      "completeness": 0.6428571428571429,
+      "demm:boundaryF1": 0.4444444444444445,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed631185219",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed631185219",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 631185219,
+      "demm:fragmentCount": 34,
+      "demm:unitsDetected": 8,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.26666666666666666,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed1310172264",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed1310172264",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1310172264,
+      "demm:fragmentCount": 32,
+      "demm:unitsDetected": 10,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.35294117647058826,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed639443452",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed639443452",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 639443452,
+      "demm:fragmentCount": 38,
+      "demm:unitsDetected": 10,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.4444444444444444,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed1157788839",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed1157788839",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1157788839,
+      "demm:fragmentCount": 34,
+      "demm:unitsDetected": 9,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.35294117647058826,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed751317116",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed751317116",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 751317116,
+      "demm:fragmentCount": 24,
+      "demm:unitsDetected": 9,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.7692307692307693,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed644041634",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed644041634",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 644041634,
+      "demm:fragmentCount": 37,
+      "demm:unitsDetected": 12,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.3157894736842105,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed908257127",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed908257127",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 908257127,
+      "demm:fragmentCount": 38,
+      "demm:unitsDetected": 11,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.4210526315789474,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed1431985279",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed1431985279",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1431985279,
+      "demm:fragmentCount": 44,
+      "demm:unitsDetected": 14,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.41666666666666663,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed1775905851",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed1775905851",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1775905851,
+      "demm:fragmentCount": 42,
+      "demm:unitsDetected": 15,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.41666666666666663,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed1672572543",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed1672572543",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1672572543,
+      "demm:fragmentCount": 20,
+      "demm:unitsDetected": 7,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.7272727272727272,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed1343234221",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed1343234221",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1343234221,
+      "demm:fragmentCount": 43,
+      "demm:unitsDetected": 15,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.7200000000000001,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed582577632",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed582577632",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 582577632,
+      "demm:fragmentCount": 40,
+      "demm:unitsDetected": 10,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.39999999999999997,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed1248706894",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed1248706894",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 1248706894,
+      "demm:fragmentCount": 23,
+      "demm:unitsDetected": 7,
+      "completeness": 0.7142857142857143,
+      "demm:boundaryF1": 0.6666666666666666,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:multi_agent_cross_stack_seed742733603",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "multi_agent_cross_stack_seed742733603",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:seed": 742733603,
+      "demm:fragmentCount": 37,
+      "demm:unitsDetected": 11,
+      "completeness": 0.5,
+      "demm:boundaryF1": 0.5263157894736842,
+      "demm:unrecoverableModeCount": 2,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed640530746",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed640530746",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 640530746,
+      "demm:fragmentCount": 46,
+      "demm:unitsDetected": 21,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.7096774193548387,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed793563108",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed793563108",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 793563108,
+      "demm:fragmentCount": 43,
+      "demm:unitsDetected": 17,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.8148148148148148,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed495542315",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed495542315",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 495542315,
+      "demm:fragmentCount": 40,
+      "demm:unitsDetected": 15,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.8333333333333333,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed1584968579",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed1584968579",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 1584968579,
+      "demm:fragmentCount": 23,
+      "demm:unitsDetected": 11,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.6666666666666666,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed1412082582",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed1412082582",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 1412082582,
+      "demm:fragmentCount": 48,
+      "demm:unitsDetected": 22,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.6875000000000001,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed841092663",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed841092663",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 841092663,
+      "demm:fragmentCount": 31,
+      "demm:unitsDetected": 13,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.7368421052631579,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed1048537047",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed1048537047",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 1048537047,
+      "demm:fragmentCount": 31,
+      "demm:unitsDetected": 12,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.7777777777777778,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed23586106",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed23586106",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 23586106,
+      "demm:fragmentCount": 34,
+      "demm:unitsDetected": 16,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.6956521739130436,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed387486016",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed387486016",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 387486016,
+      "demm:fragmentCount": 44,
+      "demm:unitsDetected": 18,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.7857142857142858,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed916570791",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed916570791",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 916570791,
+      "demm:fragmentCount": 43,
+      "demm:unitsDetected": 19,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.7586206896551725,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed1397617912",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed1397617912",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 1397617912,
+      "demm:fragmentCount": 23,
+      "demm:unitsDetected": 11,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.6666666666666666,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed190137088",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed190137088",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 190137088,
+      "demm:fragmentCount": 40,
+      "demm:unitsDetected": 19,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.6666666666666666,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed1539277015",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed1539277015",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 1539277015,
+      "demm:fragmentCount": 25,
+      "demm:unitsDetected": 12,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.625,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed714694887",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed714694887",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 714694887,
+      "demm:fragmentCount": 27,
+      "demm:unitsDetected": 13,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.6666666666666666,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed691882956",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed691882956",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 691882956,
+      "demm:fragmentCount": 46,
+      "demm:unitsDetected": 21,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.7096774193548387,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed2001963127",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed2001963127",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 2001963127,
+      "demm:fragmentCount": 34,
+      "demm:unitsDetected": 15,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.7272727272727273,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed1890830378",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed1890830378",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 1890830378,
+      "demm:fragmentCount": 40,
+      "demm:unitsDetected": 16,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.8,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed997703907",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed997703907",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 997703907,
+      "demm:fragmentCount": 34,
+      "demm:unitsDetected": 15,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.7272727272727273,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed2147022618",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed2147022618",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 2147022618,
+      "demm:fragmentCount": 45,
+      "demm:unitsDetected": 19,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.7586206896551725,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_within_stack_seed1292571980",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_within_stack_seed1292571980",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:seed": 1292571980,
+      "demm:fragmentCount": 38,
+      "demm:unitsDetected": 16,
+      "completeness": 0.9428571428571428,
+      "demm:boundaryF1": 0.7499999999999999,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed430308999",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed430308999",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 430308999,
+      "demm:fragmentCount": 30,
+      "demm:unitsDetected": 13,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.8695652173913043,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed320802608",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed320802608",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 320802608,
+      "demm:fragmentCount": 26,
+      "demm:unitsDetected": 9,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.823529411764706,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed97966878",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed97966878",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 97966878,
+      "demm:fragmentCount": 25,
+      "demm:unitsDetected": 11,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.7058823529411764,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed2074214090",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed2074214090",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 2074214090,
+      "demm:fragmentCount": 32,
+      "demm:unitsDetected": 13,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.8181818181818182,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed198858609",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed198858609",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 198858609,
+      "demm:fragmentCount": 28,
+      "demm:unitsDetected": 14,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.761904761904762,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed1470226523",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed1470226523",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 1470226523,
+      "demm:fragmentCount": 16,
+      "demm:unitsDetected": 6,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.6666666666666665,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed773852881",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed773852881",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 773852881,
+      "demm:fragmentCount": 18,
+      "demm:unitsDetected": 10,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.7142857142857143,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed1830670786",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed1830670786",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 1830670786,
+      "demm:fragmentCount": 19,
+      "demm:unitsDetected": 10,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.6666666666666667,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed1913225629",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed1913225629",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 1913225629,
+      "demm:fragmentCount": 18,
+      "demm:unitsDetected": 7,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.5454545454545454,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed2133400916",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed2133400916",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 2133400916,
+      "demm:fragmentCount": 17,
+      "demm:unitsDetected": 7,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.7272727272727272,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed562885259",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed562885259",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 562885259,
+      "demm:fragmentCount": 27,
+      "demm:unitsDetected": 13,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.8,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed163571152",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed163571152",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 163571152,
+      "demm:fragmentCount": 34,
+      "demm:unitsDetected": 17,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.7692307692307693,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed1135456370",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed1135456370",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 1135456370,
+      "demm:fragmentCount": 35,
+      "demm:unitsDetected": 16,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.7200000000000001,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed497817854",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed497817854",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 497817854,
+      "demm:fragmentCount": 26,
+      "demm:unitsDetected": 11,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.7499999999999999,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed1066550272",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed1066550272",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 1066550272,
+      "demm:fragmentCount": 26,
+      "demm:unitsDetected": 12,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.7777777777777778,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed1350073546",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed1350073546",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 1350073546,
+      "demm:fragmentCount": 35,
+      "demm:unitsDetected": 16,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.7692307692307692,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed693208941",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed693208941",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 693208941,
+      "demm:fragmentCount": 17,
+      "demm:unitsDetected": 9,
+      "completeness": 0.7285714285714285,
+      "demm:boundaryF1": 0.7692307692307693,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed2121882723",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed2121882723",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 2121882723,
+      "demm:fragmentCount": 33,
+      "demm:unitsDetected": 13,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.6956521739130435,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed1606466112",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed1606466112",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 1606466112,
+      "demm:fragmentCount": 15,
+      "demm:unitsDetected": 7,
+      "completeness": 0.7285714285714285,
+      "demm:boundaryF1": 0.8,
+      "demm:unrecoverableModeCount": 1,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "trace:human_in_the_loop_cross_stack_seed1710175662",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "human_in_the_loop_cross_stack_seed1710175662",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:seed": 1710175662,
+      "demm:fragmentCount": 33,
+      "demm:unitsDetected": 13,
+      "completeness": 0.7999999999999999,
+      "demm:boundaryF1": 0.6956521739130435,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed1102933007",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed1102933007",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 1102933007,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed1147604331",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed1147604331",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 1147604331,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed1243137956",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed1243137956",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 1243137956,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed1641040343",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed1641040343",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 1641040343,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed1707213798",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed1707213798",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 1707213798,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed276764352",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed276764352",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 276764352,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed671866473",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed671866473",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 671866473,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed793237458",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed793237458",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 793237458,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed21323940",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed21323940",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 21323940,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed942304225",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed942304225",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 942304225,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed1925812921",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed1925812921",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 1925812921,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed1637477163",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed1637477163",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 1637477163,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed925765974",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed925765974",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 925765974,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed619513575",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed619513575",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 619513575,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed1808937392",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed1808937392",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 1808937392,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed536788099",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed536788099",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 536788099,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed1935437266",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed1935437266",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 1935437266,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed26627431",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed26627431",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 26627431,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed1240556400",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed1240556400",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 1240556400,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    },
+    {
+      "@id": "trace:non_agentic_baseline_seed230593534",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "non_agentic_baseline_seed230593534",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:seed": 230593534,
+      "demm:fragmentCount": 8,
+      "demm:unitsDetected": 5,
+      "completeness": 1.0,
+      "demm:boundaryF1": 0.4,
+      "demm:unrecoverableModeCount": 0,
+      "dominantMode": null,
+      "dominantBreak": null
+    }
+  ]
+}

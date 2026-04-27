@@ -1,0 +1,7 @@
+{"id":"e1","ts":1777291200.0,"kind":"prompt","content":"Draft a customer-ready incident note","metadata":{"actor":{"id":"main"},"session_token":"tok-001"}}
+{"id":"e2","ts":1777291201.0,"kind":"llm","model":"gpt-4o","summary":"Need supporting evidence before drafting","metadata":{"actor":{"id":"main"},"session_token":"tok-001"}}
+{"id":"e3","ts":1777291202.0,"kind":"retrieval","tier":"cross_stack","query":"incident 8472","results":[{"title":"runbook","score":0.92}],"metadata":{"actor":{"id":"search_worker"},"session_token":"tok-001"}}
+{"id":"e4","ts":1777291203.0,"kind":"tool","tool":"write_report","args":{"path":"reports/8472.md"},"metadata":{"actor":{"id":"main"},"session_token":"tok-001"}}
+{"id":"e5","ts":1777291204.0,"kind":"tool_result","parent_id":"e4","result":{"ok":true,"path":"reports/8472.md"},"metadata":{"actor":{"id":"main"},"session_token":"tok-001"}}
+{"id":"e6","ts":1777291205.0,"kind":"human_decision","tier":"human","decision":"APPROVED by reviewer","comment":"Ready to send","metadata":{"actor":{"id":"reviewer"},"session_token":"tok-001"}}
+{"id":"e7","ts":1777291206.0,"kind":"final","content":"Incident note sent to customer","metadata":{"actor":{"id":"main"},"session_token":"tok-001"}}

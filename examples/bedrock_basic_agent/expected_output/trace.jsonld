@@ -1,0 +1,435 @@
+{
+  "@context": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "demm": "https://decisiontrace.org/demm/v1#",
+    "schema": "https://decisiontrace.org/schema/v1#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "DecisionChain": "demm:DecisionChain",
+    "DecisionUnit": "demm:DecisionUnit",
+    "Fragment": "demm:Fragment",
+    "PropertyFeasibility": "demm:PropertyFeasibility",
+    "perPropertyFeasibility": {
+      "@id": "demm:perPropertyFeasibility",
+      "@container": "@set"
+    },
+    "members": {
+      "@id": "prov:hadMember",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "fragments": {
+      "@id": "prov:wasInfluencedBy",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "property": {
+      "@id": "demm:property",
+      "@type": "@id"
+    },
+    "category": {
+      "@id": "demm:category"
+    },
+    "gap": {
+      "@id": "demm:gap"
+    },
+    "completeness": {
+      "@id": "demm:completeness",
+      "@type": "xsd:decimal"
+    },
+    "completenessPct": {
+      "@id": "demm:completenessPct",
+      "@type": "xsd:decimal"
+    },
+    "dominantMode": {
+      "@id": "demm:dominantMode",
+      "@type": "xsd:integer"
+    },
+    "dominantBreak": {
+      "@id": "demm:dominantBreak"
+    },
+    "architecture": {
+      "@id": "demm:architecture"
+    },
+    "stackTier": {
+      "@id": "demm:stackTier"
+    },
+    "actorId": {
+      "@id": "demm:actorId"
+    },
+    "fragmentKind": {
+      "@id": "demm:fragmentKind"
+    },
+    "boundaryReason": {
+      "@id": "demm:boundaryReason"
+    },
+    "boundaryConfidence": {
+      "@id": "demm:boundaryConfidence",
+      "@type": "xsd:decimal"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "trace:bedrock_basic_agent_demo",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "bedrock_basic_agent_demo",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "completeness": 1.0,
+      "dominantMode": null,
+      "dominantBreak": null,
+      "members": [
+        "trace:bedrock_basic_agent_demo#unit/unit_0000",
+        "trace:bedrock_basic_agent_demo#unit/unit_0001",
+        "trace:bedrock_basic_agent_demo#unit/unit_0002",
+        "trace:bedrock_basic_agent_demo#unit/unit_0003",
+        "trace:bedrock_basic_agent_demo#unit/unit_0004"
+      ],
+      "perPropertyFeasibility": [
+        {
+          "@id": "trace:bedrock_basic_agent_demo#chain/feas/inputs",
+          "@type": "PropertyFeasibility",
+          "property": "schema:inputs",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        },
+        {
+          "@id": "trace:bedrock_basic_agent_demo#chain/feas/policy_basis",
+          "@type": "PropertyFeasibility",
+          "property": "schema:policy_basis",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        },
+        {
+          "@id": "trace:bedrock_basic_agent_demo#chain/feas/operator_identity",
+          "@type": "PropertyFeasibility",
+          "property": "schema:operator_identity",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        },
+        {
+          "@id": "trace:bedrock_basic_agent_demo#chain/feas/authorization_envelope",
+          "@type": "PropertyFeasibility",
+          "property": "schema:authorization_envelope",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        },
+        {
+          "@id": "trace:bedrock_basic_agent_demo#chain/feas/reasoning_trace",
+          "@type": "PropertyFeasibility",
+          "property": "schema:reasoning_trace",
+          "category": "opaque",
+          "gap": null,
+          "demm:confidence": 0.9
+        },
+        {
+          "@id": "trace:bedrock_basic_agent_demo#chain/feas/output_action",
+          "@type": "PropertyFeasibility",
+          "property": "schema:output_action",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        },
+        {
+          "@id": "trace:bedrock_basic_agent_demo#chain/feas/post_condition_state",
+          "@type": "PropertyFeasibility",
+          "property": "schema:post_condition_state",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        }
+      ]
+    },
+    {
+      "@id": "trace:bedrock_basic_agent_demo#unit/unit_0000",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-01-01T09:00:00+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-01-01T09:00:02+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:bedrock_basic_agent_demo#agent/refund-agent-prod"
+      },
+      "boundaryReason": "initial",
+      "boundaryConfidence": 0.5,
+      "fragments": [
+        "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_config",
+        "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_pre_msg_1735722000000",
+        "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_pre_llm_1735722000001",
+        "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_retrieval_1735722001000",
+        "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_orch_llm_1735722002000"
+      ]
+    },
+    {
+      "@id": "trace:bedrock_basic_agent_demo#unit/unit_0001",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-01-01T09:00:02.001000+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-01-01T09:00:02.001000+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:bedrock_basic_agent_demo#agent/refund-agent-prod"
+      },
+      "boundaryReason": "tool_call",
+      "boundaryConfidence": 0.8,
+      "fragments": [
+        "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_tool_1_1735722002001"
+      ]
+    },
+    {
+      "@id": "trace:bedrock_basic_agent_demo#unit/unit_0002",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-01-01T09:00:02.002000+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-01-01T09:00:02.003000+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:bedrock_basic_agent_demo#agent/refund-agent-prod"
+      },
+      "boundaryReason": "state_change",
+      "boundaryConfidence": 0.6,
+      "fragments": [
+        "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_state_2_1735722002001",
+        "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_final_3_1735722002003"
+      ]
+    },
+    {
+      "@id": "trace:bedrock_basic_agent_demo#unit/unit_0003",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-01-01T09:00:03+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-01-01T09:00:03+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:bedrock_basic_agent_demo#agent/refund-agent-prod"
+      },
+      "boundaryReason": "policy",
+      "boundaryConfidence": 0.9,
+      "fragments": [
+        "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_policy_1735722003000"
+      ]
+    },
+    {
+      "@id": "trace:bedrock_basic_agent_demo#unit/unit_0004",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-01-01T09:00:04+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-01-01T09:00:04+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:bedrock_basic_agent_demo#agent/refund-agent-prod"
+      },
+      "boundaryReason": "human",
+      "boundaryConfidence": 1.0,
+      "fragments": [
+        "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_human_1735722004000"
+      ]
+    },
+    {
+      "@id": "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_config",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T09:00:00+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:bedrock_basic_agent_demo#agent/refund-agent-prod"
+      },
+      "fragmentKind": "config_snapshot",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_pre_msg_1735722000000",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T09:00:00+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:bedrock_basic_agent_demo#agent/refund-agent-prod"
+      },
+      "fragmentKind": "agent_message",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_pre_llm_1735722000001",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T09:00:00.001000+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:bedrock_basic_agent_demo#agent/refund-agent-prod"
+      },
+      "fragmentKind": "model_generation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_retrieval_1735722001000",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T09:00:01+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:bedrock_basic_agent_demo#agent/refund-agent-prod"
+      },
+      "fragmentKind": "retrieval_result",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_orch_llm_1735722002000",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T09:00:02+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:bedrock_basic_agent_demo#agent/refund-agent-prod"
+      },
+      "fragmentKind": "model_generation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_tool_1_1735722002001",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T09:00:02.001000+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:bedrock_basic_agent_demo#agent/refund-agent-prod"
+      },
+      "fragmentKind": "tool_call",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_state_2_1735722002001",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T09:00:02.002000+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:bedrock_basic_agent_demo#agent/refund-agent-prod"
+      },
+      "fragmentKind": "state_mutation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_final_3_1735722002003",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T09:00:02.003000+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:bedrock_basic_agent_demo#agent/refund-agent-prod"
+      },
+      "fragmentKind": "agent_message",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_policy_1735722003000",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T09:00:03+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:bedrock_basic_agent_demo#agent/refund-agent-prod"
+      },
+      "fragmentKind": "policy_snapshot",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:bedrock_basic_agent_demo#frag/bedrock_bedrock_re_human_1735722004000",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T09:00:04+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:bedrock_basic_agent_demo#agent/refund-agent-prod"
+      },
+      "fragmentKind": "human_approval",
+      "demm:stackTier": "human"
+    },
+    {
+      "@id": "trace:bedrock_basic_agent_demo#agent/refund-agent-prod",
+      "@type": "prov:Agent",
+      "actorId": "refund-agent-prod"
+    }
+  ]
+}

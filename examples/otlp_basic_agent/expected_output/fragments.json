@@ -1,0 +1,154 @@
+{
+  "scenario_id": "otlp_basic_agent_demo",
+  "architecture": "single_agent",
+  "stack_tier": "within_stack",
+  "fragments": [
+    {
+      "fragment_id": "otlp_span001_model",
+      "timestamp": 1735689600.0,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "research_agent",
+      "payload": {
+        "otel_span_name": "chat gpt-4o",
+        "gen_ai_system": "openai",
+        "otel_scope_name": "opentelemetry.instrumentation.openai",
+        "otel_scope_version": "0.1.0",
+        "model_id": "gpt-4o",
+        "internal_reasoning": "opaque",
+        "token_count": 209,
+        "assistant_messages": [
+          {
+            "sha256": "42550e0f2ff49dba382ab868c97a04c32c050b113c5c0e4ecdda7f0ed64bda11",
+            "length": 51
+          }
+        ]
+      },
+      "parent_trace_id": null,
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "otlp_span001_event_0",
+      "timestamp": 1735689600.001,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "research_agent",
+      "payload": {
+        "otel_span_name": "chat gpt-4o",
+        "gen_ai_system": "openai",
+        "otel_scope_name": "opentelemetry.instrumentation.openai",
+        "otel_scope_version": "0.1.0",
+        "event_name": "gen_ai.system.message",
+        "role": "system",
+        "content": {
+          "sha256": "053336108e0a8c5bcfab3661b5f8761c801e558ee4741999e503f09436743e84",
+          "length": 86
+        }
+      },
+      "parent_trace_id": null,
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "otlp_span001_event_1",
+      "timestamp": 1735689600.002,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "research_agent",
+      "payload": {
+        "otel_span_name": "chat gpt-4o",
+        "gen_ai_system": "openai",
+        "otel_scope_name": "opentelemetry.instrumentation.openai",
+        "otel_scope_version": "0.1.0",
+        "event_name": "gen_ai.user.message",
+        "role": "user",
+        "content": {
+          "sha256": "2373d13df239ce439e8143baaafdc10171c31514f02637c77c81d47b921bd725",
+          "length": 59
+        }
+      },
+      "parent_trace_id": null,
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "otlp_span002_retrieval_result",
+      "timestamp": 1735689600.2,
+      "kind": "retrieval_result",
+      "stack_tier": "within_stack",
+      "actor_id": "research_agent",
+      "payload": {
+        "otel_span_name": "retrieve internal docs",
+        "gen_ai_system": "openai",
+        "otel_scope_name": "opentelemetry.instrumentation.custom-rag",
+        "otel_scope_version": "0.1.0",
+        "override": true
+      },
+      "parent_trace_id": "span-001",
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "otlp_span003_tool",
+      "timestamp": 1735689600.45,
+      "kind": "tool_call",
+      "stack_tier": "cross_stack",
+      "actor_id": "research_agent",
+      "payload": {
+        "otel_span_name": "search web",
+        "gen_ai_system": "openai",
+        "otel_scope_name": "opentelemetry.instrumentation.openai-agents",
+        "otel_scope_version": "0.1.0",
+        "tool_name": "web_search",
+        "args": {
+          "sha256": "dfb0ae3c81cacb670749ab2f4ec8371d37bebb3764ddf9f3ac3133f72452a947",
+          "length": 51
+        },
+        "result": {
+          "sha256": "2e70e8b3aa650d21a3d0a67e34a55e11d7e5cb758ea2ca633f2a846f6787f8a6",
+          "length": 114
+        }
+      },
+      "parent_trace_id": "span-001",
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "otlp_span004_tool",
+      "timestamp": 1735689600.8,
+      "kind": "tool_call",
+      "stack_tier": "within_stack",
+      "actor_id": "research_agent",
+      "payload": {
+        "otel_span_name": "write crm note",
+        "gen_ai_system": "openai",
+        "otel_scope_name": "opentelemetry.instrumentation.crm-tool",
+        "otel_scope_version": "0.1.0",
+        "tool_name": "crm_update_record",
+        "args": {
+          "sha256": "a872dfaea311342a215c92cbbeae066f7f4c021db99eac7c79831b8ad8e97094",
+          "length": 91
+        },
+        "result": {
+          "sha256": "2c2322b215a2ef581ec3d62ff319bda46d8f61b645747bda23de8da03efd6d9f",
+          "length": 21
+        }
+      },
+      "parent_trace_id": "span-001",
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "otlp_span004_state",
+      "timestamp": 1735689600.8009999,
+      "kind": "state_mutation",
+      "stack_tier": "within_stack",
+      "actor_id": "research_agent",
+      "payload": {
+        "otel_span_name": "write crm note",
+        "gen_ai_system": "openai",
+        "otel_scope_name": "opentelemetry.instrumentation.crm-tool",
+        "otel_scope_version": "0.1.0",
+        "state_change_magnitude": 1.0,
+        "event": "state mutation via crm_update_record"
+      },
+      "parent_trace_id": "span-001",
+      "decision_id_hint": null
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "$defs": {
+    "FeasibilityCounts": {
+      "additionalProperties": false,
+      "description": "Histogram of feasibility categories across the 7 decision-event properties.",
+      "properties": {
+        "fully_fillable": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Fully Fillable",
+          "type": "integer"
+        },
+        "opaque": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Opaque",
+          "type": "integer"
+        },
+        "partially_fillable": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Partially Fillable",
+          "type": "integer"
+        },
+        "structurally_unfillable": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Structurally Unfillable",
+          "type": "integer"
+        }
+      },
+      "title": "FeasibilityCounts",
+      "type": "object"
+    },
+    "NamedIncidentResult": {
+      "additionalProperties": false,
+      "description": "One row of ``named_incidents.json``.",
+      "properties": {
+        "architecture": {
+          "enum": [
+            "single_agent",
+            "multi_agent",
+            "human_in_the_loop",
+            "non_agentic"
+          ],
+          "title": "Architecture",
+          "type": "string"
+        },
+        "completeness_pct": {
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "title": "Completeness Pct",
+          "type": "number"
+        },
+        "dominant_break": {
+          "anyOf": [
+            {
+              "enum": [
+                "decision_diffusion",
+                "evidence_fragmentation",
+                "responsibility_ambiguity"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dominant Break"
+        },
+        "dominant_mode": {
+          "anyOf": [
+            {
+              "enum": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dominant Mode"
+        },
+        "feasibility_counts": {
+          "$ref": "#/$defs/FeasibilityCounts"
+        },
+        "fragments": {
+          "minimum": 0,
+          "title": "Fragments",
+          "type": "integer"
+        },
+        "incident": {
+          "minLength": 1,
+          "title": "Incident",
+          "type": "string"
+        },
+        "per_property": {
+          "items": {
+            "$ref": "#/$defs/PerPropertyFeasibility"
+          },
+          "title": "Per Property",
+          "type": "array"
+        },
+        "stack_tier": {
+          "enum": [
+            "within_stack",
+            "cross_stack",
+            "baseline"
+          ],
+          "title": "Stack Tier",
+          "type": "string"
+        },
+        "units_detected": {
+          "minimum": 0,
+          "title": "Units Detected",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "incident",
+        "architecture",
+        "stack_tier",
+        "fragments",
+        "units_detected",
+        "completeness_pct",
+        "feasibility_counts"
+      ],
+      "title": "NamedIncidentResult",
+      "type": "object"
+    },
+    "PerPropertyFeasibility": {
+      "additionalProperties": false,
+      "description": "Per-property feasibility record inside a named-incident result.",
+      "properties": {
+        "category": {
+          "enum": [
+            "fully_fillable",
+            "partially_fillable",
+            "structurally_unfillable",
+            "opaque"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "gap": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gap"
+        },
+        "property": {
+          "enum": [
+            "inputs",
+            "policy_basis",
+            "operator_identity",
+            "authorization_envelope",
+            "reasoning_trace",
+            "output_action",
+            "post_condition_state"
+          ],
+          "title": "Property",
+          "type": "string"
+        }
+      },
+      "required": [
+        "property",
+        "category"
+      ],
+      "title": "PerPropertyFeasibility",
+      "type": "object"
+    }
+  },
+  "$id": "https://decisiontrace.org/reconstructor/v0.1.0/schemas/named_incidents.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Root model for ``named_incidents.json``.",
+  "items": {
+    "$ref": "#/$defs/NamedIncidentResult"
+  },
+  "title": "NamedIncidentResults",
+  "type": "array"
+}

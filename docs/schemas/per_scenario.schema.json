@@ -1,0 +1,124 @@
+{
+  "$defs": {
+    "PerScenarioResult": {
+      "additionalProperties": false,
+      "description": "One row of ``per_scenario.json``.",
+      "properties": {
+        "architecture": {
+          "enum": [
+            "single_agent",
+            "multi_agent",
+            "human_in_the_loop",
+            "non_agentic"
+          ],
+          "title": "Architecture",
+          "type": "string"
+        },
+        "boundary_f1": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Boundary F1",
+          "type": "number"
+        },
+        "completeness": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Completeness",
+          "type": "number"
+        },
+        "dominant_break": {
+          "anyOf": [
+            {
+              "enum": [
+                "decision_diffusion",
+                "evidence_fragmentation",
+                "responsibility_ambiguity"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dominant Break"
+        },
+        "dominant_mode": {
+          "anyOf": [
+            {
+              "enum": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dominant Mode"
+        },
+        "fragments": {
+          "minimum": 0,
+          "title": "Fragments",
+          "type": "integer"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "seed": {
+          "title": "Seed",
+          "type": "integer"
+        },
+        "stack_tier": {
+          "enum": [
+            "within_stack",
+            "cross_stack",
+            "baseline"
+          ],
+          "title": "Stack Tier",
+          "type": "string"
+        },
+        "units_detected": {
+          "minimum": 0,
+          "title": "Units Detected",
+          "type": "integer"
+        },
+        "unrecoverable_mode_count": {
+          "minimum": 0,
+          "title": "Unrecoverable Mode Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "architecture",
+        "stack_tier",
+        "seed",
+        "fragments",
+        "units_detected",
+        "completeness",
+        "boundary_f1",
+        "unrecoverable_mode_count"
+      ],
+      "title": "PerScenarioResult",
+      "type": "object"
+    }
+  },
+  "$id": "https://decisiontrace.org/reconstructor/v0.1.0/schemas/per_scenario.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Root model for ``per_scenario.json``.",
+  "items": {
+    "$ref": "#/$defs/PerScenarioResult"
+  },
+  "title": "PerScenarioResults",
+  "type": "array"
+}

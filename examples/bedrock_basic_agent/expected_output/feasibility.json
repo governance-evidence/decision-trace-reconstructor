@@ -1,0 +1,53 @@
+{
+  "scenario_id": "bedrock_basic_agent_demo",
+  "architecture": "single_agent",
+  "stack_tier": "within_stack",
+  "fragments": 10,
+  "units_detected": 5,
+  "completeness_pct": 100.0,
+  "dominant_mode": null,
+  "dominant_break": null,
+  "feasibility_counts": {
+    "fully_fillable": 6,
+    "partially_fillable": 0,
+    "structurally_unfillable": 0,
+    "opaque": 1
+  },
+  "per_property": [
+    {
+      "property": "inputs",
+      "category": "fully_fillable",
+      "gap": null
+    },
+    {
+      "property": "policy_basis",
+      "category": "fully_fillable",
+      "gap": null
+    },
+    {
+      "property": "operator_identity",
+      "category": "fully_fillable",
+      "gap": null
+    },
+    {
+      "property": "authorization_envelope",
+      "category": "fully_fillable",
+      "gap": null
+    },
+    {
+      "property": "reasoning_trace",
+      "category": "opaque",
+      "gap": null
+    },
+    {
+      "property": "output_action",
+      "category": "fully_fillable",
+      "gap": null
+    },
+    {
+      "property": "post_condition_state",
+      "category": "fully_fillable",
+      "gap": null
+    }
+  ]
+}

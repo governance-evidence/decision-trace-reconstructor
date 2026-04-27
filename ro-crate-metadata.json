@@ -1,0 +1,180 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "conformsTo": {"@id": "https://w3id.org/ro/crate/1.1"},
+      "about": {"@id": "./"}
+    },
+    {
+      "@id": "./",
+      "@type": ["Dataset", "SoftwareSourceCode"],
+      "identifier": "decision-trace-reconstructor",
+      "name": "Decision Trace Reconstructor",
+      "description": "Reference implementation of the Decision Evidence Maturity Model (DEMM) property-level reconstructability assessment. Post-hoc reconstruction of multi-step decision chains from fragmentary evidence with decision-event schema mapping and authorization-envelope substitution for ML-opaque steps.",
+      "version": "0.1.0",
+      "datePublished": "2026-04-24",
+      "license": {"@id": "https://spdx.org/licenses/Apache-2.0"},
+      "url": "https://decisiontrace.org/reconstructor/v0.1.0",
+      "author": [{"@id": "https://orcid.org/0009-0009-0105-7459"}],
+      "publisher": [{"@id": "https://orcid.org/0009-0009-0105-7459"}],
+      "keywords": [
+        "governance evidence",
+        "decision trace reconstruction",
+        "agentic AI governance",
+        "decision event schema",
+        "DEMM",
+        "post-hoc audit",
+        "W3C PROV-O"
+      ],
+      "hasPart": [
+        {"@id": "src/"},
+        {"@id": "tests/"},
+        {"@id": "scripts/"},
+        {"@id": "docs/schemas/"},
+        {"@id": "results/"},
+        {"@id": "README.md"},
+        {"@id": "LICENSE"},
+        {"@id": "pyproject.toml"},
+        {"@id": "CITATION.cff"},
+        {"@id": "codemeta.json"}
+      ]
+    },
+    {
+      "@id": "https://orcid.org/0009-0009-0105-7459",
+      "@type": "Person",
+      "givenName": "Oleg",
+      "familyName": "Solozobov",
+      "identifier": "https://orcid.org/0009-0009-0105-7459"
+    },
+    {
+      "@id": "https://spdx.org/licenses/Apache-2.0",
+      "@type": "CreativeWork",
+      "name": "Apache License 2.0",
+      "identifier": "Apache-2.0"
+    },
+    {
+      "@id": "src/",
+      "@type": "Dataset",
+      "name": "Source code",
+      "description": "Python package: six-stage reconstruction pipeline (fragment collection, temporal ordering, chain assembly, boundary detection, decision-event-schema mapping, feasibility classification) plus output writers for raw JSON, JSON Schema, W3C PROV-O JSON-LD, and Apache Parquet."
+    },
+    {
+      "@id": "tests/",
+      "@type": "Dataset",
+      "name": "Test suite",
+      "description": "Unit tests for output models (Pydantic round-trip), PROV-O JSON-LD emission (RDF graph validation), and Parquet writer (skipped when pyarrow unavailable)."
+    },
+    {
+      "@id": "scripts/",
+      "@type": "Dataset",
+      "name": "Utility scripts",
+      "description": "export_schemas.py regenerates docs/schemas/ from Pydantic models."
+    },
+    {
+      "@id": "docs/schemas/",
+      "@type": "Dataset",
+      "name": "JSON Schema",
+      "description": "Draft 2020-12 JSON Schema documents for the four canonical result artifacts: cells, per_property, per_scenario, named_incidents.",
+      "hasPart": [
+        {"@id": "docs/schemas/cells.schema.json"},
+        {"@id": "docs/schemas/per_property.schema.json"},
+        {"@id": "docs/schemas/per_scenario.schema.json"},
+        {"@id": "docs/schemas/named_incidents.schema.json"}
+      ]
+    },
+    {
+      "@id": "results/",
+      "@type": "Dataset",
+      "name": "Evaluation results",
+      "description": "Canonical results from the 140-scenario evaluation matrix and named-incident reconstructions. Raw JSON is wire format; PROV-O JSON-LD siblings carry the same data as queryable RDF graphs.",
+      "hasPart": [
+        {"@id": "results/cells.json"},
+        {"@id": "results/cells.jsonld"},
+        {"@id": "results/per_property.json"},
+        {"@id": "results/per_scenario.json"},
+        {"@id": "results/per_scenario.jsonld"},
+        {"@id": "results/named_incidents.json"},
+        {"@id": "results/named_incidents.jsonld"}
+      ]
+    },
+    {
+      "@id": "results/cells.json",
+      "@type": "File",
+      "name": "Per-cell aggregate results",
+      "encodingFormat": "application/json",
+      "conformsTo": {"@id": "docs/schemas/cells.schema.json"}
+    },
+    {
+      "@id": "results/cells.jsonld",
+      "@type": "File",
+      "name": "Per-cell aggregate results (PROV-O)",
+      "encodingFormat": "application/ld+json"
+    },
+    {
+      "@id": "results/per_property.json",
+      "@type": "File",
+      "name": "Per-property feasibility distribution",
+      "encodingFormat": "application/json",
+      "conformsTo": {"@id": "docs/schemas/per_property.schema.json"}
+    },
+    {
+      "@id": "results/per_scenario.json",
+      "@type": "File",
+      "name": "Per-scenario reconstruction summary",
+      "encodingFormat": "application/json",
+      "conformsTo": {"@id": "docs/schemas/per_scenario.schema.json"}
+    },
+    {
+      "@id": "results/per_scenario.jsonld",
+      "@type": "File",
+      "name": "Per-scenario reconstruction summary (PROV-O)",
+      "encodingFormat": "application/ld+json"
+    },
+    {
+      "@id": "results/named_incidents.json",
+      "@type": "File",
+      "name": "Named-incident reconstructions",
+      "encodingFormat": "application/json",
+      "conformsTo": {"@id": "docs/schemas/named_incidents.schema.json"}
+    },
+    {
+      "@id": "results/named_incidents.jsonld",
+      "@type": "File",
+      "name": "Named-incident reconstructions (PROV-O bundle)",
+      "encodingFormat": "application/ld+json",
+      "description": "Full Activity/Entity/Agent provenance graph for each reconstructed incident."
+    },
+    {
+      "@id": "README.md",
+      "@type": "File",
+      "name": "README",
+      "encodingFormat": "text/markdown"
+    },
+    {
+      "@id": "LICENSE",
+      "@type": "File",
+      "name": "Apache License 2.0",
+      "encodingFormat": "text/plain"
+    },
+    {
+      "@id": "pyproject.toml",
+      "@type": "File",
+      "name": "Python project metadata",
+      "encodingFormat": "application/toml"
+    },
+    {
+      "@id": "CITATION.cff",
+      "@type": "File",
+      "name": "Citation File Format metadata",
+      "encodingFormat": "application/x-yaml"
+    },
+    {
+      "@id": "codemeta.json",
+      "@type": "File",
+      "name": "CodeMeta software metadata",
+      "encodingFormat": "application/ld+json"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "identifier": "decision-trace-reconstructor",
+  "name": "Decision Trace Reconstructor",
+  "description": "Post-hoc reconstruction of multi-step decision chains from fragmentary evidence, with decision-event schema mapping and authorization-envelope substitution for ML-opaque steps. Reference implementation of the Decision Evidence Maturity Model (DEMM) property-level reconstructability assessment.",
+  "version": "0.1.0",
+  "datePublished": "2026-04-24",
+  "license": "https://spdx.org/licenses/Apache-2.0",
+  "programmingLanguage": "Python",
+  "runtimePlatform": "Python 3.11+",
+  "applicationCategory": "Scientific software",
+  "developmentStatus": "active",
+  "isAccessibleForFree": true,
+  "url": "https://decisiontrace.org/reconstructor/v0.1.0",
+  "codeRepository": "https://decisiontrace.org/reconstructor",
+  "keywords": [
+    "governance evidence",
+    "decision trace reconstruction",
+    "agentic AI governance",
+    "decision event schema",
+    "DEMM",
+    "post-hoc audit",
+    "W3C PROV-O"
+  ],
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Oleg",
+      "familyName": "Solozobov",
+      "@id": "https://orcid.org/0009-0009-0105-7459"
+    }
+  ],
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Oleg",
+      "familyName": "Solozobov",
+      "@id": "https://orcid.org/0009-0009-0105-7459"
+    }
+  ],
+  "softwareRequirements": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "pydantic",
+      "name": "pydantic",
+      "softwareVersion": ">=2.6,<3"
+    }
+  ],
+  "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "pyarrow",
+      "name": "pyarrow",
+      "softwareVersion": ">=15,<22",
+      "description": "Optional Parquet sibling output for per_scenario.json"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rdflib",
+      "name": "rdflib",
+      "softwareVersion": ">=7,<8",
+      "description": "Optional PROV-O JSON-LD validation in tests"
+    }
+  ]
+}

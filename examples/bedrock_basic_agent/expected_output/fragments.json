@@ -1,0 +1,170 @@
+{
+  "scenario_id": "bedrock_basic_agent_demo",
+  "architecture": "single_agent",
+  "stack_tier": "within_stack",
+  "fragments": [
+    {
+      "fragment_id": "bedrock_bedrock_re_config",
+      "timestamp": 1735722000.0,
+      "kind": "config_snapshot",
+      "stack_tier": "within_stack",
+      "actor_id": "refund-agent-prod",
+      "payload": {
+        "agent_id": "agent-refund-01",
+        "agent_alias_id": "refund-agent-prod",
+        "agent_version": "12",
+        "foundation_model": "anthropic.claude-3-5-sonnet-20240620-v1:0"
+      },
+      "parent_trace_id": null,
+      "decision_id_hint": "bedrock_refund_demo_001"
+    },
+    {
+      "fragment_id": "bedrock_bedrock_re_pre_msg_1735722000000",
+      "timestamp": 1735722000.0,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "refund-agent-prod",
+      "payload": {
+        "content": {
+          "sha256": "3a644442a16dd4a788f1119fe7b31532a655dac523c443eea96547e649021a10",
+          "length": 76
+        },
+        "phase": "pre"
+      },
+      "parent_trace_id": "trace-pre-001",
+      "decision_id_hint": "bedrock_refund_demo_001"
+    },
+    {
+      "fragment_id": "bedrock_bedrock_re_pre_llm_1735722000001",
+      "timestamp": 1735722000.001,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "refund-agent-prod",
+      "payload": {
+        "model_id": "anthropic.claude-3-5-sonnet-20240620-v1:0",
+        "internal_reasoning": "opaque",
+        "output": {
+          "sha256": "24b099dcaa6e13f8a9418c03f060c7a09810ed754e087b4b3cd5d7cc57fe07b3",
+          "length": 50
+        },
+        "phase": "pre"
+      },
+      "parent_trace_id": "trace-pre-001",
+      "decision_id_hint": "bedrock_refund_demo_001"
+    },
+    {
+      "fragment_id": "bedrock_bedrock_re_retrieval_1735722001000",
+      "timestamp": 1735722001.0,
+      "kind": "retrieval_result",
+      "stack_tier": "within_stack",
+      "actor_id": "refund-agent-prod",
+      "payload": {
+        "query": {
+          "sha256": "9b677be9c8aa62618fcdb7226f680a03560e2a4116e6f619a3318f7e5c507414",
+          "length": 43
+        },
+        "retrieved": {
+          "sha256": "3aa9626a138b63719a6aa470544164bd7b8822220a693c6d0d7fc17ae359aaf5",
+          "length": 96
+        }
+      },
+      "parent_trace_id": "trace-kb-001",
+      "decision_id_hint": "bedrock_refund_demo_001"
+    },
+    {
+      "fragment_id": "bedrock_bedrock_re_orch_llm_1735722002000",
+      "timestamp": 1735722002.0,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "refund-agent-prod",
+      "payload": {
+        "model_id": "anthropic.claude-3-5-sonnet-20240620-v1:0",
+        "internal_reasoning": "opaque",
+        "input": {
+          "sha256": "2c2816926068cee8bee2d15ffc8bc6cf4797d6b69cff0d071272083eeb54d9f2",
+          "length": 61
+        },
+        "output": {
+          "sha256": "1ebc04a4dbe73192377d3b497457956d99b682e7c57962435914096f42ea7457",
+          "length": 46
+        }
+      },
+      "parent_trace_id": "trace-orch-001",
+      "decision_id_hint": "bedrock_refund_demo_001"
+    },
+    {
+      "fragment_id": "bedrock_bedrock_re_tool_1_1735722002001",
+      "timestamp": 1735722002.001,
+      "kind": "tool_call",
+      "stack_tier": "within_stack",
+      "actor_id": "refund-agent-prod",
+      "payload": {
+        "tool_name": "orders_api:/refunds",
+        "args": {
+          "sha256": "cb51e3b94957709c71b325b5a5f0b414f66874756fff86bbdb042a3f4c0ac244",
+          "length": 87
+        },
+        "verb": "POST"
+      },
+      "parent_trace_id": "trace-orch-001",
+      "decision_id_hint": "bedrock_refund_demo_001"
+    },
+    {
+      "fragment_id": "bedrock_bedrock_re_state_2_1735722002001",
+      "timestamp": 1735722002.0019999,
+      "kind": "state_mutation",
+      "stack_tier": "within_stack",
+      "actor_id": "refund-agent-prod",
+      "payload": {
+        "state_change_magnitude": 1.0,
+        "event": "state mutation via orders_api:/refunds"
+      },
+      "parent_trace_id": "trace-orch-001",
+      "decision_id_hint": "bedrock_refund_demo_001"
+    },
+    {
+      "fragment_id": "bedrock_bedrock_re_final_3_1735722002003",
+      "timestamp": 1735722002.003,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "refund-agent-prod",
+      "payload": {
+        "content": {
+          "sha256": "52268e508a8243ccbd8a434223bdb2cc8fd47d5af1e9925f33f17b26e698ee1d",
+          "length": 60
+        },
+        "phase": "final"
+      },
+      "parent_trace_id": "trace-orch-001",
+      "decision_id_hint": "bedrock_refund_demo_001"
+    },
+    {
+      "fragment_id": "bedrock_bedrock_re_policy_1735722003000",
+      "timestamp": 1735722003.0,
+      "kind": "policy_snapshot",
+      "stack_tier": "within_stack",
+      "actor_id": "refund-agent-prod",
+      "payload": {
+        "constraint_activated": true,
+        "policy_id": "refund-policy-v3"
+      },
+      "parent_trace_id": "trace-policy-001",
+      "decision_id_hint": "bedrock_refund_demo_001"
+    },
+    {
+      "fragment_id": "bedrock_bedrock_re_human_1735722004000",
+      "timestamp": 1735722004.0,
+      "kind": "human_approval",
+      "stack_tier": "human",
+      "actor_id": "refund-agent-prod",
+      "payload": {
+        "result": {
+          "sha256": "a98e066bbe38b6c9e24505ae36feb75e5addbe2c99f4662139659cffc84fc60c",
+          "length": 39
+        }
+      },
+      "parent_trace_id": "trace-human-001",
+      "decision_id_hint": "bedrock_refund_demo_001"
+    }
+  ]
+}

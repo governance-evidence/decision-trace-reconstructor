@@ -1,0 +1,53 @@
+{
+  "scenario_id": "langsmith_basic_agent_demo",
+  "architecture": "human_in_the_loop",
+  "stack_tier": "within_stack",
+  "fragments": 8,
+  "units_detected": 5,
+  "completeness_pct": 94.3,
+  "dominant_mode": null,
+  "dominant_break": null,
+  "feasibility_counts": {
+    "fully_fillable": 5,
+    "partially_fillable": 1,
+    "structurally_unfillable": 0,
+    "opaque": 1
+  },
+  "per_property": [
+    {
+      "property": "inputs",
+      "category": "fully_fillable",
+      "gap": null
+    },
+    {
+      "property": "policy_basis",
+      "category": "fully_fillable",
+      "gap": null
+    },
+    {
+      "property": "operator_identity",
+      "category": "partially_fillable",
+      "gap": "shared authorship agent + operator (mode 7)"
+    },
+    {
+      "property": "authorization_envelope",
+      "category": "fully_fillable",
+      "gap": null
+    },
+    {
+      "property": "reasoning_trace",
+      "category": "opaque",
+      "gap": null
+    },
+    {
+      "property": "output_action",
+      "category": "fully_fillable",
+      "gap": null
+    },
+    {
+      "property": "post_condition_state",
+      "category": "fully_fillable",
+      "gap": null
+    }
+  ]
+}

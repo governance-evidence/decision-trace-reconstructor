@@ -1,0 +1,59 @@
+{
+  "$defs": {
+    "PropertyDistribution": {
+      "additionalProperties": false,
+      "description": "Feasibility-category distribution for a single decision-event property.",
+      "properties": {
+        "fully_fillable": {
+          "default": 0.0,
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "title": "Fully Fillable",
+          "type": "number"
+        },
+        "opaque": {
+          "default": 0.0,
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "title": "Opaque",
+          "type": "number"
+        },
+        "partially_fillable": {
+          "default": 0.0,
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "title": "Partially Fillable",
+          "type": "number"
+        },
+        "structurally_unfillable": {
+          "default": 0.0,
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "title": "Structurally Unfillable",
+          "type": "number"
+        }
+      },
+      "title": "PropertyDistribution",
+      "type": "object"
+    }
+  },
+  "$id": "https://decisiontrace.org/reconstructor/v0.1.0/schemas/per_property.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": {
+    "$ref": "#/$defs/PropertyDistribution"
+  },
+  "description": "Root model for ``per_property.json``.",
+  "propertyNames": {
+    "enum": [
+      "inputs",
+      "policy_basis",
+      "operator_identity",
+      "authorization_envelope",
+      "reasoning_trace",
+      "output_action",
+      "post_condition_state"
+    ]
+  },
+  "title": "PerPropertyTable",
+  "type": "object"
+}

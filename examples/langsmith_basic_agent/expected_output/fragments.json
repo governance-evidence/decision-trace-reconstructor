@@ -1,0 +1,147 @@
+{
+  "scenario_id": "langsmith_basic_agent_demo",
+  "architecture": "human_in_the_loop",
+  "stack_tier": "within_stack",
+  "fragments": [
+    {
+      "fragment_id": "ls_000000000000_config",
+      "timestamp": 1744707600.0,
+      "kind": "config_snapshot",
+      "stack_tier": "within_stack",
+      "actor_id": "boot_config",
+      "payload": {
+        "langsmith_run_type": "chain",
+        "langsmith_run_name": "boot_config",
+        "config_version": "boot_config"
+      },
+      "parent_trace_id": null,
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "ls_000000000000_policy",
+      "timestamp": 1744707601.0,
+      "kind": "policy_snapshot",
+      "stack_tier": "within_stack",
+      "actor_id": "policy_check",
+      "payload": {
+        "langsmith_run_type": "chain",
+        "langsmith_run_name": "policy_check",
+        "constraint_activated": true,
+        "policy_id": "policy_check"
+      },
+      "parent_trace_id": "00000000-0000-0000-0000-000000000001",
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "ls_000000000000_msg",
+      "timestamp": 1744707602.0,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "router",
+      "payload": {
+        "langsmith_run_type": "chain",
+        "langsmith_run_name": "user_query",
+        "content": {
+          "query": "Archive the legacy product docs and confirm cleanup"
+        }
+      },
+      "parent_trace_id": "00000000-0000-0000-0000-000000000001",
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "ls_000000000000_retr",
+      "timestamp": 1744707603.0,
+      "kind": "retrieval_result",
+      "stack_tier": "within_stack",
+      "actor_id": "rag_retrieve",
+      "payload": {
+        "langsmith_run_type": "retriever",
+        "langsmith_run_name": "kb_search",
+        "retrieved": {
+          "docs": [
+            {
+              "id": "doc-9281",
+              "score": 0.92
+            },
+            {
+              "id": "doc-9344",
+              "score": 0.81
+            }
+          ]
+        },
+        "query": {
+          "query": "legacy product docs"
+        }
+      },
+      "parent_trace_id": "00000000-0000-0000-0000-000000000003",
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "ls_000000000000_llm",
+      "timestamp": 1744707604.0,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "planner",
+      "payload": {
+        "langsmith_run_type": "llm",
+        "langsmith_run_name": "ChatAnthropic",
+        "model_id": "claude-3-5-sonnet-20241022",
+        "internal_reasoning": "opaque",
+        "token_count": 412
+      },
+      "parent_trace_id": "00000000-0000-0000-0000-000000000003",
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "ls_000000000000_human",
+      "timestamp": 1744707606.0,
+      "kind": "human_approval",
+      "stack_tier": "human",
+      "actor_id": "human_approval",
+      "payload": {
+        "langsmith_run_type": "chain",
+        "langsmith_run_name": "human_approval_gate",
+        "approved_by": "human_approval",
+        "error": null
+      },
+      "parent_trace_id": "00000000-0000-0000-0000-000000000003",
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "ls_000000000000_tool",
+      "timestamp": 1744707612.0,
+      "kind": "tool_call",
+      "stack_tier": "within_stack",
+      "actor_id": "executor",
+      "payload": {
+        "langsmith_run_type": "tool",
+        "langsmith_run_name": "kb_archive",
+        "tool_name": "kb_archive",
+        "args": {
+          "doc_ids": [
+            "doc-9281",
+            "doc-9344"
+          ],
+          "destructive": true
+        }
+      },
+      "parent_trace_id": "00000000-0000-0000-0000-000000000003",
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "ls_000000000000_state",
+      "timestamp": 1744707612.001,
+      "kind": "state_mutation",
+      "stack_tier": "within_stack",
+      "actor_id": "executor",
+      "payload": {
+        "langsmith_run_type": "tool",
+        "langsmith_run_name": "kb_archive",
+        "state_change_magnitude": 1.0,
+        "event": "state mutation via kb_archive"
+      },
+      "parent_trace_id": "00000000-0000-0000-0000-000000000003",
+      "decision_id_hint": null
+    }
+  ]
+}

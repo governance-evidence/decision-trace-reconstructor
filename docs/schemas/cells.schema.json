@@ -1,0 +1,124 @@
+{
+  "$defs": {
+    "CellResult": {
+      "additionalProperties": false,
+      "description": "One row of ``cells.json``: aggregate statistics for one matrix cell.",
+      "properties": {
+        "architecture": {
+          "enum": [
+            "single_agent",
+            "multi_agent",
+            "human_in_the_loop",
+            "non_agentic"
+          ],
+          "title": "Architecture",
+          "type": "string"
+        },
+        "boundary_f1": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Boundary F1",
+          "type": "number"
+        },
+        "completeness_ci_high": {
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "title": "Completeness Ci High",
+          "type": "number"
+        },
+        "completeness_ci_low": {
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "title": "Completeness Ci Low",
+          "type": "number"
+        },
+        "completeness_pct": {
+          "maximum": 100.0,
+          "minimum": 0.0,
+          "title": "Completeness Pct",
+          "type": "number"
+        },
+        "dominant_break": {
+          "anyOf": [
+            {
+              "enum": [
+                "decision_diffusion",
+                "evidence_fragmentation",
+                "responsibility_ambiguity"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dominant Break"
+        },
+        "modal_mode": {
+          "anyOf": [
+            {
+              "enum": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "7-mode operational-failure dominance: modal mode across unrecoverable properties, or null when no failures observed.",
+          "title": "Modal Mode"
+        },
+        "modal_mode_share": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Modal Mode Share",
+          "type": "number"
+        },
+        "n": {
+          "description": "Number of scenarios aggregated into this cell.",
+          "minimum": 0,
+          "title": "N",
+          "type": "integer"
+        },
+        "stack_tier": {
+          "enum": [
+            "within_stack",
+            "cross_stack",
+            "baseline"
+          ],
+          "title": "Stack Tier",
+          "type": "string"
+        }
+      },
+      "required": [
+        "architecture",
+        "stack_tier",
+        "n",
+        "completeness_pct",
+        "completeness_ci_low",
+        "completeness_ci_high",
+        "boundary_f1",
+        "modal_mode_share"
+      ],
+      "title": "CellResult",
+      "type": "object"
+    }
+  },
+  "$id": "https://decisiontrace.org/reconstructor/v0.1.0/schemas/cells.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Root model for ``cells.json`` (a JSON array).",
+  "items": {
+    "$ref": "#/$defs/CellResult"
+  },
+  "title": "CellResults",
+  "type": "array"
+}

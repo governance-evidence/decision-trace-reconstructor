@@ -1,0 +1,131 @@
+{
+  "scenario_id": "generic_jsonl_basic_agent_demo",
+  "architecture": "human_in_the_loop",
+  "stack_tier": "within_stack",
+  "fragments": [
+    {
+      "fragment_id": "e1",
+      "timestamp": 1777291200.0,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "main",
+      "payload": {
+        "content": "Draft a customer-ready incident note",
+        "metadata": {
+          "actor": {},
+          "session_token": "[REDACTED]"
+        }
+      },
+      "parent_trace_id": "homegrown_agent",
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "e2",
+      "timestamp": 1777291201.0,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "main",
+      "payload": {
+        "model": "gpt-4o",
+        "summary": "Need supporting evidence before drafting",
+        "metadata": {
+          "actor": {},
+          "session_token": "[REDACTED]"
+        }
+      },
+      "parent_trace_id": "homegrown_agent",
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "e3",
+      "timestamp": 1777291202.0,
+      "kind": "retrieval_result",
+      "stack_tier": "cross_stack",
+      "actor_id": "search_worker",
+      "payload": {
+        "query": "incident 8472",
+        "results": [
+          {
+            "title": "runbook",
+            "score": 0.92
+          }
+        ],
+        "metadata": {
+          "actor": {},
+          "session_token": "[REDACTED]"
+        }
+      },
+      "parent_trace_id": "homegrown_agent",
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "e4",
+      "timestamp": 1777291203.0,
+      "kind": "tool_call",
+      "stack_tier": "within_stack",
+      "actor_id": "main",
+      "payload": {
+        "tool": "write_report",
+        "args": {
+          "path": "reports/8472.md"
+        },
+        "metadata": {
+          "actor": {},
+          "session_token": "[REDACTED]"
+        },
+        "tool_name": "write_report",
+        "result": {
+          "ok": true,
+          "path": "reports/8472.md"
+        }
+      },
+      "parent_trace_id": "homegrown_agent",
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "e4_state",
+      "timestamp": 1777291203.0,
+      "kind": "state_mutation",
+      "stack_tier": "within_stack",
+      "actor_id": "main",
+      "payload": {
+        "tool_name": "write_report"
+      },
+      "parent_trace_id": "homegrown_agent",
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "e6",
+      "timestamp": 1777291205.0,
+      "kind": "human_approval",
+      "stack_tier": "human",
+      "actor_id": "reviewer",
+      "payload": {
+        "decision": "APPROVED by reviewer",
+        "comment": "Ready to send",
+        "metadata": {
+          "actor": {},
+          "session_token": "[REDACTED]"
+        }
+      },
+      "parent_trace_id": "homegrown_agent",
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "e7",
+      "timestamp": 1777291206.0,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "main",
+      "payload": {
+        "content": "Incident note sent to customer",
+        "metadata": {
+          "actor": {},
+          "session_token": "[REDACTED]"
+        }
+      },
+      "parent_trace_id": "homegrown_agent",
+      "decision_id_hint": null
+    }
+  ]
+}

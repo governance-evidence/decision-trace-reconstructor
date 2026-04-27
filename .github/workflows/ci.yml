@@ -1,0 +1,122 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: "Test (Python ${{ matrix.python-version }})"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install package with dev + parquet extras
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e '.[dev,parquet]'
+
+      - name: Run pytest
+        run: |
+          pytest -v --cov=reconstructor --cov-report=xml --cov-report=term
+
+      - name: Verify Pydantic round-trip on results/
+        run: |
+          python -c "
+          import json
+          from pathlib import Path
+          from reconstructor.output.models import (
+              CellResults, NamedIncidentResults, PerPropertyTable, PerScenarioResults,
+          )
+          for f, c in [
+              ('cells.json', CellResults),
+              ('per_property.json', PerPropertyTable),
+              ('per_scenario.json', PerScenarioResults),
+              ('named_incidents.json', NamedIncidentResults),
+          ]:
+              raw = json.loads(Path(f'results/{f}').read_text())
+              assert c.model_validate(raw).model_dump(mode='json') == raw
+              print(f'OK {f}')
+          "
+
+      - name: Verify worked example reproduces bit-identically
+        run: |
+          cd examples/replit_drop_database
+          python run.py --out out/
+          diff -ru expected_output out
+
+      - name: Re-run synthetic eval (smoke test, smaller seeds-per-cell)
+        run: |
+          decision-trace evaluate synthetic --seeds-per-cell 3 --out /tmp/decision_trace_smoke
+          test -f /tmp/decision_trace_smoke/cells.json
+          test -f /tmp/decision_trace_smoke/cells.jsonld
+          test -f /tmp/decision_trace_smoke/per_scenario.json
+          test -f /tmp/decision_trace_smoke/per_scenario.jsonld
+
+  lint:
+    name: Lint + Type-check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: |
+          python -m pip install --upgrade pip
+          pip install -e '.[dev]'
+      - name: Ruff
+        run: ruff check src tests scripts
+      - name: Ruff format check
+        run: ruff format --check src tests scripts
+      - name: Mypy
+        run: mypy src
+
+  docs:
+    name: Docs lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v18
+        with:
+          config: .markdownlint-cli2.jsonc
+          globs: |
+            README.md
+            CHANGELOG.md
+            docs/**/*.md
+            examples/**/*.md
+
+  metadata:
+    name: Metadata validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install validators
+        run: pip install build cffconvert jsonschema twine
+      - name: Validate CITATION.cff
+        run: cffconvert --validate
+      - name: Validate ro-crate-metadata.json is valid JSON
+        run: python -c "import json; json.loads(open('ro-crate-metadata.json').read())"
+      - name: Validate codemeta.json is valid JSON
+        run: python -c "import json; json.loads(open('codemeta.json').read())"
+      - name: Build sdist and wheel
+        run: python -m build
+      - name: Validate built package metadata
+        run: python -m twine check dist/*

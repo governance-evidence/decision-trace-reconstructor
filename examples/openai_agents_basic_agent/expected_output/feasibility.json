@@ -1,0 +1,53 @@
+{
+  "scenario_id": "openai_agents_basic_agent_demo",
+  "architecture": "multi_agent",
+  "stack_tier": "within_stack",
+  "fragments": 12,
+  "units_detected": 7,
+  "completeness_pct": 64.3,
+  "dominant_mode": 6,
+  "dominant_break": "decision_diffusion",
+  "feasibility_counts": {
+    "fully_fillable": 3,
+    "partially_fillable": 1,
+    "structurally_unfillable": 2,
+    "opaque": 1
+  },
+  "per_property": [
+    {
+      "property": "inputs",
+      "category": "fully_fillable",
+      "gap": null
+    },
+    {
+      "property": "policy_basis",
+      "category": "structurally_unfillable",
+      "gap": "policy invoked implicitly across agents (mode 6)"
+    },
+    {
+      "property": "operator_identity",
+      "category": "partially_fillable",
+      "gap": "4 distinct actors across chain -- no single operator identity (delegation, mode 5)"
+    },
+    {
+      "property": "authorization_envelope",
+      "category": "fully_fillable",
+      "gap": null
+    },
+    {
+      "property": "reasoning_trace",
+      "category": "opaque",
+      "gap": null
+    },
+    {
+      "property": "output_action",
+      "category": "structurally_unfillable",
+      "gap": "decision diffused across 4 agents -- no single authoritative output (mode 1/5)"
+    },
+    {
+      "property": "post_condition_state",
+      "category": "fully_fillable",
+      "gap": null
+    }
+  ]
+}

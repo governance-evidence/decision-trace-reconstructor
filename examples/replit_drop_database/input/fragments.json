@@ -1,0 +1,61 @@
+{
+  "scenario_id": "replit_drop_database_2025_07",
+  "architecture": "single_agent",
+  "stack_tier": "cross_stack",
+  "fragments": [
+    {
+      "fragment_id": "replit_f000",
+      "timestamp": 1720000000.0,
+      "kind": "agent_message",
+      "stack_tier": "cross_stack",
+      "actor_id": "user_principal",
+      "payload": {
+        "content": "user prompt requesting data cleanup (public report)"
+      },
+      "parent_trace_id": null,
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "replit_f001",
+      "timestamp": 1720000010.0,
+      "kind": "model_generation",
+      "stack_tier": "cross_stack",
+      "actor_id": "replit_agent",
+      "payload": {
+        "model_id": "undisclosed",
+        "internal_reasoning": "opaque"
+      },
+      "parent_trace_id": null,
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "replit_f002",
+      "timestamp": 1720000012.0,
+      "kind": "tool_call",
+      "stack_tier": "cross_stack",
+      "actor_id": "replit_agent",
+      "payload": {
+        "tool_name": "sql_exec",
+        "args": {
+          "statement": "DROP DATABASE production_db"
+        }
+      },
+      "parent_trace_id": null,
+      "decision_id_hint": null
+    },
+    {
+      "fragment_id": "replit_f003",
+      "timestamp": 1720000012.5,
+      "kind": "state_mutation",
+      "stack_tier": "cross_stack",
+      "actor_id": "production_db",
+      "payload": {
+        "state_change_magnitude": 1.0,
+        "event": "database dropped",
+        "rows_affected": "all"
+      },
+      "parent_trace_id": null,
+      "decision_id_hint": null
+    }
+  ]
+}

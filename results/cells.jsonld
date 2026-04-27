@@ -1,0 +1,170 @@
+{
+  "@context": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "demm": "https://decisiontrace.org/demm/v1#",
+    "schema": "https://decisiontrace.org/schema/v1#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "DecisionChain": "demm:DecisionChain",
+    "DecisionUnit": "demm:DecisionUnit",
+    "Fragment": "demm:Fragment",
+    "PropertyFeasibility": "demm:PropertyFeasibility",
+    "perPropertyFeasibility": {
+      "@id": "demm:perPropertyFeasibility",
+      "@container": "@set"
+    },
+    "members": {
+      "@id": "prov:hadMember",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "fragments": {
+      "@id": "prov:wasInfluencedBy",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "property": {
+      "@id": "demm:property",
+      "@type": "@id"
+    },
+    "category": {
+      "@id": "demm:category"
+    },
+    "gap": {
+      "@id": "demm:gap"
+    },
+    "completeness": {
+      "@id": "demm:completeness",
+      "@type": "xsd:decimal"
+    },
+    "completenessPct": {
+      "@id": "demm:completenessPct",
+      "@type": "xsd:decimal"
+    },
+    "dominantMode": {
+      "@id": "demm:dominantMode",
+      "@type": "xsd:integer"
+    },
+    "dominantBreak": {
+      "@id": "demm:dominantBreak"
+    },
+    "architecture": {
+      "@id": "demm:architecture"
+    },
+    "stackTier": {
+      "@id": "demm:stackTier"
+    },
+    "actorId": {
+      "@id": "demm:actorId"
+    },
+    "fragmentKind": {
+      "@id": "demm:fragmentKind"
+    },
+    "boundaryReason": {
+      "@id": "demm:boundaryReason"
+    },
+    "boundaryConfidence": {
+      "@id": "demm:boundaryConfidence",
+      "@type": "xsd:decimal"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "results:cells#single_agent/within_stack",
+      "@type": "demm:CellAggregate",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "demm:n": 20,
+      "completenessPct": 85.0,
+      "demm:completenessCiLow": 83.6,
+      "demm:completenessCiHigh": 85.7,
+      "demm:boundaryF1": 0.839,
+      "demm:modalMode": 4,
+      "demm:modalModeShare": 1.0,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "results:cells#single_agent/cross_stack",
+      "@type": "demm:CellAggregate",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "demm:n": 20,
+      "completenessPct": 71.1,
+      "demm:completenessCiLow": 70.4,
+      "demm:completenessCiHigh": 71.4,
+      "demm:boundaryF1": 0.761,
+      "demm:modalMode": 3,
+      "demm:modalModeShare": 1.0,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "results:cells#multi_agent/within_stack",
+      "@type": "demm:CellAggregate",
+      "architecture": "multi_agent",
+      "stackTier": "within_stack",
+      "demm:n": 20,
+      "completenessPct": 67.5,
+      "demm:completenessCiLow": 62.5,
+      "demm:completenessCiHigh": 72.1,
+      "demm:boundaryF1": 0.126,
+      "demm:modalMode": 6,
+      "demm:modalModeShare": 0.526,
+      "dominantBreak": "decision_diffusion"
+    },
+    {
+      "@id": "results:cells#multi_agent/cross_stack",
+      "@type": "demm:CellAggregate",
+      "architecture": "multi_agent",
+      "stackTier": "cross_stack",
+      "demm:n": 20,
+      "completenessPct": 53.6,
+      "demm:completenessCiLow": 50.7,
+      "demm:completenessCiHigh": 57.1,
+      "demm:boundaryF1": 0.464,
+      "demm:modalMode": 3,
+      "demm:modalModeShare": 1.0,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "results:cells#human_in_the_loop/within_stack",
+      "@type": "demm:CellAggregate",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "demm:n": 20,
+      "completenessPct": 94.3,
+      "demm:completenessCiLow": 94.3,
+      "demm:completenessCiHigh": 94.3,
+      "demm:boundaryF1": 0.728,
+      "demm:modalMode": null,
+      "demm:modalModeShare": 0.0,
+      "dominantBreak": null
+    },
+    {
+      "@id": "results:cells#human_in_the_loop/cross_stack",
+      "@type": "demm:CellAggregate",
+      "architecture": "human_in_the_loop",
+      "stackTier": "cross_stack",
+      "demm:n": 20,
+      "completenessPct": 79.3,
+      "demm:completenessCiLow": 78.2,
+      "demm:completenessCiHigh": 80.0,
+      "demm:boundaryF1": 0.742,
+      "demm:modalMode": 3,
+      "demm:modalModeShare": 1.0,
+      "dominantBreak": "evidence_fragmentation"
+    },
+    {
+      "@id": "results:cells#non_agentic/within_stack",
+      "@type": "demm:CellAggregate",
+      "architecture": "non_agentic",
+      "stackTier": "within_stack",
+      "demm:n": 20,
+      "completenessPct": 100.0,
+      "demm:completenessCiLow": 100.0,
+      "demm:completenessCiHigh": 100.0,
+      "demm:boundaryF1": 0.4,
+      "demm:modalMode": null,
+      "demm:modalModeShare": 0.0,
+      "dominantBreak": null
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "scenario_id": "agentframework_basic_agent_demo",
+  "architecture": "multi_agent",
+  "stack_tier": "within_stack",
+  "fragments": [
+    {
+      "fragment_id": "agentframework_trace-af-demo_speaker-1_speaker_selected",
+      "timestamp": 1777291200.0,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "manager",
+      "payload": {
+        "role": "speaker_select",
+        "selected": "planner",
+        "candidates": [
+          "planner",
+          "executor",
+          "critic"
+        ]
+      },
+      "parent_trace_id": "trace-af-demo",
+      "decision_id_hint": "speaker-1"
+    },
+    {
+      "fragment_id": "agentframework_trace-af-demo_pub-1_published",
+      "timestamp": 1777291200.01,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "planner",
+      "payload": {
+        "content": "Research the latest Agent Framework docs.",
+        "topic": "research_topic",
+        "recipient": "research_topic"
+      },
+      "parent_trace_id": "trace-af-demo",
+      "decision_id_hint": "pub-1"
+    },
+    {
+      "fragment_id": "agentframework_trace-af-demo_agent-1_agent_call",
+      "timestamp": 1777291200.02,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "executor",
+      "payload": {
+        "agent_id": "executor",
+        "agent_name": "Executor",
+        "input": {
+          "task": "research latest docs"
+        },
+        "output": {
+          "summary": "Found the current AutoGen docs and runtime notes."
+        }
+      },
+      "parent_trace_id": "trace-af-demo",
+      "decision_id_hint": "agent-1"
+    },
+    {
+      "fragment_id": "agentframework_trace-af-demo_tool-1_tool_call",
+      "timestamp": 1777291200.03,
+      "kind": "tool_call",
+      "stack_tier": "cross_stack",
+      "actor_id": "executor",
+      "payload": {
+        "tool_name": "web_search",
+        "args": {
+          "query": "microsoft autogen docs"
+        },
+        "result": [
+          {
+            "title": "AutoGen documentation",
+            "url": "https://microsoft.github.io/autogen/"
+          }
+        ]
+      },
+      "parent_trace_id": "trace-af-demo",
+      "decision_id_hint": "tool-1"
+    },
+    {
+      "fragment_id": "agentframework_trace-af-demo_speaker-2_speaker_selected",
+      "timestamp": 1777291200.07,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "manager",
+      "payload": {
+        "role": "speaker_select",
+        "selected": "critic",
+        "candidates": [
+          "planner",
+          "critic"
+        ],
+        "round_context": {
+          "round_num": 1,
+          "messages_in_round": 3
+        }
+      },
+      "parent_trace_id": "trace-af-demo",
+      "decision_id_hint": "speaker-2"
+    },
+    {
+      "fragment_id": "agentframework_trace-af-demo_model-1_model_call",
+      "timestamp": 1777291200.08,
+      "kind": "model_generation",
+      "stack_tier": "within_stack",
+      "actor_id": "critic",
+      "payload": {
+        "model_id": "gpt-4o",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Critique the executor summary."
+          }
+        ],
+        "client_type": "azure_openai",
+        "internal_reasoning": "opaque",
+        "choices": [
+          {
+            "message": {
+              "content": "The summary is correct but needs an implementation note."
+            }
+          }
+        ]
+      },
+      "parent_trace_id": "trace-af-demo",
+      "decision_id_hint": "model-1"
+    },
+    {
+      "fragment_id": "agentframework_trace-af-demo_pub-2_published",
+      "timestamp": 1777291200.1,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "critic",
+      "payload": {
+        "content": "Mention that GroupChat and RoutedAgent traces are structured.",
+        "topic": "planner_topic",
+        "recipient": "planner_topic"
+      },
+      "parent_trace_id": "trace-af-demo",
+      "decision_id_hint": "pub-2"
+    },
+    {
+      "fragment_id": "agentframework_trace-af-demo_speaker-3_speaker_selected",
+      "timestamp": 1777291200.11,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "manager",
+      "payload": {
+        "role": "speaker_select",
+        "selected": "planner",
+        "candidates": [
+          "planner"
+        ]
+      },
+      "parent_trace_id": "trace-af-demo",
+      "decision_id_hint": "speaker-3"
+    },
+    {
+      "fragment_id": "agentframework_trace-af-demo_tool-2_tool_call",
+      "timestamp": 1777291200.12,
+      "kind": "tool_call",
+      "stack_tier": "within_stack",
+      "actor_id": "planner",
+      "payload": {
+        "tool_name": "write_report",
+        "args": {
+          "path": "summary.md"
+        },
+        "result": {
+          "path": "summary.md",
+          "status": "written"
+        }
+      },
+      "parent_trace_id": "trace-af-demo",
+      "decision_id_hint": "tool-2"
+    },
+    {
+      "fragment_id": "agentframework_trace-af-demo_tool-2_tool_state",
+      "timestamp": 1777291200.1200998,
+      "kind": "state_mutation",
+      "stack_tier": "within_stack",
+      "actor_id": "planner",
+      "payload": {
+        "tool_name": "write_report",
+        "args": {
+          "path": "summary.md"
+        }
+      },
+      "parent_trace_id": "trace-af-demo",
+      "decision_id_hint": "tool-2"
+    },
+    {
+      "fragment_id": "agentframework_trace-af-demo_term-1_termination",
+      "timestamp": 1777291200.14,
+      "kind": "agent_message",
+      "stack_tier": "within_stack",
+      "actor_id": "planner",
+      "payload": {
+        "terminal": true,
+        "reason": "termination_phrase"
+      },
+      "parent_trace_id": "trace-af-demo",
+      "decision_id_hint": "term-1"
+    }
+  ]
+}

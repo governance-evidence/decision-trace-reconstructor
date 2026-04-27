@@ -1,0 +1,431 @@
+{
+  "@context": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "demm": "https://decisiontrace.org/demm/v1#",
+    "schema": "https://decisiontrace.org/schema/v1#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "DecisionChain": "demm:DecisionChain",
+    "DecisionUnit": "demm:DecisionUnit",
+    "Fragment": "demm:Fragment",
+    "PropertyFeasibility": "demm:PropertyFeasibility",
+    "perPropertyFeasibility": {
+      "@id": "demm:perPropertyFeasibility",
+      "@container": "@set"
+    },
+    "members": {
+      "@id": "prov:hadMember",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "fragments": {
+      "@id": "prov:wasInfluencedBy",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "property": {
+      "@id": "demm:property",
+      "@type": "@id"
+    },
+    "category": {
+      "@id": "demm:category"
+    },
+    "gap": {
+      "@id": "demm:gap"
+    },
+    "completeness": {
+      "@id": "demm:completeness",
+      "@type": "xsd:decimal"
+    },
+    "completenessPct": {
+      "@id": "demm:completenessPct",
+      "@type": "xsd:decimal"
+    },
+    "dominantMode": {
+      "@id": "demm:dominantMode",
+      "@type": "xsd:integer"
+    },
+    "dominantBreak": {
+      "@id": "demm:dominantBreak"
+    },
+    "architecture": {
+      "@id": "demm:architecture"
+    },
+    "stackTier": {
+      "@id": "demm:stackTier"
+    },
+    "actorId": {
+      "@id": "demm:actorId"
+    },
+    "fragmentKind": {
+      "@id": "demm:fragmentKind"
+    },
+    "boundaryReason": {
+      "@id": "demm:boundaryReason"
+    },
+    "boundaryConfidence": {
+      "@id": "demm:boundaryConfidence",
+      "@type": "xsd:decimal"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "trace:langsmith_basic_agent_demo",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "langsmith_basic_agent_demo",
+      "architecture": "human_in_the_loop",
+      "stackTier": "within_stack",
+      "completeness": 0.9429,
+      "dominantMode": null,
+      "dominantBreak": null,
+      "members": [
+        "trace:langsmith_basic_agent_demo#unit/unit_0000",
+        "trace:langsmith_basic_agent_demo#unit/unit_0001",
+        "trace:langsmith_basic_agent_demo#unit/unit_0002",
+        "trace:langsmith_basic_agent_demo#unit/unit_0003",
+        "trace:langsmith_basic_agent_demo#unit/unit_0004"
+      ],
+      "perPropertyFeasibility": [
+        {
+          "@id": "trace:langsmith_basic_agent_demo#chain/feas/inputs",
+          "@type": "PropertyFeasibility",
+          "property": "schema:inputs",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        },
+        {
+          "@id": "trace:langsmith_basic_agent_demo#chain/feas/policy_basis",
+          "@type": "PropertyFeasibility",
+          "property": "schema:policy_basis",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        },
+        {
+          "@id": "trace:langsmith_basic_agent_demo#chain/feas/operator_identity",
+          "@type": "PropertyFeasibility",
+          "property": "schema:operator_identity",
+          "category": "partially_fillable",
+          "gap": "shared authorship agent + operator (mode 7)",
+          "demm:confidence": 0.6
+        },
+        {
+          "@id": "trace:langsmith_basic_agent_demo#chain/feas/authorization_envelope",
+          "@type": "PropertyFeasibility",
+          "property": "schema:authorization_envelope",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        },
+        {
+          "@id": "trace:langsmith_basic_agent_demo#chain/feas/reasoning_trace",
+          "@type": "PropertyFeasibility",
+          "property": "schema:reasoning_trace",
+          "category": "opaque",
+          "gap": null,
+          "demm:confidence": 0.9
+        },
+        {
+          "@id": "trace:langsmith_basic_agent_demo#chain/feas/output_action",
+          "@type": "PropertyFeasibility",
+          "property": "schema:output_action",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        },
+        {
+          "@id": "trace:langsmith_basic_agent_demo#chain/feas/post_condition_state",
+          "@type": "PropertyFeasibility",
+          "property": "schema:post_condition_state",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        }
+      ]
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#unit/unit_0000",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-04-15T09:00:00+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-04-15T09:00:00+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:langsmith_basic_agent_demo#agent/boot_config"
+      },
+      "boundaryReason": "initial",
+      "boundaryConfidence": 0.5,
+      "fragments": [
+        "trace:langsmith_basic_agent_demo#frag/ls_000000000000_config"
+      ]
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#unit/unit_0001",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-04-15T09:00:01+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-04-15T09:00:04+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:langsmith_basic_agent_demo#agent/policy_check"
+      },
+      "boundaryReason": "policy",
+      "boundaryConfidence": 0.9,
+      "fragments": [
+        "trace:langsmith_basic_agent_demo#frag/ls_000000000000_policy",
+        "trace:langsmith_basic_agent_demo#frag/ls_000000000000_msg",
+        "trace:langsmith_basic_agent_demo#frag/ls_000000000000_retr",
+        "trace:langsmith_basic_agent_demo#frag/ls_000000000000_llm"
+      ]
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#unit/unit_0002",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-04-15T09:00:06+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-04-15T09:00:06+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:langsmith_basic_agent_demo#agent/human_approval"
+      },
+      "boundaryReason": "human",
+      "boundaryConfidence": 1.0,
+      "fragments": [
+        "trace:langsmith_basic_agent_demo#frag/ls_000000000000_human"
+      ]
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#unit/unit_0003",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-04-15T09:00:12+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-04-15T09:00:12+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:langsmith_basic_agent_demo#agent/executor"
+      },
+      "boundaryReason": "tool_call",
+      "boundaryConfidence": 0.8,
+      "fragments": [
+        "trace:langsmith_basic_agent_demo#frag/ls_000000000000_tool"
+      ]
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#unit/unit_0004",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-04-15T09:00:12.001000+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-04-15T09:00:12.001000+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:langsmith_basic_agent_demo#agent/executor"
+      },
+      "boundaryReason": "state_change",
+      "boundaryConfidence": 0.6,
+      "fragments": [
+        "trace:langsmith_basic_agent_demo#frag/ls_000000000000_state"
+      ]
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#frag/ls_000000000000_config",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-04-15T09:00:00+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:langsmith_basic_agent_demo#agent/boot_config"
+      },
+      "fragmentKind": "config_snapshot",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#frag/ls_000000000000_policy",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-04-15T09:00:01+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:langsmith_basic_agent_demo#agent/policy_check"
+      },
+      "fragmentKind": "policy_snapshot",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#frag/ls_000000000000_msg",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-04-15T09:00:02+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:langsmith_basic_agent_demo#agent/router"
+      },
+      "fragmentKind": "agent_message",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#frag/ls_000000000000_retr",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-04-15T09:00:03+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:langsmith_basic_agent_demo#agent/rag_retrieve"
+      },
+      "fragmentKind": "retrieval_result",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#frag/ls_000000000000_llm",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-04-15T09:00:04+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:langsmith_basic_agent_demo#agent/planner"
+      },
+      "fragmentKind": "model_generation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#frag/ls_000000000000_human",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-04-15T09:00:06+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:langsmith_basic_agent_demo#agent/human_approval"
+      },
+      "fragmentKind": "human_approval",
+      "demm:stackTier": "human"
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#frag/ls_000000000000_tool",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-04-15T09:00:12+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:langsmith_basic_agent_demo#agent/executor"
+      },
+      "fragmentKind": "tool_call",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#frag/ls_000000000000_state",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-04-15T09:00:12.001000+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:langsmith_basic_agent_demo#agent/executor"
+      },
+      "fragmentKind": "state_mutation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#agent/boot_config",
+      "@type": "prov:Agent",
+      "actorId": "boot_config"
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#agent/policy_check",
+      "@type": "prov:Agent",
+      "actorId": "policy_check"
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#agent/router",
+      "@type": "prov:Agent",
+      "actorId": "router"
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#agent/rag_retrieve",
+      "@type": "prov:Agent",
+      "actorId": "rag_retrieve"
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#agent/planner",
+      "@type": "prov:Agent",
+      "actorId": "planner"
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#agent/human_approval",
+      "@type": "prov:Agent",
+      "actorId": "human_approval"
+    },
+    {
+      "@id": "trace:langsmith_basic_agent_demo#agent/executor",
+      "@type": "prov:Agent",
+      "actorId": "executor"
+    }
+  ]
+}

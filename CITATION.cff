@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: >-
+  If you use the Decision Trace Reconstructor in academic work, please
+  cite it via the metadata below. It is the reference implementation of
+  the Decision Evidence Maturity Model (DEMM) property-level
+  reconstructability assessment.
+type: software
+title: "Decision Trace Reconstructor"
+abstract: >-
+  Post-hoc reconstruction of multi-step decision chains from fragmentary
+  evidence, with decision-event schema mapping and authorization-envelope substitution
+  for ML-opaque steps. Reference implementation of the property-level
+  reconstructability assessment used by the Decision Evidence Maturity Model
+  (DEMM).
+authors:
+  - family-names: Solozobov
+    given-names: Oleg
+    orcid: "https://orcid.org/0009-0009-0105-7459"
+version: 0.1.0
+date-released: 2026-04-24
+license: Apache-2.0
+keywords:
+  - governance evidence
+  - decision trace reconstruction
+  - agentic AI governance
+  - decision event schema
+  - DEMM
+  - post-hoc audit
+  - W3C PROV-O
+repository-code: "https://decisiontrace.org/reconstructor"
+url: "https://decisiontrace.org/reconstructor/v0.1.0"

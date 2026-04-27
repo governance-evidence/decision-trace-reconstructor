@@ -1,0 +1,918 @@
+{
+  "@context": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "demm": "https://decisiontrace.org/demm/v1#",
+    "schema": "https://decisiontrace.org/schema/v1#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "DecisionChain": "demm:DecisionChain",
+    "DecisionUnit": "demm:DecisionUnit",
+    "Fragment": "demm:Fragment",
+    "PropertyFeasibility": "demm:PropertyFeasibility",
+    "perPropertyFeasibility": {
+      "@id": "demm:perPropertyFeasibility",
+      "@container": "@set"
+    },
+    "members": {
+      "@id": "prov:hadMember",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "fragments": {
+      "@id": "prov:wasInfluencedBy",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "property": {
+      "@id": "demm:property",
+      "@type": "@id"
+    },
+    "category": {
+      "@id": "demm:category"
+    },
+    "gap": {
+      "@id": "demm:gap"
+    },
+    "completeness": {
+      "@id": "demm:completeness",
+      "@type": "xsd:decimal"
+    },
+    "completenessPct": {
+      "@id": "demm:completenessPct",
+      "@type": "xsd:decimal"
+    },
+    "dominantMode": {
+      "@id": "demm:dominantMode",
+      "@type": "xsd:integer"
+    },
+    "dominantBreak": {
+      "@id": "demm:dominantBreak"
+    },
+    "architecture": {
+      "@id": "demm:architecture"
+    },
+    "stackTier": {
+      "@id": "demm:stackTier"
+    },
+    "actorId": {
+      "@id": "demm:actorId"
+    },
+    "fragmentKind": {
+      "@id": "demm:fragmentKind"
+    },
+    "boundaryReason": {
+      "@id": "demm:boundaryReason"
+    },
+    "boundaryConfidence": {
+      "@id": "demm:boundaryConfidence",
+      "@type": "xsd:decimal"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "trace:anthropic_basic_agent_demo",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "anthropic_basic_agent_demo",
+      "architecture": "single_agent",
+      "stackTier": "within_stack",
+      "completeness": 0.8571,
+      "dominantMode": 4,
+      "dominantBreak": "evidence_fragmentation",
+      "members": [
+        "trace:anthropic_basic_agent_demo#unit/unit_0000",
+        "trace:anthropic_basic_agent_demo#unit/unit_0001",
+        "trace:anthropic_basic_agent_demo#unit/unit_0002",
+        "trace:anthropic_basic_agent_demo#unit/unit_0003",
+        "trace:anthropic_basic_agent_demo#unit/unit_0004",
+        "trace:anthropic_basic_agent_demo#unit/unit_0005",
+        "trace:anthropic_basic_agent_demo#unit/unit_0006",
+        "trace:anthropic_basic_agent_demo#unit/unit_0007",
+        "trace:anthropic_basic_agent_demo#unit/unit_0008"
+      ],
+      "perPropertyFeasibility": [
+        {
+          "@id": "trace:anthropic_basic_agent_demo#chain/feas/inputs",
+          "@type": "PropertyFeasibility",
+          "property": "schema:inputs",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        },
+        {
+          "@id": "trace:anthropic_basic_agent_demo#chain/feas/policy_basis",
+          "@type": "PropertyFeasibility",
+          "property": "schema:policy_basis",
+          "category": "structurally_unfillable",
+          "gap": "no policy_basis fragment in unit",
+          "demm:confidence": 0.0
+        },
+        {
+          "@id": "trace:anthropic_basic_agent_demo#chain/feas/operator_identity",
+          "@type": "PropertyFeasibility",
+          "property": "schema:operator_identity",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        },
+        {
+          "@id": "trace:anthropic_basic_agent_demo#chain/feas/authorization_envelope",
+          "@type": "PropertyFeasibility",
+          "property": "schema:authorization_envelope",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        },
+        {
+          "@id": "trace:anthropic_basic_agent_demo#chain/feas/reasoning_trace",
+          "@type": "PropertyFeasibility",
+          "property": "schema:reasoning_trace",
+          "category": "opaque",
+          "gap": null,
+          "demm:confidence": 0.9
+        },
+        {
+          "@id": "trace:anthropic_basic_agent_demo#chain/feas/output_action",
+          "@type": "PropertyFeasibility",
+          "property": "schema:output_action",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        },
+        {
+          "@id": "trace:anthropic_basic_agent_demo#chain/feas/post_condition_state",
+          "@type": "PropertyFeasibility",
+          "property": "schema:post_condition_state",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        }
+      ]
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#unit/unit_0000",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-01-01T00:00:00+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-01-01T00:00:00.000101+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "boundaryReason": "initial",
+      "boundaryConfidence": 0.5,
+      "fragments": [
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0001_request_snapshot",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0001_user_1",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0001_response_model",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0001_thinking_1",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0001_assistant_text_2"
+      ]
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#unit/unit_0001",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-01-01T00:00:00.000220+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-01-01T00:00:01.000101+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "boundaryReason": "tool_call",
+      "boundaryConfidence": 0.8,
+      "fragments": [
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0001_tool_screen_1_tool",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0002_request_snapshot",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0002_response_model",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0002_thinking_1",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0002_assistant_text_2"
+      ]
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#unit/unit_0002",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-01-01T00:00:01.000220+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-01-01T00:00:01.000220+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "boundaryReason": "tool_call",
+      "boundaryConfidence": 0.8,
+      "fragments": [
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0002_tool_click_1_tool"
+      ]
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#unit/unit_0003",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-01-01T00:00:01.000221+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-01-01T00:00:02.000101+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "boundaryReason": "state_change",
+      "boundaryConfidence": 0.6,
+      "fragments": [
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0002_tool_click_1_state",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0003_request_snapshot",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0003_response_model",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0003_thinking_1",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0003_assistant_text_2"
+      ]
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#unit/unit_0004",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-01-01T00:00:02.000220+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-01-01T00:00:02.000220+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "boundaryReason": "tool_call",
+      "boundaryConfidence": 0.8,
+      "fragments": [
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0003_tool_type_1_tool"
+      ]
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#unit/unit_0005",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-01-01T00:00:02.000221+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-01-01T00:00:03.000101+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "boundaryReason": "state_change",
+      "boundaryConfidence": 0.6,
+      "fragments": [
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0003_tool_type_1_state",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0004_request_snapshot",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0004_response_model",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0004_thinking_1",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0004_assistant_text_2"
+      ]
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#unit/unit_0006",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-01-01T00:00:03.000220+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-01-01T00:00:04.000101+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "boundaryReason": "tool_call",
+      "boundaryConfidence": 0.8,
+      "fragments": [
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0004_tool_bash_1_tool",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0005_request_snapshot",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0005_response_model",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0005_thinking_1",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0005_assistant_text_2"
+      ]
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#unit/unit_0007",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-01-01T00:00:04.000220+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-01-01T00:00:04.000220+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "boundaryReason": "tool_call",
+      "boundaryConfidence": 0.8,
+      "fragments": [
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0005_tool_edit_1_tool"
+      ]
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#unit/unit_0008",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2025-01-01T00:00:04.000221+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2025-01-01T00:00:05.000101+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "boundaryReason": "state_change",
+      "boundaryConfidence": 0.6,
+      "fragments": [
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0005_tool_edit_1_state",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0006_request_snapshot",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0006_response_model",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0006_thinking_1",
+        "trace:anthropic_basic_agent_demo#frag/anthropic_round_0006_assistant_text_2"
+      ]
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0001_request_snapshot",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:00+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "config_snapshot",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0001_user_1",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:00+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "agent_message",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0001_response_model",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:00.000050+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "model_generation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0001_thinking_1",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:00.000051+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "model_generation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0001_assistant_text_2",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:00.000101+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "agent_message",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0001_tool_screen_1_tool",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:00.000220+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "tool_call",
+      "demm:stackTier": "cross_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0002_request_snapshot",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:01+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "config_snapshot",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0002_response_model",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:01.000050+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "model_generation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0002_thinking_1",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:01.000051+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "model_generation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0002_assistant_text_2",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:01.000101+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "agent_message",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0002_tool_click_1_tool",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:01.000220+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "tool_call",
+      "demm:stackTier": "cross_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0002_tool_click_1_state",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:01.000221+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "state_mutation",
+      "demm:stackTier": "cross_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0003_request_snapshot",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:02+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "config_snapshot",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0003_response_model",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:02.000050+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "model_generation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0003_thinking_1",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:02.000051+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "model_generation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0003_assistant_text_2",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:02.000101+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "agent_message",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0003_tool_type_1_tool",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:02.000220+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "tool_call",
+      "demm:stackTier": "cross_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0003_tool_type_1_state",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:02.000221+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "state_mutation",
+      "demm:stackTier": "cross_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0004_request_snapshot",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:03+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "config_snapshot",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0004_response_model",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:03.000050+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "model_generation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0004_thinking_1",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:03.000051+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "model_generation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0004_assistant_text_2",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:03.000101+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "agent_message",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0004_tool_bash_1_tool",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:03.000220+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "tool_call",
+      "demm:stackTier": "cross_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0005_request_snapshot",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:04+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "config_snapshot",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0005_response_model",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:04.000050+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "model_generation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0005_thinking_1",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:04.000051+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "model_generation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0005_assistant_text_2",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:04.000101+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "agent_message",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0005_tool_edit_1_tool",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:04.000220+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "tool_call",
+      "demm:stackTier": "cross_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0005_tool_edit_1_state",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:04.000221+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "state_mutation",
+      "demm:stackTier": "cross_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0006_request_snapshot",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:05+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "config_snapshot",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0006_response_model",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:05.000050+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "model_generation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0006_thinking_1",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:05.000051+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "model_generation",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#frag/anthropic_round_0006_assistant_text_2",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2025-01-01T00:00:05.000101+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent"
+      },
+      "fragmentKind": "agent_message",
+      "demm:stackTier": "within_stack"
+    },
+    {
+      "@id": "trace:anthropic_basic_agent_demo#agent/refund_support_agent",
+      "@type": "prov:Agent",
+      "actorId": "refund_support_agent"
+    }
+  ]
+}

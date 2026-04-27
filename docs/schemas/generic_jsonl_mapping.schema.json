@@ -1,0 +1,223 @@
+{
+  "$defs": {
+    "GenericJsonlFollowupRule": {
+      "additionalProperties": false,
+      "description": "Rule for absorbing follow-up records into an earlier parent record.",
+      "properties": {
+        "absorbed_by_kind": {
+          "minLength": 1,
+          "title": "Absorbed By Kind",
+          "type": "string"
+        },
+        "pair_match_field": {
+          "minLength": 1,
+          "title": "Pair Match Field",
+          "type": "string"
+        },
+        "parent_match_field": {
+          "minLength": 1,
+          "title": "Parent Match Field",
+          "type": "string"
+        },
+        "payload_key": {
+          "minLength": 1,
+          "title": "Payload Key",
+          "type": "string"
+        }
+      },
+      "required": [
+        "absorbed_by_kind",
+        "payload_key",
+        "pair_match_field",
+        "parent_match_field"
+      ],
+      "title": "GenericJsonlFollowupRule",
+      "type": "object"
+    },
+    "GenericJsonlMappingFields": {
+      "additionalProperties": false,
+      "description": "Field-path declarations for Generic JSONL record extraction.",
+      "properties": {
+        "actor_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Actor Id"
+        },
+        "fragment_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fragment Id"
+        },
+        "payload": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Payload"
+        },
+        "timestamp": {
+          "minLength": 1,
+          "title": "Timestamp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "timestamp"
+      ],
+      "title": "GenericJsonlMappingFields",
+      "type": "object"
+    },
+    "GenericJsonlStateMutationPredicate": {
+      "additionalProperties": false,
+      "description": "Rule for emitting paired state-mutation fragments from tool records.",
+      "properties": {
+        "field": {
+          "minLength": 1,
+          "title": "Field",
+          "type": "string"
+        },
+        "matches_regex": {
+          "minLength": 1,
+          "title": "Matches Regex",
+          "type": "string"
+        }
+      },
+      "required": [
+        "field",
+        "matches_regex"
+      ],
+      "title": "GenericJsonlStateMutationPredicate",
+      "type": "object"
+    }
+  },
+  "$id": "https://decisiontrace.org/reconstructor/v0.1.0/schemas/generic_jsonl_mapping.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Operator-supplied mapping config for the Generic JSONL fallback adapter.",
+  "properties": {
+    "absorb_followups": {
+      "additionalProperties": {
+        "$ref": "#/$defs/GenericJsonlFollowupRule"
+      },
+      "title": "Absorb Followups",
+      "type": "object"
+    },
+    "architecture": {
+      "default": "single_agent",
+      "enum": [
+        "single_agent",
+        "multi_agent",
+        "human_in_the_loop",
+        "auto"
+      ],
+      "title": "Architecture",
+      "type": "string"
+    },
+    "fields": {
+      "$ref": "#/$defs/GenericJsonlMappingFields"
+    },
+    "kind_field": {
+      "minLength": 1,
+      "title": "Kind Field",
+      "type": "string"
+    },
+    "kind_map": {
+      "additionalProperties": {
+        "enum": [
+          "tool_call",
+          "model_generation",
+          "human_approval",
+          "human_rejection",
+          "policy_snapshot",
+          "config_snapshot",
+          "agent_message",
+          "retrieval_result",
+          "state_mutation",
+          "error"
+        ],
+        "type": "string"
+      },
+      "minProperties": 1,
+      "title": "Kind Map",
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "skip_kinds": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Skip Kinds",
+      "type": "array"
+    },
+    "source_name": {
+      "minLength": 1,
+      "title": "Source Name",
+      "type": "string"
+    },
+    "stack_tier_default": {
+      "default": "within_stack",
+      "enum": [
+        "within_stack",
+        "cross_stack",
+        "human"
+      ],
+      "title": "Stack Tier Default",
+      "type": "string"
+    },
+    "stack_tier_field": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Stack Tier Field"
+    },
+    "state_mutation_predicate": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/GenericJsonlStateMutationPredicate"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "schema_version",
+    "source_name",
+    "fields",
+    "kind_field",
+    "kind_map"
+  ],
+  "title": "GenericJsonlMappingConfig",
+  "type": "object"
+}

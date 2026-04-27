@@ -1,0 +1,145 @@
+[build-system]
+requires = ["setuptools>=69,<83", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "decision-trace-reconstructor"
+version = "0.1.0"
+requires-python = ">=3.11,<4"
+description = "Audit agent decisions after the fact by turning raw traces into per-property reconstructability reports that identify evidenced, missing, and opaque decision facts."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{name = "Oleg Solozobov"}]
+keywords = [
+  "governance evidence",
+  "decision trace reconstruction",
+  "agentic AI governance",
+  "decision event schema",
+  "post-hoc audit"
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Scientific/Engineering"
+]
+dependencies = [
+  "pydantic>=2.6,<3"
+]
+
+[project.urls]
+Homepage = "https://decisiontrace.org/reconstructor"
+Documentation = "https://decisiontrace.org/reconstructor/v0.1.0"
+Changelog = "https://decisiontrace.org/reconstructor/v0.1.0/changelog"
+
+[project.optional-dependencies]
+agentframework = [
+  "autogen-agentchat>=0.4,<2",
+  "autogen-core>=0.4,<2"
+]
+pydantic-ai = [
+  "pydantic-ai>=0.2,<2"
+]
+parquet = [
+  "pyarrow>=15,<22"
+]
+prov = [
+  "rdflib>=7,<8"
+]
+langsmith = [
+  "langsmith>=0.7,<2"
+]
+anthropic = [
+  "anthropic>=0.50,<2"
+]
+crewai = [
+  "crewai>=0.40,<2"
+]
+mcp = [
+  "mcp>=1.5,<2"
+]
+bedrock = [
+  "boto3>=1.40,<2"
+]
+openai-agents = [
+  "openai>=2,<3",
+  "openai-agents>=1,<2"
+]
+otlp = [
+  "opentelemetry-proto>=1.27,<2"
+]
+all = [
+  "autogen-agentchat>=0.4,<2",
+  "autogen-core>=0.4,<2",
+  "anthropic>=0.50,<2",
+  "boto3>=1.40,<2",
+  "crewai>=0.40,<2",
+  "langsmith>=0.7,<2",
+  "mcp>=1.5,<2",
+  "openai>=2,<3",
+  "openai-agents>=1,<2",
+  "opentelemetry-proto>=1.27,<2",
+  "pydantic-ai>=0.2,<2",
+  "pyarrow>=15,<22",
+  "rdflib>=7,<8"
+]
+dev = [
+  "autogen-agentchat>=0.4,<2",
+  "autogen-core>=0.4,<2",
+  "anthropic>=0.50,<2",
+  "boto3>=1.40,<2",
+  "build>=1.0,<2",
+  "crewai>=0.40,<2",
+  "langsmith>=0.7,<2",
+  "mcp>=1.5,<2",
+  "mypy>=1.8,<2",
+  "openai>=2,<3",
+  "openai-agents>=1,<2",
+  "opentelemetry-proto>=1.27,<2",
+  "pre-commit>=3,<5",
+  "pydantic-ai>=0.2,<2",
+  "pytest>=7,<10",
+  "pytest-cov>=4,<8",
+  "rdflib>=7,<8",
+  "ruff>=0.4,<1"
+]
+
+[project.scripts]
+decision-trace = "reconstructor.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+reconstructor = ["py.typed"]
+
+[tool.coverage.run]
+source = ["reconstructor"]
+branch = true
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+skip_empty = true
+
+[tool.mypy]
+strict = true
+python_version = "3.11"
+warn_unused_configs = true
+warn_return_any = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = [
+  "E501",   # line too long -- enforced informally, ruff's threshold is too tight for narrative docstrings
+  "UP042",  # str-Enum dual inheritance -- project style; StrEnum was added only in Python 3.11
+]

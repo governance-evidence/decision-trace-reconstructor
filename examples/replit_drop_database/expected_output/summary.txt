@@ -1,0 +1,22 @@
+Reconstruction Summary
+============================================================
+Scenario:       replit_drop_database_2025_07
+Architecture:   single_agent
+Stack tier:     cross_stack
+Fragments in:   4
+Units detected: 3
+Completeness:   57.1%
+Dominant mode:  3
+Dominant break: evidence_fragmentation
+
+Per-decision-event-property feasibility (chain level)
+------------------------------------------------------------
+  inputs                  partially_fillable      -- cross-stack evidence partial
+  policy_basis            structurally_unfillable -- no policy_basis fragment in unit
+  operator_identity       fully_fillable         
+  authorization_envelope  structurally_unfillable -- no authorization_envelope fragment in unit
+  reasoning_trace         opaque                 
+  output_action           fully_fillable         
+  post_condition_state    partially_fillable      -- cross-stack evidence partial
+
+Feasibility counts: fully_fillable=2, partially_fillable=2, structurally_unfillable=2, opaque=1

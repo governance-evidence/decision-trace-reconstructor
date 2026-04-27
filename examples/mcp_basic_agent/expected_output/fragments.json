@@ -1,0 +1,186 @@
+{
+  "scenario_id": "mcp_basic_agent_demo",
+  "architecture": "single_agent",
+  "stack_tier": "cross_stack",
+  "fragments": [
+    {
+      "fragment_id": "mcp_session-filesystem_1_initialize",
+      "timestamp": 1735689600.1,
+      "kind": "config_snapshot",
+      "stack_tier": "cross_stack",
+      "actor_id": "filesystem",
+      "payload": {
+        "server_name": "filesystem",
+        "server_version": "1.0.0",
+        "capabilities": {
+          "tools": {
+            "listChanged": true
+          },
+          "resources": {
+            "subscribe": true
+          }
+        },
+        "protocol_version": "2024-11-05",
+        "transport": "stdio"
+      },
+      "parent_trace_id": "session-filesystem",
+      "decision_id_hint": "session-filesystem"
+    },
+    {
+      "fragment_id": "mcp_session-filesystem_2_tools_list",
+      "timestamp": 1735689600.3,
+      "kind": "config_snapshot",
+      "stack_tier": "cross_stack",
+      "actor_id": "filesystem",
+      "payload": {
+        "tools": [
+          {
+            "name": "read_file",
+            "description": "Read a file"
+          }
+        ],
+        "server_name": "filesystem"
+      },
+      "parent_trace_id": "session-filesystem",
+      "decision_id_hint": "session-filesystem"
+    },
+    {
+      "fragment_id": "mcp_session-filesystem_3_resource_read",
+      "timestamp": 1735689600.5,
+      "kind": "retrieval_result",
+      "stack_tier": "cross_stack",
+      "actor_id": "mcp_client",
+      "payload": {
+        "query": {
+          "sha256": "89f42a1d99d0ec584663d31c8c82429e7998ac8abca74eb12577934bada809be",
+          "length": 29
+        },
+        "retrieved": [
+          {
+            "uri": "file:///repo/refund-policy.md",
+            "text": "Refunds over $100 require manager sign-off."
+          }
+        ]
+      },
+      "parent_trace_id": "session-filesystem",
+      "decision_id_hint": "session-filesystem"
+    },
+    {
+      "fragment_id": "mcp_session-filesystem_4_tool_call",
+      "timestamp": 1735689600.6,
+      "kind": "tool_call",
+      "stack_tier": "cross_stack",
+      "actor_id": "mcp_client",
+      "payload": {
+        "tool_name": "read_file",
+        "args": {
+          "path": "/repo/refund-policy.md"
+        },
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "Refunds over $100 require manager sign-off."
+            }
+          ]
+        }
+      },
+      "parent_trace_id": "session-filesystem",
+      "decision_id_hint": "session-filesystem"
+    },
+    {
+      "fragment_id": "mcp_session-git_1_initialize",
+      "timestamp": 1735689601.1,
+      "kind": "config_snapshot",
+      "stack_tier": "cross_stack",
+      "actor_id": "git",
+      "payload": {
+        "server_name": "git",
+        "server_version": "1.4.0",
+        "capabilities": {
+          "tools": {
+            "listChanged": false
+          }
+        },
+        "protocol_version": "2024-11-05",
+        "transport": "stdio"
+      },
+      "parent_trace_id": "session-git",
+      "decision_id_hint": "session-git"
+    },
+    {
+      "fragment_id": "mcp_session-git_2_tool_call",
+      "timestamp": 1735689601.2,
+      "kind": "tool_call",
+      "stack_tier": "cross_stack",
+      "actor_id": "mcp_client",
+      "payload": {
+        "tool_name": "git_commit",
+        "args": {
+          "message": "Approve refund note"
+        },
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "commit a1b2c3 created"
+            }
+          ]
+        }
+      },
+      "parent_trace_id": "session-git",
+      "decision_id_hint": "session-git"
+    },
+    {
+      "fragment_id": "mcp_session-git_2_tool_state",
+      "timestamp": 1735689601.2001,
+      "kind": "state_mutation",
+      "stack_tier": "cross_stack",
+      "actor_id": "mcp_client",
+      "payload": {
+        "event": "state mutation via git_commit",
+        "state_change_magnitude": 1.0
+      },
+      "parent_trace_id": "session-git",
+      "decision_id_hint": "session-git"
+    },
+    {
+      "fragment_id": "mcp_session-git_3_sampling",
+      "timestamp": 1735689601.4,
+      "kind": "model_generation",
+      "stack_tier": "cross_stack",
+      "actor_id": "git",
+      "payload": {
+        "model_id": "mcp_sampling_request",
+        "internal_reasoning": "opaque",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Summarize refund commit rationale."
+          }
+        ],
+        "system_prompt": "Summarize the commit intent.",
+        "partial": true
+      },
+      "parent_trace_id": "session-git",
+      "decision_id_hint": "session-git"
+    },
+    {
+      "fragment_id": "mcp_session-git_resource_updated_1",
+      "timestamp": 1735689601.5,
+      "kind": "state_mutation",
+      "stack_tier": "cross_stack",
+      "actor_id": "git",
+      "payload": {
+        "resource": {
+          "sha256": "0ee883c31f2556cee5acb98e970eb2bfbe330ef2ba44968e5e8b70ffad266ee8",
+          "length": 22
+        },
+        "event": "resource updated",
+        "state_change_magnitude": 1.0
+      },
+      "parent_trace_id": "session-git",
+      "decision_id_hint": "session-git"
+    }
+  ]
+}

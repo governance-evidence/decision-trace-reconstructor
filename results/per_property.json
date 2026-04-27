@@ -1,0 +1,44 @@
+{
+  "inputs": {
+    "fully_fillable": 57.1,
+    "partially_fillable": 42.1,
+    "structurally_unfillable": 0.7,
+    "opaque": 0.0
+  },
+  "policy_basis": {
+    "fully_fillable": 72.9,
+    "structurally_unfillable": 27.1,
+    "partially_fillable": 0.0,
+    "opaque": 0.0
+  },
+  "operator_identity": {
+    "structurally_unfillable": 28.6,
+    "partially_fillable": 52.1,
+    "fully_fillable": 19.3,
+    "opaque": 0.0
+  },
+  "authorization_envelope": {
+    "fully_fillable": 100.0,
+    "partially_fillable": 0.0,
+    "structurally_unfillable": 0.0,
+    "opaque": 0.0
+  },
+  "reasoning_trace": {
+    "opaque": 100.0,
+    "fully_fillable": 0.0,
+    "partially_fillable": 0.0,
+    "structurally_unfillable": 0.0
+  },
+  "output_action": {
+    "fully_fillable": 76.4,
+    "structurally_unfillable": 23.6,
+    "partially_fillable": 0.0,
+    "opaque": 0.0
+  },
+  "post_condition_state": {
+    "fully_fillable": 54.3,
+    "structurally_unfillable": 4.3,
+    "partially_fillable": 41.4,
+    "opaque": 0.0
+  }
+}

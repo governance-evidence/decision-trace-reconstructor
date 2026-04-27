@@ -1,0 +1,53 @@
+{
+  "scenario_id": "replit_drop_database_2025_07",
+  "architecture": "single_agent",
+  "stack_tier": "cross_stack",
+  "fragments": 4,
+  "units_detected": 3,
+  "completeness_pct": 57.1,
+  "dominant_mode": 3,
+  "dominant_break": "evidence_fragmentation",
+  "feasibility_counts": {
+    "fully_fillable": 2,
+    "partially_fillable": 2,
+    "structurally_unfillable": 2,
+    "opaque": 1
+  },
+  "per_property": [
+    {
+      "property": "inputs",
+      "category": "partially_fillable",
+      "gap": "cross-stack evidence partial"
+    },
+    {
+      "property": "policy_basis",
+      "category": "structurally_unfillable",
+      "gap": "no policy_basis fragment in unit"
+    },
+    {
+      "property": "operator_identity",
+      "category": "fully_fillable",
+      "gap": null
+    },
+    {
+      "property": "authorization_envelope",
+      "category": "structurally_unfillable",
+      "gap": "no authorization_envelope fragment in unit"
+    },
+    {
+      "property": "reasoning_trace",
+      "category": "opaque",
+      "gap": null
+    },
+    {
+      "property": "output_action",
+      "category": "fully_fillable",
+      "gap": null
+    },
+    {
+      "property": "post_condition_state",
+      "category": "partially_fillable",
+      "gap": "cross-stack evidence partial"
+    }
+  ]
+}

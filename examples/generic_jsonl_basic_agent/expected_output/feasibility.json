@@ -1,0 +1,53 @@
+{
+  "scenario_id": "generic_jsonl_basic_agent_demo",
+  "architecture": "human_in_the_loop",
+  "stack_tier": "within_stack",
+  "fragments": 7,
+  "units_detected": 3,
+  "completeness_pct": 65.7,
+  "dominant_mode": 7,
+  "dominant_break": "responsibility_ambiguity",
+  "feasibility_counts": {
+    "fully_fillable": 3,
+    "partially_fillable": 1,
+    "structurally_unfillable": 2,
+    "opaque": 1
+  },
+  "per_property": [
+    {
+      "property": "inputs",
+      "category": "fully_fillable",
+      "gap": null
+    },
+    {
+      "property": "policy_basis",
+      "category": "structurally_unfillable",
+      "gap": "no policy_basis fragment in unit"
+    },
+    {
+      "property": "operator_identity",
+      "category": "partially_fillable",
+      "gap": "shared authorship agent + operator (mode 7)"
+    },
+    {
+      "property": "authorization_envelope",
+      "category": "structurally_unfillable",
+      "gap": "no authorization_envelope fragment in unit"
+    },
+    {
+      "property": "reasoning_trace",
+      "category": "opaque",
+      "gap": null
+    },
+    {
+      "property": "output_action",
+      "category": "fully_fillable",
+      "gap": null
+    },
+    {
+      "property": "post_condition_state",
+      "category": "fully_fillable",
+      "gap": null
+    }
+  ]
+}

@@ -1,0 +1,297 @@
+{
+  "@context": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "demm": "https://decisiontrace.org/demm/v1#",
+    "schema": "https://decisiontrace.org/schema/v1#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "DecisionChain": "demm:DecisionChain",
+    "DecisionUnit": "demm:DecisionUnit",
+    "Fragment": "demm:Fragment",
+    "PropertyFeasibility": "demm:PropertyFeasibility",
+    "perPropertyFeasibility": {
+      "@id": "demm:perPropertyFeasibility",
+      "@container": "@set"
+    },
+    "members": {
+      "@id": "prov:hadMember",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "fragments": {
+      "@id": "prov:wasInfluencedBy",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "property": {
+      "@id": "demm:property",
+      "@type": "@id"
+    },
+    "category": {
+      "@id": "demm:category"
+    },
+    "gap": {
+      "@id": "demm:gap"
+    },
+    "completeness": {
+      "@id": "demm:completeness",
+      "@type": "xsd:decimal"
+    },
+    "completenessPct": {
+      "@id": "demm:completenessPct",
+      "@type": "xsd:decimal"
+    },
+    "dominantMode": {
+      "@id": "demm:dominantMode",
+      "@type": "xsd:integer"
+    },
+    "dominantBreak": {
+      "@id": "demm:dominantBreak"
+    },
+    "architecture": {
+      "@id": "demm:architecture"
+    },
+    "stackTier": {
+      "@id": "demm:stackTier"
+    },
+    "actorId": {
+      "@id": "demm:actorId"
+    },
+    "fragmentKind": {
+      "@id": "demm:fragmentKind"
+    },
+    "boundaryReason": {
+      "@id": "demm:boundaryReason"
+    },
+    "boundaryConfidence": {
+      "@id": "demm:boundaryConfidence",
+      "@type": "xsd:decimal"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "trace:replit_drop_database_2025_07",
+      "@type": [
+        "prov:Collection",
+        "DecisionChain"
+      ],
+      "demm:scenarioId": "replit_drop_database_2025_07",
+      "architecture": "single_agent",
+      "stackTier": "cross_stack",
+      "completeness": 0.5714,
+      "dominantMode": 3,
+      "dominantBreak": "evidence_fragmentation",
+      "members": [
+        "trace:replit_drop_database_2025_07#unit/unit_0000",
+        "trace:replit_drop_database_2025_07#unit/unit_0001",
+        "trace:replit_drop_database_2025_07#unit/unit_0002"
+      ],
+      "perPropertyFeasibility": [
+        {
+          "@id": "trace:replit_drop_database_2025_07#chain/feas/inputs",
+          "@type": "PropertyFeasibility",
+          "property": "schema:inputs",
+          "category": "partially_fillable",
+          "gap": "cross-stack evidence partial",
+          "demm:confidence": 0.5
+        },
+        {
+          "@id": "trace:replit_drop_database_2025_07#chain/feas/policy_basis",
+          "@type": "PropertyFeasibility",
+          "property": "schema:policy_basis",
+          "category": "structurally_unfillable",
+          "gap": "no policy_basis fragment in unit",
+          "demm:confidence": 0.0
+        },
+        {
+          "@id": "trace:replit_drop_database_2025_07#chain/feas/operator_identity",
+          "@type": "PropertyFeasibility",
+          "property": "schema:operator_identity",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        },
+        {
+          "@id": "trace:replit_drop_database_2025_07#chain/feas/authorization_envelope",
+          "@type": "PropertyFeasibility",
+          "property": "schema:authorization_envelope",
+          "category": "structurally_unfillable",
+          "gap": "no authorization_envelope fragment in unit",
+          "demm:confidence": 0.0
+        },
+        {
+          "@id": "trace:replit_drop_database_2025_07#chain/feas/reasoning_trace",
+          "@type": "PropertyFeasibility",
+          "property": "schema:reasoning_trace",
+          "category": "opaque",
+          "gap": null,
+          "demm:confidence": 0.9
+        },
+        {
+          "@id": "trace:replit_drop_database_2025_07#chain/feas/output_action",
+          "@type": "PropertyFeasibility",
+          "property": "schema:output_action",
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
+        },
+        {
+          "@id": "trace:replit_drop_database_2025_07#chain/feas/post_condition_state",
+          "@type": "PropertyFeasibility",
+          "property": "schema:post_condition_state",
+          "category": "partially_fillable",
+          "gap": "cross-stack evidence partial",
+          "demm:confidence": 0.5
+        }
+      ]
+    },
+    {
+      "@id": "trace:replit_drop_database_2025_07#unit/unit_0000",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2024-07-03T09:46:40+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2024-07-03T09:46:50+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:replit_drop_database_2025_07#agent/user_principal"
+      },
+      "boundaryReason": "initial",
+      "boundaryConfidence": 0.5,
+      "fragments": [
+        "trace:replit_drop_database_2025_07#frag/replit_f000",
+        "trace:replit_drop_database_2025_07#frag/replit_f001"
+      ]
+    },
+    {
+      "@id": "trace:replit_drop_database_2025_07#unit/unit_0001",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2024-07-03T09:46:52+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2024-07-03T09:46:52+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:replit_drop_database_2025_07#agent/replit_agent"
+      },
+      "boundaryReason": "tool_call",
+      "boundaryConfidence": 0.8,
+      "fragments": [
+        "trace:replit_drop_database_2025_07#frag/replit_f002"
+      ]
+    },
+    {
+      "@id": "trace:replit_drop_database_2025_07#unit/unit_0002",
+      "@type": [
+        "prov:Activity",
+        "DecisionUnit"
+      ],
+      "prov:startedAtTime": {
+        "@value": "2024-07-03T09:46:52.500000+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:endedAtTime": {
+        "@value": "2024-07-03T09:46:52.500000+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAssociatedWith": {
+        "@id": "trace:replit_drop_database_2025_07#agent/production_db"
+      },
+      "boundaryReason": "state_change",
+      "boundaryConfidence": 0.6,
+      "fragments": [
+        "trace:replit_drop_database_2025_07#frag/replit_f003"
+      ]
+    },
+    {
+      "@id": "trace:replit_drop_database_2025_07#frag/replit_f000",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2024-07-03T09:46:40+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:replit_drop_database_2025_07#agent/user_principal"
+      },
+      "fragmentKind": "agent_message",
+      "demm:stackTier": "cross_stack"
+    },
+    {
+      "@id": "trace:replit_drop_database_2025_07#frag/replit_f001",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2024-07-03T09:46:50+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:replit_drop_database_2025_07#agent/replit_agent"
+      },
+      "fragmentKind": "model_generation",
+      "demm:stackTier": "cross_stack"
+    },
+    {
+      "@id": "trace:replit_drop_database_2025_07#frag/replit_f002",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2024-07-03T09:46:52+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:replit_drop_database_2025_07#agent/replit_agent"
+      },
+      "fragmentKind": "tool_call",
+      "demm:stackTier": "cross_stack"
+    },
+    {
+      "@id": "trace:replit_drop_database_2025_07#frag/replit_f003",
+      "@type": [
+        "prov:Entity",
+        "Fragment"
+      ],
+      "prov:generatedAtTime": {
+        "@value": "2024-07-03T09:46:52.500000+00:00",
+        "@type": "xsd:dateTime"
+      },
+      "prov:wasAttributedTo": {
+        "@id": "trace:replit_drop_database_2025_07#agent/production_db"
+      },
+      "fragmentKind": "state_mutation",
+      "demm:stackTier": "cross_stack"
+    },
+    {
+      "@id": "trace:replit_drop_database_2025_07#agent/user_principal",
+      "@type": "prov:Agent",
+      "actorId": "user_principal"
+    },
+    {
+      "@id": "trace:replit_drop_database_2025_07#agent/replit_agent",
+      "@type": "prov:Agent",
+      "actorId": "replit_agent"
+    },
+    {
+      "@id": "trace:replit_drop_database_2025_07#agent/production_db",
+      "@type": "prov:Agent",
+      "actorId": "production_db"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+[
+  {
+    "sessionId": "bedrock_refund_demo_001",
+    "agentId": "agent-refund-01",
+    "agentAliasId": "refund-agent-prod",
+    "agentVersion": "12",
+    "foundationModel": "anthropic.claude-3-5-sonnet-20240620-v1:0",
+    "trace": {
+      "preProcessingTrace": {
+        "traceId": "trace-pre-001",
+        "eventTime": "2025-01-01T09:00:00Z",
+        "modelInvocationInput": {
+          "text": "Customer asks for a refund on order A100 due to duplicate charge"
+        },
+        "modelInvocationOutput": {
+          "intent": "refund_request",
+          "priority": "normal"
+        }
+      },
+      "knowledgeBaseLookupTrace": {
+        "traceId": "trace-kb-001",
+        "eventTime": "2025-01-01T09:00:01Z",
+        "knowledgeBaseLookupInput": {
+          "query": "duplicate charge refund policy"
+        },
+        "knowledgeBaseLookupOutput": {
+          "sources": [
+            {
+              "id": "policy-dup-charge",
+              "uri": "s3://refund-kb/policies/duplicate-charge.md"
+            }
+          ]
+        }
+      },
+      "orchestrationTrace": {
+        "traceId": "trace-orch-001",
+        "eventTime": "2025-01-01T09:00:02Z",
+        "modelInvocationInput": {
+          "prompt": "Decide whether the order qualifies for a refund"
+        },
+        "modelInvocationOutput": {
+          "text": "Request approval and submit refund"
+        },
+        "invocationInput": {
+          "actionGroupInvocationInput": {
+            "actionGroupName": "orders_api",
+            "apiPath": "/refunds",
+            "verb": "POST",
+            "parameters": {
+              "order_id": "A100",
+              "reason": "duplicate_charge"
+            }
+          }
+        },
+        "observation": {
+          "finalResponse": {
+            "text": "Refund request submitted after policy validation"
+          }
+        }
+      },
+      "guardrailTrace": {
+        "traceId": "trace-policy-001",
+        "eventTime": "2025-01-01T09:00:03Z",
+        "guardrailId": "refund-policy-v3"
+      },
+      "returnControl": {
+        "traceId": "trace-human-001",
+        "eventTime": "2025-01-01T09:00:04Z",
+        "invocationResults": {
+          "approved": true,
+          "operator": "ops-7"
+        }
+      }
+    }
+  }
+]

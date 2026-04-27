@@ -1,0 +1,197 @@
+[
+  {
+    "trace_id": "trace-otlp-demo",
+    "span_id": "span-001",
+    "parent_span_id": null,
+    "name": "chat gpt-4o",
+    "kind": "client",
+    "start_time_unix_nano": 1735689600000000000,
+    "end_time_unix_nano": 1735689601200000000,
+    "attributes": {
+      "gen_ai.system": "openai",
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "gpt-4o",
+      "gen_ai.response.model": "gpt-4o",
+      "gen_ai.usage.input_tokens": 148,
+      "gen_ai.usage.output_tokens": 61,
+      "gen_ai.agent.id": "research_agent",
+      "gen_ai.agent.name": "Research Agent",
+      "service.name": "agent-api",
+      "session.id": "sess-001"
+    },
+    "events": [
+      {
+        "name": "gen_ai.system.message",
+        "time_unix_nano": 1735689600001000000,
+        "attributes": {
+          "role": "system",
+          "content": "Answer using the internal knowledge base first, then the web if freshness is required."
+        }
+      },
+      {
+        "name": "gen_ai.user.message",
+        "time_unix_nano": 1735689600002000000,
+        "attributes": {
+          "role": "user",
+          "content": "What is the current return window for enterprise customers?"
+        }
+      },
+      {
+        "name": "gen_ai.assistant.message",
+        "time_unix_nano": 1735689601100000000,
+        "attributes": {
+          "role": "assistant",
+          "content": "I checked the policy sources and drafted an answer."
+        }
+      }
+    ],
+    "status": {
+      "code": "OK",
+      "message": null
+    },
+    "resource": {
+      "service.name": "agent-api",
+      "deployment.environment": "prod"
+    },
+    "scope": {
+      "name": "opentelemetry.instrumentation.openai",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "trace_id": "trace-otlp-demo",
+    "span_id": "span-002",
+    "parent_span_id": "span-001",
+    "name": "retrieve internal docs",
+    "kind": "client",
+    "start_time_unix_nano": 1735689600200000000,
+    "end_time_unix_nano": 1735689600400000000,
+    "attributes": {
+      "gen_ai.system": "openai",
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "internal_rag_search",
+      "gen_ai.tool.call.arguments": {
+        "query": "enterprise return window"
+      },
+      "gen_ai.agent.id": "research_agent",
+      "service.name": "agent-api",
+      "server.address": "internal-rag",
+      "demm.fragment_kind": "retrieval_result"
+    },
+    "events": [
+      {
+        "name": "gen_ai.tool.message",
+        "time_unix_nano": 1735689600350000000,
+        "attributes": {
+          "documents": [
+            {
+              "doc_id": "kb-enterprise-returns-v3",
+              "title": "Enterprise Returns Policy",
+              "uri": "kb://enterprise/returns/v3"
+            }
+          ]
+        }
+      }
+    ],
+    "status": {
+      "code": "OK",
+      "message": null
+    },
+    "resource": {
+      "service.name": "agent-api",
+      "deployment.environment": "prod"
+    },
+    "scope": {
+      "name": "opentelemetry.instrumentation.custom-rag",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "trace_id": "trace-otlp-demo",
+    "span_id": "span-003",
+    "parent_span_id": "span-001",
+    "name": "search web",
+    "kind": "client",
+    "start_time_unix_nano": 1735689600450000000,
+    "end_time_unix_nano": 1735689600700000000,
+    "attributes": {
+      "gen_ai.system": "openai",
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "web_search",
+      "gen_ai.tool.call.arguments": {
+        "query": "enterprise return window latest policy"
+      },
+      "gen_ai.agent.id": "research_agent",
+      "service.name": "agent-api",
+      "server.address": "api.tavily.com"
+    },
+    "events": [
+      {
+        "name": "gen_ai.tool.message",
+        "time_unix_nano": 1735689600680000000,
+        "attributes": {
+          "results": [
+            {
+              "url": "https://status.example.com/policies/returns",
+              "title": "Current enterprise return policy"
+            }
+          ]
+        }
+      }
+    ],
+    "status": {
+      "code": "OK",
+      "message": null
+    },
+    "resource": {
+      "service.name": "agent-api",
+      "deployment.environment": "prod"
+    },
+    "scope": {
+      "name": "opentelemetry.instrumentation.openai-agents",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "trace_id": "trace-otlp-demo",
+    "span_id": "span-004",
+    "parent_span_id": "span-001",
+    "name": "write crm note",
+    "kind": "client",
+    "start_time_unix_nano": 1735689600800000000,
+    "end_time_unix_nano": 1735689601000000000,
+    "attributes": {
+      "gen_ai.system": "openai",
+      "gen_ai.operation.name": "execute_tool",
+      "gen_ai.tool.name": "crm_update_record",
+      "gen_ai.tool.call.arguments": {
+        "ticket_id": "RET-1042",
+        "note": "Confirmed enterprise return window for operator review"
+      },
+      "gen_ai.agent.id": "research_agent",
+      "service.name": "agent-api",
+      "server.address": "internal-crm"
+    },
+    "events": [
+      {
+        "name": "gen_ai.tool.message",
+        "time_unix_nano": 1735689600980000000,
+        "attributes": {
+          "status": "updated"
+        }
+      }
+    ],
+    "status": {
+      "code": "OK",
+      "message": null
+    },
+    "resource": {
+      "service.name": "agent-api",
+      "deployment.environment": "prod"
+    },
+    "scope": {
+      "name": "opentelemetry.instrumentation.crm-tool",
+      "version": "0.1.0"
+    }
+  }
+]

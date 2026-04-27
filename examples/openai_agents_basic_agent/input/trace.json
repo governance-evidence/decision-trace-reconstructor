@@ -1,0 +1,179 @@
+{
+  "trace_id": "trace_demo_openai_001",
+  "workflow_name": "customer_support_workflow",
+  "group_id": "conversation-demo-1",
+  "metadata": {
+    "sdk_version": "1.2.0"
+  },
+  "spans": [
+    {
+      "span_id": "span-agent",
+      "trace_id": "trace_demo_openai_001",
+      "parent_id": null,
+      "started_at": "2025-04-15T09:00:00Z",
+      "ended_at": "2025-04-15T09:00:01Z",
+      "span_data": {
+        "type": "agent",
+        "name": "triage_agent",
+        "input": {
+          "text": "Need help with a refund"
+        },
+        "output": {
+          "status": "triaged"
+        }
+      },
+      "error": null
+    },
+    {
+      "span_id": "span-guardrail",
+      "trace_id": "trace_demo_openai_001",
+      "parent_id": "span-agent",
+      "started_at": "2025-04-15T09:00:00.100000Z",
+      "ended_at": "2025-04-15T09:00:00.150000Z",
+      "span_data": {
+        "type": "guardrail",
+        "name": "input_guardrail",
+        "result": "passed"
+      },
+      "error": null
+    },
+    {
+      "span_id": "span-response",
+      "trace_id": "trace_demo_openai_001",
+      "parent_id": "span-agent",
+      "started_at": "2025-04-15T09:00:01Z",
+      "ended_at": "2025-04-15T09:00:02Z",
+      "span_data": {
+        "type": "response",
+        "model": "gpt-4.1-mini",
+        "input": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Need help with a refund"
+            }
+          ]
+        },
+        "output": {
+          "text": "Let me check the refund policy.",
+          "reasoning": "billing policy reasoning"
+        },
+        "input_tokens": 12,
+        "output_tokens": 7
+      },
+      "error": null
+    },
+    {
+      "span_id": "span-web",
+      "trace_id": "trace_demo_openai_001",
+      "parent_id": "span-agent",
+      "started_at": "2025-04-15T09:00:02Z",
+      "ended_at": "2025-04-15T09:00:03Z",
+      "span_data": {
+        "type": "web_search",
+        "tool_name": "web_search",
+        "input": {
+          "query": "refund policy"
+        },
+        "output": [
+          {
+            "title": "Refund policy",
+            "url": "https://example.test/refunds"
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "span_id": "span-handoff",
+      "trace_id": "trace_demo_openai_001",
+      "parent_id": "span-agent",
+      "started_at": "2025-04-15T09:00:03Z",
+      "ended_at": "2025-04-15T09:00:03.100000Z",
+      "span_data": {
+        "type": "handoff",
+        "handoff_to": "billing_agent",
+        "input": {
+          "reason": "refund requires billing agent"
+        }
+      },
+      "error": null
+    },
+    {
+      "span_id": "span-function",
+      "trace_id": "trace_demo_openai_001",
+      "parent_id": "span-handoff",
+      "started_at": "2025-04-15T09:00:04Z",
+      "ended_at": "2025-04-15T09:00:04.500000Z",
+      "span_data": {
+        "type": "function",
+        "tool_name": "write_refund",
+        "input": {
+          "order_id": "A100"
+        },
+        "output": {
+          "status": "submitted"
+        }
+      },
+      "error": null
+    },
+    {
+      "span_id": "span-file-search",
+      "trace_id": "trace_demo_openai_001",
+      "parent_id": "span-handoff",
+      "started_at": "2025-04-15T09:00:05Z",
+      "ended_at": "2025-04-15T09:00:05.500000Z",
+      "span_data": {
+        "type": "file_search",
+        "tool_name": "file_search",
+        "input": {
+          "query": "customer refund history"
+        },
+        "output": [
+          {
+            "file_id": "file-1",
+            "snippet": "Courtesy refund in 2024"
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "span_id": "span-computer",
+      "trace_id": "trace_demo_openai_001",
+      "parent_id": "span-handoff",
+      "started_at": "2025-04-15T09:00:06Z",
+      "ended_at": "2025-04-15T09:00:06.500000Z",
+      "span_data": {
+        "type": "computer_use",
+        "tool_name": "computer_use",
+        "input": {
+          "action": "click",
+          "target": "refund-button"
+        },
+        "output": {
+          "status": "clicked"
+        }
+      },
+      "error": null
+    },
+    {
+      "span_id": "span-custom",
+      "trace_id": "trace_demo_openai_001",
+      "parent_id": "span-handoff",
+      "started_at": "2025-04-15T09:00:07Z",
+      "ended_at": "2025-04-15T09:00:07.100000Z",
+      "span_data": {
+        "type": "custom",
+        "name": "model_config",
+        "input": {
+          "temperature": 0
+        },
+        "metadata": {
+          "demm_kind": "config_snapshot"
+        }
+      },
+      "error": null
+    }
+  ]
+}

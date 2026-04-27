@@ -1,0 +1,86 @@
+[
+  {
+    "architecture": "single_agent",
+    "stack_tier": "within_stack",
+    "n": 20,
+    "completeness_pct": 85.0,
+    "completeness_ci_low": 83.6,
+    "completeness_ci_high": 85.7,
+    "boundary_f1": 0.839,
+    "modal_mode": 4,
+    "modal_mode_share": 1.0,
+    "dominant_break": "evidence_fragmentation"
+  },
+  {
+    "architecture": "single_agent",
+    "stack_tier": "cross_stack",
+    "n": 20,
+    "completeness_pct": 71.1,
+    "completeness_ci_low": 70.4,
+    "completeness_ci_high": 71.4,
+    "boundary_f1": 0.761,
+    "modal_mode": 3,
+    "modal_mode_share": 1.0,
+    "dominant_break": "evidence_fragmentation"
+  },
+  {
+    "architecture": "multi_agent",
+    "stack_tier": "within_stack",
+    "n": 20,
+    "completeness_pct": 67.5,
+    "completeness_ci_low": 62.5,
+    "completeness_ci_high": 72.1,
+    "boundary_f1": 0.126,
+    "modal_mode": 6,
+    "modal_mode_share": 0.526,
+    "dominant_break": "decision_diffusion"
+  },
+  {
+    "architecture": "multi_agent",
+    "stack_tier": "cross_stack",
+    "n": 20,
+    "completeness_pct": 53.6,
+    "completeness_ci_low": 50.7,
+    "completeness_ci_high": 57.1,
+    "boundary_f1": 0.464,
+    "modal_mode": 3,
+    "modal_mode_share": 1.0,
+    "dominant_break": "evidence_fragmentation"
+  },
+  {
+    "architecture": "human_in_the_loop",
+    "stack_tier": "within_stack",
+    "n": 20,
+    "completeness_pct": 94.3,
+    "completeness_ci_low": 94.3,
+    "completeness_ci_high": 94.3,
+    "boundary_f1": 0.728,
+    "modal_mode": null,
+    "modal_mode_share": 0.0,
+    "dominant_break": null
+  },
+  {
+    "architecture": "human_in_the_loop",
+    "stack_tier": "cross_stack",
+    "n": 20,
+    "completeness_pct": 79.3,
+    "completeness_ci_low": 78.2,
+    "completeness_ci_high": 80.0,
+    "boundary_f1": 0.742,
+    "modal_mode": 3,
+    "modal_mode_share": 1.0,
+    "dominant_break": "evidence_fragmentation"
+  },
+  {
+    "architecture": "non_agentic",
+    "stack_tier": "within_stack",
+    "n": 20,
+    "completeness_pct": 100.0,
+    "completeness_ci_low": 100.0,
+    "completeness_ci_high": 100.0,
+    "boundary_f1": 0.4,
+    "modal_mode": null,
+    "modal_mode_share": 0.0,
+    "dominant_break": null
+  }
+]
