@@ -4,9 +4,10 @@ from __future__ import annotations
 
 import json
 from collections import defaultdict
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 from ..mapping.feasibility import FeasibilityCategory
 from ..output.prov_jsonld import cells_to_jsonld, per_scenario_summary_to_jsonld
@@ -90,9 +91,11 @@ def _maybe_write_parquet(path: Path, rows: list[dict[str, Any]]) -> None:
     if not rows:
         return
     try:
-        import pyarrow as pa  # type: ignore[import-not-found]
-        import pyarrow.parquet as pq  # type: ignore[import-not-found]
+        import pyarrow as pa  # type: ignore[import-not-found,unused-ignore]
+        import pyarrow.parquet as pq  # type: ignore[import-not-found,unused-ignore]
     except ImportError:
         return
-    table = pa.Table.from_pylist(rows)
-    pq.write_table(table, path, compression="snappy")
+    from_pylist = cast(Callable[[list[dict[str, Any]]], Any], pa.Table.from_pylist)
+    write_table = cast(Callable[..., None], pq.write_table)
+    table = from_pylist(rows)
+    write_table(table, path, compression="snappy")

@@ -36,6 +36,7 @@ dependencies = [
 Homepage = "https://decisiontrace.org/reconstructor"
 Documentation = "https://decisiontrace.org/reconstructor/v0.1.0"
 Changelog = "https://decisiontrace.org/reconstructor/v0.1.0/changelog"
+DOI = "https://doi.org/10.5281/zenodo.19851574"
 
 [project.optional-dependencies]
 agentframework = [
@@ -46,7 +47,7 @@ pydantic-ai = [
   "pydantic-ai>=0.2,<2"
 ]
 parquet = [
-  "pyarrow>=15,<22"
+  "pyarrow>=15,<25"
 ]
 prov = [
   "rdflib>=7,<8"
@@ -58,7 +59,7 @@ anthropic = [
   "anthropic>=0.50,<2"
 ]
 crewai = [
-  "crewai>=0.40,<2"
+  "crewai>=0.40,<2; python_version < '3.14'"
 ]
 mcp = [
   "mcp>=1.5,<2"
@@ -68,7 +69,7 @@ bedrock = [
 ]
 openai-agents = [
   "openai>=2,<3",
-  "openai-agents>=1,<2"
+  "openai-agents>=0.14,<1"
 ]
 otlp = [
   "opentelemetry-proto>=1.27,<2"
@@ -78,14 +79,14 @@ all = [
   "autogen-core>=0.4,<2",
   "anthropic>=0.50,<2",
   "boto3>=1.40,<2",
-  "crewai>=0.40,<2",
+  "crewai>=0.40,<2; python_version < '3.14'",
   "langsmith>=0.7,<2",
   "mcp>=1.5,<2",
   "openai>=2,<3",
-  "openai-agents>=1,<2",
+  "openai-agents>=0.14,<1",
   "opentelemetry-proto>=1.27,<2",
   "pydantic-ai>=0.2,<2",
-  "pyarrow>=15,<22",
+  "pyarrow>=15,<25",
   "rdflib>=7,<8"
 ]
 dev = [
@@ -94,12 +95,12 @@ dev = [
   "anthropic>=0.50,<2",
   "boto3>=1.40,<2",
   "build>=1.0,<2",
-  "crewai>=0.40,<2",
+  "crewai>=0.40,<2; python_version < '3.14'",
   "langsmith>=0.7,<2",
   "mcp>=1.5,<2",
   "mypy>=1.8,<2",
   "openai>=2,<3",
-  "openai-agents>=1,<2",
+  "openai-agents>=0.14,<1",
   "opentelemetry-proto>=1.27,<2",
   "pre-commit>=3,<5",
   "pydantic-ai>=0.2,<2",

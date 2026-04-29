@@ -1,5 +1,7 @@
 # Decision Trace Reconstructor
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19851574.svg)](https://doi.org/10.5281/zenodo.19851574)
+
 **Decision Trace Reconstructor makes agent decisions auditable after the fact: it shows whether the available traces are enough to reconstruct what happened, and names every missing or opaque decision fact.**
 
 Instead of generating another narrative, it produces a **per-property reconstructability matrix**: which decision-event fields are evidenced, partial, structurally absent, or opaque. No synthetic rationale is invented.
@@ -81,7 +83,8 @@ Worked examples live under `examples/<adapter>_basic_agent/` and are pinned by i
 
 ## Citation
 
-`CITATION.cff`, `codemeta.json`, and `ro-crate-metadata.json` ship with the package. The release will be archived on Zenodo with a DOI once tagged.
+`CITATION.cff`, `codemeta.json`, and `ro-crate-metadata.json` ship with the package.
+Version `v0.1.0` is archived on Zenodo at <https://doi.org/10.5281/zenodo.19851574>.
 
 ## License
 

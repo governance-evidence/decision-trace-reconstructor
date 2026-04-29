@@ -60,7 +60,7 @@ def _load_spans_text(raw: str) -> list[dict[str, Any]]:
 
 def _load_spans_protobuf_bytes(data: bytes) -> list[dict[str, Any]]:
     try:
-        from google.protobuf.json_format import MessageToDict  # type: ignore[import-untyped]
+        from google.protobuf.json_format import MessageToDict
         from opentelemetry.proto.collector.trace.v1.trace_service_pb2 import (
             ExportTraceServiceRequest,
         )

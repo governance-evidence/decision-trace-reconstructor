@@ -17,7 +17,8 @@ authors:
     given-names: Oleg
     orcid: "https://orcid.org/0009-0009-0105-7459"
 version: 0.1.0
-date-released: 2026-04-24
+date-released: 2026-04-28
+doi: 10.5281/zenodo.19851574
 license: Apache-2.0
 keywords:
   - governance evidence

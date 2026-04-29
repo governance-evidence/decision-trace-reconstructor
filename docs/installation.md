@@ -37,6 +37,8 @@ pip install 'decision-trace-reconstructor[pydantic-ai]'      # Pydantic AI
 Generic JSONL ingest has no extra dependency.
 
 From a repository checkout, replace `decision-trace-reconstructor[extra]` with `-e '.[extra]'`.
+The CrewAI upstream package currently supports Python versions below 3.14; on Python 3.14,
+the exported-telemetry adapter remains available without installing the CrewAI SDK.
 
 ## All Adapters
 
