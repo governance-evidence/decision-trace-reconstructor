@@ -4,7 +4,13 @@ All notable changes to the Decision Trace Reconstructor are documented here. For
 
 ## [Unreleased]
 
-No changes yet.
+### Fixed
+
+- `parse_simple_yaml` now accepts the empty flow-mapping notation `{}` as an empty dict, mirroring the existing handling for `[]` as an empty list. This allows operators to declare "no follow-up absorption" in Generic JSONL mapping configs as `absorb_followups: {}`. Non-empty flow mappings (for example `{a: 1}`) continue to be rejected, but now with an explicit `ValueError` rather than silently coerced to a string. Regression covered in `tests/unit/adapters/generic_jsonl/test_generic_jsonl_utils.py`.
+
+### Added
+
+- Generic JSONL adapter docs (`docs/adapters/generic-jsonl.md`) gained a "Minimal Mapping (No Follow-Up Absorption)" section that links to the Operational Evidence Plane's pinned `mapping.v0.yaml` as a real-world example of the no-`absorb_followups` shape, alongside the existing `examples/generic_jsonl_basic_agent/` example which demonstrates the paired tool-call / tool-result pattern.
 
 ## [0.1.0] - 2026-04-28
 

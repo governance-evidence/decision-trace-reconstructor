@@ -106,6 +106,14 @@ def _parse_yaml_scalar(text: str) -> Any:
         if not inner:
             return []
         return [_parse_yaml_scalar(part.strip()) for part in inner.split(",")]
+    if text.startswith("{") and text.endswith("}"):
+        inner = text[1:-1].strip()
+        if not inner:
+            return {}
+        raise ValueError(
+            "non-empty flow mappings are not supported by parse_simple_yaml; "
+            "use block mappings instead"
+        )
     if (text.startswith('"') and text.endswith('"')) or (
         text.startswith("'") and text.endswith("'")
     ):

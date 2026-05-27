@@ -81,3 +81,20 @@ def test_simple_yaml_parser_reports_structural_errors() -> None:
         parse_simple_yaml("not-a-mapping")
     with pytest.raises(ValueError, match="unexpected indentation"):
         parse_simple_yaml("root:\n    child: 1\n  bad: 2")
+
+
+def test_simple_yaml_parser_accepts_empty_flow_mapping() -> None:
+    """Empty flow-mapping `{}` should parse as an empty dict, mirroring how
+    `[]` parses as an empty list. Operators rely on this when declaring
+    "no follow-up absorption" in Generic JSONL mappings.
+    """
+    assert parse_simple_yaml("absorb_followups: {}") == {"absorb_followups": {}}
+    assert parse_simple_yaml("a: {}\nb: []") == {"a": {}, "b": []}
+
+
+def test_simple_yaml_parser_rejects_non_empty_flow_mappings() -> None:
+    """Non-empty flow mappings are not supported; operators should use block
+    form. The parser must raise rather than silently coerce to a string.
+    """
+    with pytest.raises(ValueError, match="non-empty flow mappings"):
+        parse_simple_yaml("x: {a: 1}")
