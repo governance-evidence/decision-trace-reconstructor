@@ -4,6 +4,8 @@ All notable changes to the Decision Trace Reconstructor are documented here. For
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-05-27
+
 ### Fixed
 
 - `parse_simple_yaml` now accepts the empty flow-mapping notation `{}` as an empty dict, mirroring the existing handling for `[]` as an empty list. This allows operators to declare "no follow-up absorption" in Generic JSONL mapping configs as `absorb_followups: {}`. Non-empty flow mappings (for example `{a: 1}`) continue to be rejected, but now with an explicit `ValueError` rather than silently coerced to a string. Regression covered in `tests/unit/adapters/generic_jsonl/test_generic_jsonl_utils.py`.

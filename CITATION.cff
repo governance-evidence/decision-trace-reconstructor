@@ -16,8 +16,8 @@ authors:
   - family-names: Solozobov
     given-names: Oleg
     orcid: "https://orcid.org/0009-0009-0105-7459"
-version: 0.1.0
-date-released: 2026-04-28
+version: 0.1.1
+date-released: 2026-05-27
 doi: 10.5281/zenodo.19851574
 license: Apache-2.0
 keywords:
@@ -29,4 +29,4 @@ keywords:
   - post-hoc audit
   - W3C PROV-O
 repository-code: "https://decisiontrace.org/reconstructor"
-url: "https://decisiontrace.org/reconstructor/v0.1.0"
+url: "https://decisiontrace.org/reconstructor/v0.1.1"
