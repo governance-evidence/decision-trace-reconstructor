@@ -18,7 +18,17 @@ authors:
     orcid: "https://orcid.org/0009-0009-0105-7459"
 version: 0.1.1
 date-released: 2026-05-27
-doi: 10.5281/zenodo.19851574
+doi: 10.5281/zenodo.19851573
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.19851573
+    description: "Concept DOI (latest version, auto-tracks)"
+  - type: doi
+    value: 10.5281/zenodo.20409680
+    description: "DOI of v0.1.1 snapshot"
+  - type: doi
+    value: 10.5281/zenodo.19851574
+    description: "DOI of v0.1.0 snapshot"
 license: Apache-2.0
 keywords:
   - governance evidence

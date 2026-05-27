@@ -1,8 +1,8 @@
 {
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
-  "@id": "https://doi.org/10.5281/zenodo.19851574",
-  "identifier": "10.5281/zenodo.19851574",
+  "@id": "https://doi.org/10.5281/zenodo.20409680",
+  "identifier": "10.5281/zenodo.20409680",
   "name": "Decision Trace Reconstructor",
   "description": "Post-hoc reconstruction of multi-step decision chains from fragmentary evidence, with decision-event schema mapping and authorization-envelope substitution for ML-opaque steps. Reference implementation of the Decision Evidence Maturity Model (DEMM) property-level reconstructability assessment.",
   "version": "0.1.1",
@@ -14,7 +14,7 @@
   "developmentStatus": "active",
   "isAccessibleForFree": true,
   "url": "https://decisiontrace.org/reconstructor/v0.1.1",
-  "sameAs": "https://doi.org/10.5281/zenodo.19851574",
+  "sameAs": "https://doi.org/10.5281/zenodo.20409680",
   "codeRepository": "https://decisiontrace.org/reconstructor",
   "keywords": [
     "governance evidence",
