@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime
 from typing import Any
 
 from ...core.fragment import StackTier
+from .._time import to_epoch_seconds
 
 _SKIPPED_METHODS = {
     "initialized",
@@ -33,17 +33,4 @@ class McpIngestOptions:
 
 
 def _to_epoch_seconds(value: Any) -> float:
-    if value in (None, ""):
-        return 0.0
-    if isinstance(value, (int, float)):
-        return float(value)
-    if isinstance(value, datetime):
-        return value.timestamp()
-    if isinstance(value, str):
-        stripped = value.strip()
-        if not stripped:
-            return 0.0
-        if stripped.isdigit():
-            return float(stripped)
-        return datetime.fromisoformat(stripped.replace("Z", "+00:00")).timestamp()
-    raise TypeError(f"Unsupported timestamp type: {type(value)!r}")
+    return to_epoch_seconds(value)

@@ -5,7 +5,7 @@
   "identifier": "10.5281/zenodo.20409680",
   "name": "Decision Trace Reconstructor",
   "description": "Post-hoc reconstruction of multi-step decision chains from fragmentary evidence, with decision-event schema mapping and authorization-envelope substitution for ML-opaque steps. Reference implementation of the Decision Evidence Maturity Model (DEMM) property-level reconstructability assessment.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "datePublished": "2026-05-27",
   "license": "https://spdx.org/licenses/Apache-2.0",
   "programmingLanguage": "Python",
@@ -13,7 +13,7 @@
   "applicationCategory": "Scientific software",
   "developmentStatus": "active",
   "isAccessibleForFree": true,
-  "url": "https://decisiontrace.org/reconstructor/v0.1.1",
+  "url": "https://decisiontrace.org/reconstructor/v0.1.2",
   "sameAs": "https://doi.org/10.5281/zenodo.20409680",
   "codeRepository": "https://decisiontrace.org/reconstructor",
   "keywords": [

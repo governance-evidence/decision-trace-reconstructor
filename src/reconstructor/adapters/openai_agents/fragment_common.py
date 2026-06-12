@@ -2,13 +2,12 @@
 
 from __future__ import annotations
 
-import hashlib
-import json
 import re
 from dataclasses import dataclass
 from typing import Any
 
 from ...core.fragment import Fragment, FragmentKind, StackTier
+from .._payloads import content_field
 from .common import OpenAIAgentsIngestOptions
 
 
@@ -139,13 +138,7 @@ def _actor_id(
 
 
 def _content_field(content: Any, preserve_raw: bool) -> Any:
-    if content is None:
-        return None
-    if preserve_raw:
-        return content
-    encoded = content if isinstance(content, str) else json.dumps(content, sort_keys=True)
-    digest = hashlib.sha256(encoded.encode("utf-8")).hexdigest()
-    return {"sha256": digest, "length": len(encoded)}
+    return content_field(content, preserve_raw)
 
 
 def _reasoning_summary(span_data: dict[str, Any]) -> str | None:

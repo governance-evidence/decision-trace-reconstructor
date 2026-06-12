@@ -4,6 +4,23 @@ All notable changes to the Decision Trace Reconstructor are documented here. For
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-06-12
+
+### Added
+
+- Vendored OEP contract example (`examples/oep_code_review_agent/`) pinning the generic-jsonl mapping, JSONL projection, and expected feasibility report from the Operational Evidence Plane integration, with `tests/integration/test_example_oep_code_review.py` replaying the ingest-and-reconstruct path so a breaking change to the mapping parser or feasibility shape fails in this repository's CI rather than only downstream.
+- CI job that installs `.[all,dev]` and runs the test suite with every optional adapter importable, so adapter dependency breakage is caught in this repository.
+- Dependabot configuration for pip dependencies and GitHub Actions.
+- CI concurrency group cancelling superseded pull-request runs.
+
+### Changed
+
+- Consolidated the duplicated adapter timestamp coercion helpers into `reconstructor.adapters._time` (plain, millisecond-heuristic, and lenient float-string variants) and the duplicated hashed content-field summary into `reconstructor.adapters._payloads`. Adapter behavior is unchanged: the pinned worked-example outputs remain byte-identical, and the LangSmith and OTLP variants keep their intentionally different semantics.
+
+### Fixed
+
+- `reconstructor.__version__` now matches the released package version; `decision-trace --version` had continued to report 0.1.0 after the v0.1.1 release.
+
 ## [0.1.1] - 2026-05-27
 
 ### Fixed

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "decision-trace-reconstructor"
-version = "0.1.1"
+version = "0.1.2"
 requires-python = ">=3.11,<4"
 description = "Audit agent decisions after the fact by turning raw traces into per-property reconstructability reports that identify evidenced, missing, and opaque decision facts."
 readme = "README.md"

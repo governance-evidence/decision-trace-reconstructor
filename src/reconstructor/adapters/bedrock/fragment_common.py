@@ -2,11 +2,10 @@
 
 from __future__ import annotations
 
-import hashlib
-import json
 from typing import Any
 
 from ...core.fragment import Fragment, FragmentKind, StackTier
+from .._payloads import content_field
 
 
 def _fragment(
@@ -41,10 +40,4 @@ def _fragment_id(session_id: str, suffix: str, timestamp: float | None = None) -
 
 
 def _content_field(content: Any, store_content: bool) -> Any:
-    if content is None:
-        return None
-    if store_content:
-        return content
-    encoded = content if isinstance(content, str) else json.dumps(content, sort_keys=True)
-    digest = hashlib.sha256(encoded.encode("utf-8")).hexdigest()
-    return {"sha256": digest, "length": len(encoded)}
+    return content_field(content, store_content)

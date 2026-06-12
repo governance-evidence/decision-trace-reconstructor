@@ -4,10 +4,10 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
-from datetime import datetime
 from typing import Any
 
 from ...core.fragment import StackTier
+from .._time import to_epoch_seconds_lenient
 
 
 @dataclass(frozen=True)
@@ -28,19 +28,4 @@ def _matches(value: Any, pattern: str | None) -> bool:
 
 
 def _to_epoch_seconds(value: Any) -> float:
-    if value is None:
-        return 0.0
-    if isinstance(value, (int, float)):
-        return float(value)
-    if isinstance(value, str):
-        text = value.strip()
-        if not text:
-            return 0.0
-        try:
-            return float(text)
-        except ValueError:
-            pass
-        if text.endswith("Z"):
-            text = text[:-1] + "+00:00"
-        return datetime.fromisoformat(text).timestamp()
-    raise TypeError(f"Unsupported Pydantic AI timestamp: {type(value)!r}")
+    return to_epoch_seconds_lenient(value, label="Pydantic AI")
