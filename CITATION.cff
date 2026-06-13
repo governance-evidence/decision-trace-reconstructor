@@ -24,6 +24,9 @@ identifiers:
     value: 10.5281/zenodo.19851573
     description: "Concept DOI (latest version, auto-tracks)"
   - type: doi
+    value: 10.5281/zenodo.20673396
+    description: "DOI of v0.1.2 snapshot"
+  - type: doi
     value: 10.5281/zenodo.20409680
     description: "DOI of v0.1.1 snapshot"
   - type: doi
