@@ -4,6 +4,10 @@ All notable changes to the Decision Trace Reconstructor are documented here. For
 
 ## [Unreleased]
 
+### Added
+
+- Release workflow publishing to PyPI via trusted publishing, triggered by tag pushes and by manual dispatch (used once to publish the existing v0.1.2 line).
+
 ## [0.1.2] - 2026-06-12
 
 ### Added
