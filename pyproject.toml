@@ -44,7 +44,7 @@ agentframework = [
   "autogen-core>=0.4,<2"
 ]
 pydantic-ai = [
-  "pydantic-ai>=0.2,<2"
+  "pydantic-ai>=0.2,<3"
 ]
 parquet = [
   "pyarrow>=15,<25"
@@ -85,7 +85,7 @@ all = [
   "openai>=2,<3",
   "openai-agents>=0.14,<1",
   "opentelemetry-proto>=1.27,<2",
-  "pydantic-ai>=0.2,<2",
+  "pydantic-ai>=0.2,<3",
   "pyarrow>=15,<25",
   "rdflib>=7,<8"
 ]
@@ -103,7 +103,7 @@ dev = [
   "openai-agents>=0.14,<1",
   "opentelemetry-proto>=1.27,<2",
   "pre-commit>=3,<5",
-  "pydantic-ai>=0.2,<2",
+  "pydantic-ai>=0.2,<3",
   "pytest>=7,<10",
   "pytest-cov>=4,<8",
   "rdflib>=7,<8",
