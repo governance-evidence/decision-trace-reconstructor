@@ -47,7 +47,7 @@ pydantic-ai = [
   "pydantic-ai>=0.2,<2"
 ]
 parquet = [
-  "pyarrow>=15,<25"
+  "pyarrow>=15,<26"
 ]
 prov = [
   "rdflib>=7,<8"
@@ -86,7 +86,7 @@ all = [
   "openai-agents>=0.14,<1",
   "opentelemetry-proto>=1.27,<2",
   "pydantic-ai>=0.2,<2",
-  "pyarrow>=15,<25",
+  "pyarrow>=15,<26",
   "rdflib>=7,<8"
 ]
 dev = [
