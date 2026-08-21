@@ -68,7 +68,7 @@ bedrock = [
   "boto3>=1.40,<2"
 ]
 openai-agents = [
-  "openai>=2,<3",
+  "openai>=2,<4",
   "openai-agents>=0.14,<1"
 ]
 otlp = [
@@ -82,7 +82,7 @@ all = [
   "crewai>=0.40,<2; python_version < '3.14'",
   "langsmith>=0.7,<2",
   "mcp>=1.5,<2",
-  "openai>=2,<3",
+  "openai>=2,<4",
   "openai-agents>=0.14,<1",
   "opentelemetry-proto>=1.27,<2",
   "pydantic-ai>=0.2,<2",
@@ -99,7 +99,7 @@ dev = [
   "langsmith>=0.7,<2",
   "mcp>=1.5,<2",
   "mypy>=1.8,<2",
-  "openai>=2,<3",
+  "openai>=2,<4",
   "openai-agents>=0.14,<1",
   "opentelemetry-proto>=1.27,<2",
   "pre-commit>=3,<5",
