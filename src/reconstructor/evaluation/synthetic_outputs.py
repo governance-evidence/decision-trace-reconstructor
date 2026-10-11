@@ -91,8 +91,8 @@ def _maybe_write_parquet(path: Path, rows: list[dict[str, Any]]) -> None:
     if not rows:
         return
     try:
-        import pyarrow as pa  # type: ignore[import-not-found,unused-ignore]
-        import pyarrow.parquet as pq  # type: ignore[import-not-found,unused-ignore]
+        import pyarrow as pa  # type: ignore[import-not-found,import-untyped,unused-ignore]
+        import pyarrow.parquet as pq  # type: ignore[import-not-found,import-untyped,unused-ignore]
     except ImportError:
         return
     from_pylist = cast(Callable[[list[dict[str, Any]]], Any], pa.Table.from_pylist)
