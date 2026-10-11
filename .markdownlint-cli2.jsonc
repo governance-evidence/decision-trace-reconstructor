@@ -3,7 +3,8 @@
     "README.md",
     "CHANGELOG.md",
     "docs/**/*.md",
-    "examples/**/*.md"
+    "examples/**/*.md",
+    "huggingface/**/*.md"
   ],
   "config": {
     "MD013": false,

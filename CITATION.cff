@@ -1,10 +1,9 @@
 cff-version: 1.2.0
 message: >-
   If you use the Decision Trace Reconstructor in academic work, please
-  cite the exact version used. Version 0.2.0 is prepared for release;
-  its publication date and version DOI will be recorded after publication.
-  References identify published predecessors, not this version or the
-  separate live-model replication study.
+  cite the exact version used. The DOI below identifies the v0.2.0 software
+  release. References identify published predecessors. The separate live-model
+  replication study requires its own citation and data deposit.
 type: software
 title: "Decision Trace Reconstructor"
 abstract: >-
@@ -18,6 +17,8 @@ authors:
     given-names: Oleg
     orcid: "https://orcid.org/0009-0009-0105-7459"
 version: 0.2.0
+doi: "10.5281/zenodo.23297502"
+date-released: "2026-10-11"
 references:
   - type: software
     title: "Decision Trace Reconstructor"

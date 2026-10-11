@@ -113,6 +113,15 @@ def test_build_selects_current_distributions_and_preserves_frozen_inputs(tmp_pat
     )
     metadata = json.loads((output / "zenodo-metadata-draft.json").read_text())
     assert metadata["title"].startswith("Decision Trace Reconstructor:")
+    assert metadata["study_doi"] is None
+    assert record["study_doi"] is None
+    assert metadata["new_software_version_doi"] == record["related_software_version_doi"]
+    assert record["related_software_version_doi"] == "10.5281/zenodo.23297502"
+    assert (output / "ZENODO_TITLE.txt").read_text() == metadata["title"] + "\n"
+    assert (output / "ZENODO_DESCRIPTION.md").read_text() == metadata["description"] + "\n"
+    citation = (output / "CITATION.cff").read_text()
+    assert "\ndoi:" not in citation
+    assert '    doi: "10.5281/zenodo.23297502"' in citation
     for name in ("CITATION.cff", "zenodo-metadata-draft.json", "reproduce.py"):
         assert "paper23" not in (output / name).read_text().lower()
     for path in distributions.iterdir():

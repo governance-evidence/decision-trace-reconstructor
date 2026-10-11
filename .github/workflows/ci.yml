@@ -124,6 +124,7 @@ jobs:
             CHANGELOG.md
             docs/**/*.md
             examples/**/*.md
+            huggingface/**/*.md
 
   metadata:
     name: Metadata validation

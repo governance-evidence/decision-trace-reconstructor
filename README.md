@@ -1,6 +1,6 @@
 # Decision Trace Reconstructor
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19851574.svg)](https://doi.org/10.5281/zenodo.19851574)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23297502.svg)](https://doi.org/10.5281/zenodo.23297502)
 
 **Decision Trace Reconstructor makes agent decisions auditable after the fact: it shows whether the available traces are enough to reconstruct what happened, and names every missing or opaque decision fact.**
 
@@ -85,7 +85,7 @@ Worked examples live under `examples/<adapter>_basic_agent/` and are pinned by i
 ## Citation
 
 `CITATION.cff`, `codemeta.json`, and `ro-crate-metadata.json` ship with the package.
-Version `v0.1.0` is archived on Zenodo at <https://doi.org/10.5281/zenodo.19851574>. That deposit identifies the original fixture evaluation, including the retained `results/` files. Version `0.2.0` is prepared for release; its version DOI will be recorded after archival publication. The later live-model study requires a separate replication deposit and must not be cited as part of v0.1.0.
+Version `v0.1.0` is archived on Zenodo at <https://doi.org/10.5281/zenodo.19851574>. That deposit identifies the original fixture evaluation, including the retained `results/` files. Version `v0.2.0` was published on 11 October 2026 and is archived at <https://doi.org/10.5281/zenodo.23297502>. It contains the typed-contract implementation and replay tools. The later live-model packets, frozen assessments and replay results require a separate replication deposit; neither software DOI identifies that study dataset.
 
 ## License
 

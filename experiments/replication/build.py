@@ -12,6 +12,15 @@ from pathlib import Path
 from .reproduce import sha, write
 
 REPO = Path(__file__).resolve().parents[2]
+SOFTWARE_DOI = "10.5281/zenodo.23297502"
+TITLE = "Decision Trace Reconstructor: frozen V5 assessments and typed evidence replay"
+DESCRIPTION = """This replication dataset accompanies Decision Trace Reconstructor (DTR) v0.2.0, published separately at https://doi.org/10.5281/zenodo.23297502. It contains 36 GPT-4.1-mini sandbox trajectories represented by 72 paired full and reduced evidence packets. The tasks cover refunds, procurement and configuration changes across three agent architectures and two deployment arrangements.
+
+The archive preserves the frozen V5 assessments produced with Claude Sonnet 4.6, raw model responses, evidence packets, protocols, original scores, failed predecessor runs and the pinned DTR v0.1.0 instrument. It also contains the typed evidence contract, the retrospective replay of all 72 packets, ten assessor calibration controls, twenty authored contract cases and supporting Operational Evidence Plane compatibility material. The original synthetic evaluation results remain unchanged.
+
+A portable reproduction command checks the file inventory, validates the retained assessments, reproduces the original and updated results for 432 property rows, and compares the control and contract-case outcomes with the saved outputs. Reproduction requires no model calls, credentials or paid API access. Pinned dependencies and an offline wheelhouse are included for CPython 3.14 on macOS arm64; other platforms are not claimed as verified. The source snapshot and locally rebuilt software distributions include post-release citation and packaging updates and are identified by file hashes.
+
+V5 is a model-assisted reference without independent human adjudication. The contract cases are development conformance checks, not a held-out validation set. Paired packets and property rows are dependent, and the typed contract requires evidence bindings absent from many older packets. The results support retrospective agreement analysis and contract conformance, not independent validation or general performance superiority."""
 SECRET = re.compile(
     rb"(?:sk-or-v1-[A-Za-z0-9]{20,}|sk-proj-[A-Za-z0-9_-]{20,}|gh[pousr]_[A-Za-z0-9]{20,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----)"
 )
@@ -95,25 +104,31 @@ def build(output, preservation, wheelhouse, distributions):
         "if __name__ == '__main__':\n    main()\n"
     )
     (output / "CITATION.cff").write_text(
-        'cff-version: 1.2.0\nmessage: "Unpublished deposit candidate; no DOI or publication date assigned. Cite the exact published version after deposit. Historical software citations are in software-metadata/."\n'
-        'type: dataset\ntitle: "Decision Trace Reconstructor: frozen V5 assessments, typed evidence contract and retrospective replay"\n'
+        'cff-version: 1.2.0\nmessage: "Cite this dataset using the DOI assigned by the hosting repository. The reference DOI identifies the software dependency, not this dataset."\n'
+        f'type: dataset\ntitle: "{TITLE}"\n'
         'version: "1.0.0"\nlicense: Apache-2.0\n'
         "authors:\n  - family-names: Solozobov\n    given-names: Oleg\n"
         '    orcid: "https://orcid.org/0009-0009-0105-7459"\n'
+        'references:\n  - type: software\n    title: "Decision Trace Reconstructor"\n'
+        f'    version: "0.2.0"\n    doi: "{SOFTWARE_DOI}"\n'
+        "    authors:\n      - family-names: Solozobov\n        given-names: Oleg\n",
+        encoding="utf-8",
     )
+    (output / "ZENODO_TITLE.txt").write_text(TITLE + "\n", encoding="utf-8")
+    (output / "ZENODO_DESCRIPTION.md").write_text(DESCRIPTION + "\n", encoding="utf-8")
     write(
         output / "zenodo-metadata-draft.json",
         {
             "status": "local preparation; not an API request; not published",
-            "title": "Decision Trace Reconstructor: frozen V5 assessments, typed evidence contract and retrospective replay",
+            "title": TITLE,
             "version": "1.0.0",
             "resource_type": "dataset",
             "license": "Apache-2.0",
             "creators": [{"name": "Solozobov, Oleg", "orcid": "0009-0009-0105-7459"}],
-            "description": "36 sandbox trajectories, 72 retained full/reduced packets, frozen model-assisted V5 assessments, ten assessor controls, twenty authored contract cases, historical instruments and an offline replay. Retrospective agreement and development conformance, not independent validation. Failed predecessor runs are retained. DTR 0.2.0 code is an unpublished local preparation.",
+            "description": DESCRIPTION,
             "related_software_concept_doi": "10.5281/zenodo.19851573",
             "historical_instrument_version_doi": "10.5281/zenodo.19851574",
-            "new_software_version_doi": None,
+            "new_software_version_doi": SOFTWARE_DOI,
             "study_doi": None,
         },
     )
@@ -134,6 +149,9 @@ def build(output, preservation, wheelhouse, distributions):
             "version": "1.0.0",
             "publication_status": "unpublished",
             "dtr_prepared_version": "0.2.0",
+            "related_software_version_doi": SOFTWARE_DOI,
+            "study_doi": None,
+            "software_distributions_origin": "local rebuild with post-release citation and packaging updates; not the published software archive",
             "source_head_before_preparation": frozen["head"],
             "source_identity": "working source bytes identified by this inventory; not a committed release",
             "historical_files": frozen["files"],

@@ -1,6 +1,6 @@
 # Decision evidence replication study
 
-Local deposit candidate, version 1.0.0. No DOI or publication date has been assigned. The included DTR 0.2.0 source is an unpublished release preparation. Publication is a separate author action.
+Study deposit candidate, version 1.0.0. No study DOI or publication date has been assigned. DTR v0.2.0 software was published on 11 October 2026 at <https://doi.org/10.5281/zenodo.23297502>; that software archive does not contain the frozen study dataset. Earlier local candidates retain their original pre-publication metadata and exact source inventories. Publishing the study is a separate author action.
 
 ## Reproduce from a clean unpack
 
@@ -39,11 +39,13 @@ The root `results/` directory is separately preserved v0.1.0 synthetic-fixture e
 
 ## Contents and licensing
 
-`src/`, `experiments/`, `tests/`, documentation and examples form the executable source snapshot. `software-metadata/` retains the software citation and metadata separately from the study's root `CITATION.cff`. `replication-manifest.json` identifies every file and the pre-preparation source commit; the delivered working source is identified by its file hashes, not falsely attributed to that commit. `SHA256SUMS` also covers the manifest. `zenodo-metadata-draft.json` is descriptive draft metadata, not a submitted API payload.
+`src/`, `experiments/`, `tests/`, documentation and examples form the executable source snapshot. `software-metadata/` retains the software citation and metadata separately from the study's root `CITATION.cff`. `replication-manifest.json` identifies every file, the historical preservation-baseline commit and the related software DOI; the delivered working source is identified by its file hashes, not falsely attributed to that commit. `SHA256SUMS` also covers the manifest. `zenodo-metadata-draft.json` is descriptive draft metadata, not a submitted API payload. `ZENODO_TITLE.txt` and `ZENODO_DESCRIPTION.md` provide the corresponding upload-form text. The root dataset citation references DTR v0.2.0 as software; the software DOI is never assigned to the dataset.
 
 Code and authored study material use the repository's Apache-2.0 license. Preserve existing notices and attribution for any third-party material in historical artifacts. Model responses are retained as experimental observations; they do not establish the truth of their assertions. The data concern fictitious author-operated sandbox actions. No API credential is needed or bundled.
 
 ## Maintainer assembly
+
+The separate [Hugging Face mirror procedure](huggingface-replication.md) prepares a data-only view from the exact archived ZIP. Its canonical card and archive pin live in `huggingface/`. The HF preparation does not modify this archive, V5 or previous candidates.
 
 From the DTR checkout, supply the pre-edit preservation inventory, a prepared dependency wheelhouse and the verified software distributions from the same source preparation:
 
@@ -59,4 +61,4 @@ Assembly refuses overwritten destinations, changed historical files, symlinks an
 
 The software wheel packages `reconstructor`; experiment runners ship in the source distribution and this replication package. Study data are deliberately excluded from the software distributions. Publishing a software wheel alone cannot deliver this study.
 
-`software-distributions/` contains the locally built DTR 0.2.0 wheel and source distribution. `compatibility/oep/` retains the relevant OEP integration files, separate historical/current expectations and verification evidence. It is an integration excerpt, not a full OEP release. Its source inventory records provenance and file hashes.
+`software-distributions/` contains a locally rebuilt DTR 0.2.0 wheel and source distribution with post-release citation and packaging updates. These files have their own checksums and are not claimed to be the exact bytes of the published software archive. Runtime code and frozen instruments remain unchanged. `compatibility/oep/` retains the relevant OEP integration files, separate historical/current expectations and verification evidence. It is an integration excerpt, not a full OEP release. Its source inventory records provenance and file hashes.

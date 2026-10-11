@@ -1,0 +1,17 @@
+{
+  "dataset_id": "dev404ai/dtr-replication",
+  "version": "1.0.0",
+  "dataset_doi": null,
+  "software_doi": "10.5281/zenodo.23297502",
+  "archive_name": "dtr-replication-1.0.0.zip",
+  "archive_root": "dtr-replication-1.0.0",
+  "archive_sha256": "31bd9577bbd6d44c7fb8ae6899d8b2574fa49d262f75864b75c0b5ac6427e96d",
+  "populations": {
+    "trajectories": 36,
+    "packets": 72,
+    "v5_properties": 432,
+    "replay_properties": 432,
+    "controls": 10,
+    "contract_cases": 20
+  }
+}

@@ -62,5 +62,7 @@
       "description": "Optional PROV-O JSON-LD validation in tests"
     }
   ],
-  "releaseNotes": "Version 0.2.0 is prepared for release: separate structural coverage from typed decision evidence and add offline replication tooling. See docs/releases/0.2.0.md and CHANGELOG.md. Publication date and version DOI remain unassigned."
+  "releaseNotes": "Version 0.2.0 separates structural coverage from typed decision evidence and adds offline replication tooling. Published 11 October 2026; software DOI 10.5281/zenodo.23297502. See docs/releases/0.2.0.md and CHANGELOG.md. Frozen study data require a separate deposit.",
+  "identifier": "https://doi.org/10.5281/zenodo.23297502",
+  "datePublished": "2026-10-11"
 }

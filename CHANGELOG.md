@@ -4,7 +4,7 @@ All notable changes to the Decision Trace Reconstructor are documented here. For
 
 ## [Unreleased]
 
-## [0.2.0] - Unreleased
+## [0.2.0] - 2026-10-11
 
 ### Changed
 
@@ -31,7 +31,7 @@ All notable changes to the Decision Trace Reconstructor are documented here. For
 
 ### Notes
 
-- Version 0.2.0 is prepared for release. Its tag, publication date and version DOI remain unassigned until publication.
+- Version 0.2.0 is archived at <https://doi.org/10.5281/zenodo.23297502>. The separate study-data deposit remains pending.
 - Public API and DTR assessment/output contracts changed; the external Decision Event Schema was not changed.
 
 ## [0.1.2] - 2026-06-12

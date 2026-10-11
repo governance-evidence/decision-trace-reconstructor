@@ -13,6 +13,7 @@ graft results
 graft scripts
 graft tests
 graft experiments
+graft huggingface
 
 prune study-data
 

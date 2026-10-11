@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "Cite the exact dataset revision and its archival DOI when assigned. The reference DOI identifies the software dependency, not this dataset."
+type: dataset
+title: "Decision Trace Reconstructor: frozen V5 assessments and typed evidence replay"
+version: "1.0.0"
+license: Apache-2.0
+authors:
+  - family-names: Solozobov
+    given-names: Oleg
+    orcid: "https://orcid.org/0009-0009-0105-7459"
+references:
+  - type: software
+    title: "Decision Trace Reconstructor"
+    version: "0.2.0"
+    doi: "10.5281/zenodo.23297502"
+    authors:
+      - family-names: Solozobov
+        given-names: Oleg

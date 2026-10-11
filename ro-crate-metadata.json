@@ -78,7 +78,9 @@
           "@id": "experiments/"
         }
       ],
-      "creativeWorkStatus": "Unreleased"
+      "creativeWorkStatus": "Published",
+      "identifier": "https://doi.org/10.5281/zenodo.23297502",
+      "datePublished": "2026-10-11"
     },
     {
       "@id": "https://orcid.org/0009-0009-0105-7459",
