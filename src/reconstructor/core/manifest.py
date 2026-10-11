@@ -24,9 +24,12 @@ class FragmentManifest:
     architecture: Architecture
     stack_tier: StackTier
     fragments: list[Fragment]
+    evidence_contract: str = "fragment-coverage-v2"
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "architecture", coerce_architecture(self.architecture))
+        if self.evidence_contract not in {"fragment-coverage-v2", "decision-evidence-v1"}:
+            raise ValueError(f"unknown evidence contract: {self.evidence_contract}")
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> FragmentManifest:
@@ -37,6 +40,7 @@ class FragmentManifest:
             architecture=coerce_architecture(data["architecture"]),
             stack_tier=StackTier(data["stack_tier"]),
             fragments=[Fragment.from_dict(fragment) for fragment in data["fragments"]],
+            evidence_contract=data.get("evidence_contract", "fragment-coverage-v2"),
         )
 
     @classmethod
@@ -46,12 +50,16 @@ class FragmentManifest:
 
     def to_dict(self) -> dict[str, Any]:
         """Serialise to the stable JSON wire shape."""
-        return {
+        result = {
             "scenario_id": self.scenario_id,
             "architecture": self.architecture.value,
             "stack_tier": self.stack_tier.value,
             "fragments": [fragment.to_dict() for fragment in self.fragments],
         }
+
+        if self.evidence_contract != "fragment-coverage-v2":
+            result["evidence_contract"] = self.evidence_contract
+        return result
 
     def to_json(self, *, indent: int = 2) -> str:
         return json.dumps(self.to_dict(), indent=indent) + "\n"

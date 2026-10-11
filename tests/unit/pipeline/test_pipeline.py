@@ -81,7 +81,7 @@ def test_detect_boundaries_policy_trigger_only_when_constraint_active() -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_replit_incident_yields_expected_dominant_break() -> None:
+def test_replit_incident_missing_fields_do_not_prove_a_causal_break() -> None:
     sc = replit_drop_database()
     report = reconstruct(
         fragments=sc.fragments,
@@ -89,16 +89,15 @@ def test_replit_incident_yields_expected_dominant_break() -> None:
         stack_tier=sc.stack_tier,
         chain_id=sc.scenario_id,
     )
-    assert report.dominant_break() is not None
-    assert report.dominant_break().value == "evidence_fragmentation"
+    assert report.dominant_break() is None
 
 
 def test_named_incidents_have_consistent_completeness() -> None:
     """All three single_agent x cross_stack incidents should reconstruct
     to the same per-property profile.
 
-    We don't pin the exact completeness float (4/7 from 2 fully + 1 opaque +
-    2 partial * 0.5); instead we pin the qualitative invariants below.
+    Current structural coverage no longer applies the archived release's
+    topology penalties; the historical study uses its separately pinned code.
     """
     for sc in (
         replit_drop_database(),
@@ -111,8 +110,8 @@ def test_named_incidents_have_consistent_completeness() -> None:
             stack_tier=sc.stack_tier,
             chain_id=sc.scenario_id,
         )
-        # Single-agent cross-stack -> dominant break is evidence_fragmentation.
-        assert r.dominant_break().value == "evidence_fragmentation"
+        # A service boundary does not by itself establish an evidence channel gap.
+        assert r.dominant_break() is None
         # Reasoning trace must be opaque (substituted by authorization envelope).
         agg = map_chain_to_schema_aggregate(r.chain, sc.architecture, sc.stack_tier)
         rt = next(f for f in agg if f.property_name == "reasoning_trace")
@@ -173,14 +172,14 @@ def test_unrecoverable_mode_is_none_for_filled_property() -> None:
     assert unrecoverable_mode_for_property(feas, "single_agent", StackTier.WITHIN_STACK) is None
 
 
-def test_unrecoverable_mode_cross_stack_is_channel_gap() -> None:
+def test_unrecoverable_mode_is_not_inferred_from_cross_stack() -> None:
     feas = PropertyFeasibility(
         property_name="inputs",
         category=FeasibilityCategory.STRUCTURALLY_UNFILLABLE,
         value=None,
     )
     mode = unrecoverable_mode_for_property(feas, "single_agent", StackTier.CROSS_STACK)
-    assert mode is OperationalMode.MODE_3_CHANNEL_GAP
+    assert mode is None
 
 
 def test_decision_chain_metrics() -> None:

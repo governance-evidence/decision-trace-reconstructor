@@ -54,3 +54,6 @@ examples/*/out/
 # Local-only, not part of the artifact
 TODO.local
 NOTES.local
+
+# Local study evidence remains private until an explicit deposit decision.
+study-data/

@@ -5,8 +5,8 @@
   "fragments": 6,
   "units_detected": 2,
   "completeness_pct": 85.7,
-  "dominant_mode": 2,
-  "dominant_break": "decision_diffusion",
+  "dominant_mode": null,
+  "dominant_break": null,
   "feasibility_counts": {
     "fully_fillable": 6,
     "partially_fillable": 0,

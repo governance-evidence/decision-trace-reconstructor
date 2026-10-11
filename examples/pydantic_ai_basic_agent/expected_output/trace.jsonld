@@ -75,11 +75,12 @@
         "DecisionChain"
       ],
       "demm:scenarioId": "pydantic_ai_basic_agent_demo",
+      "demm:evidenceContract": "fragment-coverage-v2",
       "architecture": "single_agent",
       "stackTier": "within_stack",
       "completeness": 0.7143,
-      "dominantMode": 4,
-      "dominantBreak": "evidence_fragmentation",
+      "dominantMode": null,
+      "dominantBreak": null,
       "members": [
         "trace:pydantic_ai_basic_agent_demo#unit/unit_0000",
         "trace:pydantic_ai_basic_agent_demo#unit/unit_0001",

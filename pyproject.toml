@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "decision-trace-reconstructor"
-version = "0.1.2"
+version = "0.2.0"
 requires-python = ">=3.11,<4"
 description = "Audit agent decisions after the fact by turning raw traces into per-property reconstructability reports that identify evidenced, missing, and opaque decision facts."
 readme = "README.md"
@@ -34,9 +34,9 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://decisiontrace.org/reconstructor"
-Documentation = "https://decisiontrace.org/reconstructor/v0.1.0"
-Changelog = "https://decisiontrace.org/reconstructor/v0.1.0/changelog"
-DOI = "https://doi.org/10.5281/zenodo.19851574"
+Documentation = "https://github.com/governance-evidence/decision-trace-reconstructor/tree/main/docs"
+Changelog = "https://github.com/governance-evidence/decision-trace-reconstructor/blob/main/CHANGELOG.md"
+Repository = "https://github.com/governance-evidence/decision-trace-reconstructor"
 
 [project.optional-dependencies]
 agentframework = [
@@ -122,6 +122,9 @@ reconstructor = ["py.typed"]
 [tool.coverage.run]
 source = ["reconstructor"]
 branch = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
 
 [tool.coverage.report]
 fail_under = 90

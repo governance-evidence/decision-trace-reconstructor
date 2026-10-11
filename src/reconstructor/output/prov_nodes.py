@@ -96,6 +96,7 @@ def _chain_node(
         "@id": _chain_iri(sid),
         "@type": ["prov:Collection", "DecisionChain"],
         "demm:scenarioId": sid,
+        "demm:evidenceContract": report.evidence_contract,
         "architecture": scenario.architecture.value,
         "stackTier": scenario.stack_tier.value,
         "completeness": round(report.completeness, 4),

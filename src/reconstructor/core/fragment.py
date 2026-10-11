@@ -40,13 +40,36 @@ class StackTier(str, Enum):
     HUMAN = "human"
 
 
+class EvidenceVisibility(str, Enum):
+    """Visibility of this stored payload, independently of deployment topology."""
+
+    VISIBLE = "visible"
+    PARTIAL = "partial"
+    OPAQUE = "opaque"
+    UNKNOWN = "unknown"
+
+
+class ActorRole(str, Enum):
+    """Declared role of a record producer; unknown is not an AI agent."""
+
+    UNKNOWN = "unknown"
+    AGENT = "agent"
+    EXECUTOR = "executor"
+    OBSERVER = "observer"
+    HUMAN = "human"
+    PRINCIPAL = "principal"
+    REQUESTER = "requester"
+    SYSTEM = "system"
+
+
 @dataclass(frozen=True)
 class Fragment:
     """A single piece of evidence about an agent execution step.
 
     Each fragment has a stable identifier, a timestamp, a kind, and an
-    origin stack tier that determines whether it carries governance-grade
-    telemetry or is a cross-stack opaque observation.
+    origin stack tier describing topology only. Visibility and actor role are
+    separate declarations. Legacy payloads default to visible, meaning the stored
+    bytes can be read, not that they are complete, authentic or sufficient.
     """
 
     fragment_id: str
@@ -57,6 +80,18 @@ class Fragment:
     payload: dict[str, Any] = field(default_factory=dict)
     parent_trace_id: str | None = None
     decision_id_hint: str | None = None  # scenario-provided decision association
+
+    evidence_visibility: EvidenceVisibility = EvidenceVisibility.VISIBLE
+    actor_role: ActorRole = ActorRole.UNKNOWN
+    evidence_role: str | None = None
+
+    def __post_init__(self) -> None:
+        object.__setattr__(
+            self, "evidence_visibility", EvidenceVisibility(self.evidence_visibility)
+        )
+        object.__setattr__(self, "actor_role", ActorRole(self.actor_role))
+        if self.evidence_role is not None and not isinstance(self.evidence_role, str):
+            raise ValueError("evidence_role must be a string or null")
 
     def is_tool_call(self) -> bool:
         return self.kind == FragmentKind.TOOL_CALL
@@ -71,7 +106,7 @@ class Fragment:
 
     def to_dict(self) -> dict[str, Any]:
         """Serialise to a JSON-safe dict (round-trip-compatible with from_dict)."""
-        return {
+        result = {
             "fragment_id": self.fragment_id,
             "timestamp": self.timestamp,
             "kind": self.kind.value,
@@ -81,6 +116,14 @@ class Fragment:
             "parent_trace_id": self.parent_trace_id,
             "decision_id_hint": self.decision_id_hint,
         }
+
+        if self.evidence_visibility != EvidenceVisibility.VISIBLE:
+            result["evidence_visibility"] = self.evidence_visibility.value
+        if self.actor_role != ActorRole.UNKNOWN:
+            result["actor_role"] = self.actor_role.value
+        if self.evidence_role is not None:
+            result["evidence_role"] = self.evidence_role
+        return result
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> Fragment:
@@ -103,6 +146,9 @@ class Fragment:
             payload=dict(data.get("payload", {})),
             parent_trace_id=data.get("parent_trace_id"),
             decision_id_hint=data.get("decision_id_hint"),
+            evidence_visibility=EvidenceVisibility(data.get("evidence_visibility", "visible")),
+            actor_role=ActorRole(data.get("actor_role", "unknown")),
+            evidence_role=data.get("evidence_role"),
         )
 
 

@@ -75,11 +75,12 @@
         "DecisionChain"
       ],
       "demm:scenarioId": "agentframework_basic_agent_demo",
+      "demm:evidenceContract": "fragment-coverage-v2",
       "architecture": "multi_agent",
       "stackTier": "within_stack",
-      "completeness": 0.5,
-      "dominantMode": 6,
-      "dominantBreak": "decision_diffusion",
+      "completeness": 0.7143,
+      "dominantMode": null,
+      "dominantBreak": null,
       "members": [
         "trace:agentframework_basic_agent_demo#unit/unit_0000",
         "trace:agentframework_basic_agent_demo#unit/unit_0001",
@@ -99,16 +100,16 @@
           "@type": "PropertyFeasibility",
           "property": "schema:policy_basis",
           "category": "structurally_unfillable",
-          "gap": "policy invoked implicitly across agents (mode 6)",
+          "gap": "no policy_basis fragment in unit",
           "demm:confidence": 0.0
         },
         {
           "@id": "trace:agentframework_basic_agent_demo#chain/feas/operator_identity",
           "@type": "PropertyFeasibility",
           "property": "schema:operator_identity",
-          "category": "partially_fillable",
-          "gap": "4 distinct actors across chain -- no single operator identity (delegation, mode 5)",
-          "demm:confidence": 0.5
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
         },
         {
           "@id": "trace:agentframework_basic_agent_demo#chain/feas/authorization_envelope",
@@ -130,9 +131,9 @@
           "@id": "trace:agentframework_basic_agent_demo#chain/feas/output_action",
           "@type": "PropertyFeasibility",
           "property": "schema:output_action",
-          "category": "structurally_unfillable",
-          "gap": "decision diffused across 4 agents -- no single authoritative output (mode 1/5)",
-          "demm:confidence": 0.0
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
         },
         {
           "@id": "trace:agentframework_basic_agent_demo#chain/feas/post_condition_state",

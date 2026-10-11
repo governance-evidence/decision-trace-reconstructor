@@ -4,13 +4,13 @@
   "stack_tier": "within_stack",
   "fragments": 11,
   "units_detected": 3,
-  "completeness_pct": 64.3,
-  "dominant_mode": 6,
-  "dominant_break": "decision_diffusion",
+  "completeness_pct": 85.7,
+  "dominant_mode": null,
+  "dominant_break": null,
   "feasibility_counts": {
-    "fully_fillable": 3,
-    "partially_fillable": 1,
-    "structurally_unfillable": 2,
+    "fully_fillable": 5,
+    "partially_fillable": 0,
+    "structurally_unfillable": 1,
     "opaque": 1
   },
   "per_property": [
@@ -22,12 +22,12 @@
     {
       "property": "policy_basis",
       "category": "structurally_unfillable",
-      "gap": "policy invoked implicitly across agents (mode 6)"
+      "gap": "no policy_basis fragment in unit"
     },
     {
       "property": "operator_identity",
-      "category": "partially_fillable",
-      "gap": "4 distinct actors across chain -- no single operator identity (delegation, mode 5)"
+      "category": "fully_fillable",
+      "gap": null
     },
     {
       "property": "authorization_envelope",
@@ -41,8 +41,8 @@
     },
     {
       "property": "output_action",
-      "category": "structurally_unfillable",
-      "gap": "decision diffused across 4 agents -- no single authoritative output (mode 1/5)"
+      "category": "fully_fillable",
+      "gap": null
     },
     {
       "property": "post_condition_state",

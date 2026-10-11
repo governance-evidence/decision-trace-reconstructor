@@ -75,11 +75,12 @@
         "DecisionChain"
       ],
       "demm:scenarioId": "anthropic_basic_agent_demo",
+      "demm:evidenceContract": "fragment-coverage-v2",
       "architecture": "single_agent",
       "stackTier": "within_stack",
       "completeness": 0.8571,
-      "dominantMode": 4,
-      "dominantBreak": "evidence_fragmentation",
+      "dominantMode": null,
+      "dominantBreak": null,
       "members": [
         "trace:anthropic_basic_agent_demo#unit/unit_0000",
         "trace:anthropic_basic_agent_demo#unit/unit_0001",

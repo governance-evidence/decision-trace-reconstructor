@@ -4,20 +4,20 @@
   "stack_tier": "cross_stack",
   "fragments": 9,
   "units_detected": 5,
-  "completeness_pct": 57.1,
-  "dominant_mode": 3,
-  "dominant_break": "evidence_fragmentation",
+  "completeness_pct": 71.4,
+  "dominant_mode": null,
+  "dominant_break": null,
   "feasibility_counts": {
-    "fully_fillable": 2,
-    "partially_fillable": 2,
+    "fully_fillable": 4,
+    "partially_fillable": 0,
     "structurally_unfillable": 2,
     "opaque": 1
   },
   "per_property": [
     {
       "property": "inputs",
-      "category": "partially_fillable",
-      "gap": "cross-stack evidence partial"
+      "category": "fully_fillable",
+      "gap": null
     },
     {
       "property": "policy_basis",
@@ -46,8 +46,8 @@
     },
     {
       "property": "post_condition_state",
-      "category": "partially_fillable",
-      "gap": "cross-stack evidence partial"
+      "category": "fully_fillable",
+      "gap": null
     }
   ]
 }

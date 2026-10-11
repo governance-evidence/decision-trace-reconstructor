@@ -12,6 +12,9 @@ graft examples
 graft results
 graft scripts
 graft tests
+graft experiments
+
+prune study-data
 
 prune examples/*/out
 

@@ -1,0 +1,184 @@
+{
+  "architecture": "multi_agent",
+  "evidence_contract": "decision-evidence-v1",
+  "fragments": [
+    {
+      "actor_id": "system",
+      "actor_role": "system",
+      "decision_id_hint": "C06-positive",
+      "evidence_role": "configuration",
+      "evidence_visibility": "visible",
+      "fragment_id": "cfg",
+      "kind": "config_snapshot",
+      "parent_trace_id": null,
+      "payload": {
+        "human_gate": false,
+        "resource_scope": [
+          "service-blue"
+        ],
+        "tools": [
+          "set_flag"
+        ]
+      },
+      "stack_tier": "within_stack",
+      "timestamp": 1.0
+    },
+    {
+      "actor_id": "principal",
+      "actor_role": "principal",
+      "decision_id_hint": "C06-positive",
+      "evidence_role": "policy",
+      "evidence_visibility": "visible",
+      "fragment_id": "policy",
+      "kind": "policy_snapshot",
+      "parent_trace_id": null,
+      "payload": {
+        "text": "Set service-blue only under the delegated scope.",
+        "version": "policy-blue-3"
+      },
+      "stack_tier": "within_stack",
+      "timestamp": 2.0
+    },
+    {
+      "actor_id": "principal",
+      "actor_role": "principal",
+      "decision_id_hint": "C06-positive",
+      "evidence_role": "authority",
+      "evidence_visibility": "visible",
+      "fragment_id": "authority",
+      "kind": "agent_message",
+      "parent_trace_id": null,
+      "payload": {
+        "delegate": "executor",
+        "principal_id": "owner-blue",
+        "scope": {
+          "policy_version": "policy-blue-3",
+          "resources": [
+            "service-blue"
+          ],
+          "tools": [
+            "set_flag"
+          ]
+        }
+      },
+      "stack_tier": "within_stack",
+      "timestamp": 3.0
+    },
+    {
+      "actor_id": "requester",
+      "actor_role": "requester",
+      "decision_id_hint": "C06-positive",
+      "evidence_role": "prompt",
+      "evidence_visibility": "visible",
+      "fragment_id": "prompt",
+      "kind": "retrieval_result",
+      "parent_trace_id": null,
+      "payload": {
+        "message": "Set service-blue flag to true."
+      },
+      "stack_tier": "within_stack",
+      "timestamp": 4.0
+    },
+    {
+      "actor_id": "reader",
+      "actor_role": "observer",
+      "decision_id_hint": "C06-positive",
+      "evidence_role": "input_observation",
+      "evidence_visibility": "visible",
+      "fragment_id": "before",
+      "kind": "retrieval_result",
+      "parent_trace_id": null,
+      "payload": {
+        "actual_state": {
+          "flag": false,
+          "version": 3
+        },
+        "target": "service-blue"
+      },
+      "stack_tier": "within_stack",
+      "timestamp": 5.0
+    },
+    {
+      "actor_id": "planner",
+      "actor_role": "agent",
+      "decision_id_hint": "C06-positive",
+      "evidence_role": "model_output",
+      "evidence_visibility": "visible",
+      "fragment_id": "plan",
+      "kind": "model_generation",
+      "parent_trace_id": null,
+      "payload": {
+        "message": "Request the executor to set the flag."
+      },
+      "stack_tier": "within_stack",
+      "timestamp": 6.0
+    },
+    {
+      "actor_id": "executor",
+      "actor_role": "agent",
+      "decision_id_hint": "C06-positive",
+      "evidence_role": "tool_request",
+      "evidence_visibility": "visible",
+      "fragment_id": "action",
+      "kind": "tool_call",
+      "parent_trace_id": null,
+      "payload": {
+        "args": {
+          "flag": true,
+          "target": "service-blue"
+        },
+        "call_id": "call-blue",
+        "name": "set_flag",
+        "policy_version": "policy-blue-3"
+      },
+      "stack_tier": "within_stack",
+      "timestamp": 7.0
+    },
+    {
+      "actor_id": "service",
+      "actor_role": "executor",
+      "decision_id_hint": "C06-positive",
+      "evidence_role": "service_receipt",
+      "evidence_visibility": "visible",
+      "fragment_id": "receipt",
+      "kind": "state_mutation",
+      "parent_trace_id": null,
+      "payload": {
+        "actual_state": {
+          "flag": true,
+          "version": 4
+        },
+        "call_id": "call-blue",
+        "receipt_id": "receipt-blue",
+        "status": "committed",
+        "target": "service-blue"
+      },
+      "stack_tier": "within_stack",
+      "timestamp": 8.0
+    },
+    {
+      "actor_id": "verifier",
+      "actor_role": "observer",
+      "decision_id_hint": "C06-positive",
+      "evidence_role": "final_state_check",
+      "evidence_visibility": "visible",
+      "fragment_id": "final",
+      "kind": "state_mutation",
+      "parent_trace_id": null,
+      "payload": {
+        "actual_state": {
+          "flag": true,
+          "version": 4
+        },
+        "after_call_ids": [
+          "call-blue"
+        ],
+        "target": "service-blue"
+      },
+      "stack_tier": "within_stack",
+      "timestamp": 9.0
+    }
+  ],
+  "scenario_id": "C06-positive",
+  "stack_tier": "within_stack"
+}

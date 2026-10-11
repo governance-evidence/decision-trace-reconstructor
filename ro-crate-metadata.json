@@ -4,22 +4,36 @@
     {
       "@id": "ro-crate-metadata.json",
       "@type": "CreativeWork",
-      "conformsTo": {"@id": "https://w3id.org/ro/crate/1.1"},
-      "about": {"@id": "./"}
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      },
+      "about": {
+        "@id": "./"
+      }
     },
     {
       "@id": "./",
-      "@type": ["Dataset", "SoftwareSourceCode"],
-      "identifier": "10.5281/zenodo.19851574",
+      "@type": [
+        "Dataset",
+        "SoftwareSourceCode"
+      ],
       "name": "Decision Trace Reconstructor",
       "description": "Reference implementation of the Decision Evidence Maturity Model (DEMM) property-level reconstructability assessment. Post-hoc reconstruction of multi-step decision chains from fragmentary evidence with decision-event schema mapping and authorization-envelope substitution for ML-opaque steps.",
-      "version": "0.1.0",
-      "datePublished": "2026-04-28",
-      "license": {"@id": "https://spdx.org/licenses/Apache-2.0"},
-      "url": "https://decisiontrace.org/reconstructor/v0.1.0",
-      "sameAs": {"@id": "https://doi.org/10.5281/zenodo.19851574"},
-      "author": [{"@id": "https://orcid.org/0009-0009-0105-7459"}],
-      "publisher": [{"@id": "https://orcid.org/0009-0009-0105-7459"}],
+      "version": "0.2.0",
+      "license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "url": "https://github.com/governance-evidence/decision-trace-reconstructor",
+      "author": [
+        {
+          "@id": "https://orcid.org/0009-0009-0105-7459"
+        }
+      ],
+      "publisher": [
+        {
+          "@id": "https://orcid.org/0009-0009-0105-7459"
+        }
+      ],
       "keywords": [
         "governance evidence",
         "decision trace reconstruction",
@@ -30,17 +44,41 @@
         "W3C PROV-O"
       ],
       "hasPart": [
-        {"@id": "src/"},
-        {"@id": "tests/"},
-        {"@id": "scripts/"},
-        {"@id": "docs/schemas/"},
-        {"@id": "results/"},
-        {"@id": "README.md"},
-        {"@id": "LICENSE"},
-        {"@id": "pyproject.toml"},
-        {"@id": "CITATION.cff"},
-        {"@id": "codemeta.json"}
-      ]
+        {
+          "@id": "src/"
+        },
+        {
+          "@id": "tests/"
+        },
+        {
+          "@id": "scripts/"
+        },
+        {
+          "@id": "docs/schemas/"
+        },
+        {
+          "@id": "results/"
+        },
+        {
+          "@id": "README.md"
+        },
+        {
+          "@id": "LICENSE"
+        },
+        {
+          "@id": "pyproject.toml"
+        },
+        {
+          "@id": "CITATION.cff"
+        },
+        {
+          "@id": "codemeta.json"
+        },
+        {
+          "@id": "experiments/"
+        }
+      ],
+      "creativeWorkStatus": "Unpublished local release preparation"
     },
     {
       "@id": "https://orcid.org/0009-0009-0105-7459",
@@ -79,25 +117,47 @@
       "name": "JSON Schema",
       "description": "Draft 2020-12 JSON Schema documents for the four canonical result artifacts: cells, per_property, per_scenario, named_incidents.",
       "hasPart": [
-        {"@id": "docs/schemas/cells.schema.json"},
-        {"@id": "docs/schemas/per_property.schema.json"},
-        {"@id": "docs/schemas/per_scenario.schema.json"},
-        {"@id": "docs/schemas/named_incidents.schema.json"}
+        {
+          "@id": "docs/schemas/cells.schema.json"
+        },
+        {
+          "@id": "docs/schemas/per_property.schema.json"
+        },
+        {
+          "@id": "docs/schemas/per_scenario.schema.json"
+        },
+        {
+          "@id": "docs/schemas/named_incidents.schema.json"
+        }
       ]
     },
     {
       "@id": "results/",
       "@type": "Dataset",
       "name": "Evaluation results",
-      "description": "Canonical results from the 140-scenario evaluation matrix and named-incident reconstructions. Raw JSON is wire format; PROV-O JSON-LD siblings carry the same data as queryable RDF graphs.",
+      "description": "Preserved historical v0.1.0 results for 140 synthetic scenarios and named incidents. These are not regenerated v0.2.0 results. Original version DOI: 10.5281/zenodo.19851574.",
       "hasPart": [
-        {"@id": "results/cells.json"},
-        {"@id": "results/cells.jsonld"},
-        {"@id": "results/per_property.json"},
-        {"@id": "results/per_scenario.json"},
-        {"@id": "results/per_scenario.jsonld"},
-        {"@id": "results/named_incidents.json"},
-        {"@id": "results/named_incidents.jsonld"}
+        {
+          "@id": "results/cells.json"
+        },
+        {
+          "@id": "results/cells.jsonld"
+        },
+        {
+          "@id": "results/per_property.json"
+        },
+        {
+          "@id": "results/per_scenario.json"
+        },
+        {
+          "@id": "results/per_scenario.jsonld"
+        },
+        {
+          "@id": "results/named_incidents.json"
+        },
+        {
+          "@id": "results/named_incidents.jsonld"
+        }
       ]
     },
     {
@@ -105,7 +165,9 @@
       "@type": "File",
       "name": "Per-cell aggregate results",
       "encodingFormat": "application/json",
-      "conformsTo": {"@id": "docs/schemas/cells.schema.json"}
+      "conformsTo": {
+        "@id": "docs/schemas/cells.schema.json"
+      }
     },
     {
       "@id": "results/cells.jsonld",
@@ -118,14 +180,18 @@
       "@type": "File",
       "name": "Per-property feasibility distribution",
       "encodingFormat": "application/json",
-      "conformsTo": {"@id": "docs/schemas/per_property.schema.json"}
+      "conformsTo": {
+        "@id": "docs/schemas/per_property.schema.json"
+      }
     },
     {
       "@id": "results/per_scenario.json",
       "@type": "File",
       "name": "Per-scenario reconstruction summary",
       "encodingFormat": "application/json",
-      "conformsTo": {"@id": "docs/schemas/per_scenario.schema.json"}
+      "conformsTo": {
+        "@id": "docs/schemas/per_scenario.schema.json"
+      }
     },
     {
       "@id": "results/per_scenario.jsonld",
@@ -138,7 +204,9 @@
       "@type": "File",
       "name": "Named-incident reconstructions",
       "encodingFormat": "application/json",
-      "conformsTo": {"@id": "docs/schemas/named_incidents.schema.json"}
+      "conformsTo": {
+        "@id": "docs/schemas/named_incidents.schema.json"
+      }
     },
     {
       "@id": "results/named_incidents.jsonld",
@@ -176,6 +244,12 @@
       "@type": "File",
       "name": "CodeMeta software metadata",
       "encodingFormat": "application/ld+json"
+    },
+    {
+      "@id": "experiments/",
+      "@type": "Dataset",
+      "name": "Study and offline replication tools",
+      "description": "Paper23 experimental code; data are supplied in a separate replication bundle."
     }
   ]
 }

@@ -75,11 +75,12 @@
         "DecisionChain"
       ],
       "demm:scenarioId": "replit_drop_database_2025_07",
+      "demm:evidenceContract": "fragment-coverage-v2",
       "architecture": "single_agent",
       "stackTier": "cross_stack",
-      "completeness": 0.5714,
-      "dominantMode": 3,
-      "dominantBreak": "evidence_fragmentation",
+      "completeness": 0.7143,
+      "dominantMode": null,
+      "dominantBreak": null,
       "members": [
         "trace:replit_drop_database_2025_07#unit/unit_0000",
         "trace:replit_drop_database_2025_07#unit/unit_0001",
@@ -90,9 +91,9 @@
           "@id": "trace:replit_drop_database_2025_07#chain/feas/inputs",
           "@type": "PropertyFeasibility",
           "property": "schema:inputs",
-          "category": "partially_fillable",
-          "gap": "cross-stack evidence partial",
-          "demm:confidence": 0.5
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
         },
         {
           "@id": "trace:replit_drop_database_2025_07#chain/feas/policy_basis",
@@ -138,9 +139,9 @@
           "@id": "trace:replit_drop_database_2025_07#chain/feas/post_condition_state",
           "@type": "PropertyFeasibility",
           "property": "schema:post_condition_state",
-          "category": "partially_fillable",
-          "gap": "cross-stack evidence partial",
-          "demm:confidence": 0.5
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
         }
       ]
     },

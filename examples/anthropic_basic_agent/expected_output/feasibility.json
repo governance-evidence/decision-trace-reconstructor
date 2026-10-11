@@ -5,8 +5,8 @@
   "fragments": 33,
   "units_detected": 9,
   "completeness_pct": 85.7,
-  "dominant_mode": 4,
-  "dominant_break": "evidence_fragmentation",
+  "dominant_mode": null,
+  "dominant_break": null,
   "feasibility_counts": {
     "fully_fillable": 5,
     "partially_fillable": 0,

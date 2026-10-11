@@ -1,21 +1,18 @@
 {
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
-  "@id": "https://doi.org/10.5281/zenodo.20409680",
-  "identifier": "10.5281/zenodo.20409680",
+  "@id": "https://github.com/governance-evidence/decision-trace-reconstructor",
   "name": "Decision Trace Reconstructor",
   "description": "Post-hoc reconstruction of multi-step decision chains from fragmentary evidence, with decision-event schema mapping and authorization-envelope substitution for ML-opaque steps. Reference implementation of the Decision Evidence Maturity Model (DEMM) property-level reconstructability assessment.",
-  "version": "0.1.2",
-  "datePublished": "2026-05-27",
+  "version": "0.2.0",
   "license": "https://spdx.org/licenses/Apache-2.0",
   "programmingLanguage": "Python",
   "runtimePlatform": "Python 3.11+",
   "applicationCategory": "Scientific software",
   "developmentStatus": "active",
   "isAccessibleForFree": true,
-  "url": "https://decisiontrace.org/reconstructor/v0.1.2",
-  "sameAs": "https://doi.org/10.5281/zenodo.20409680",
-  "codeRepository": "https://decisiontrace.org/reconstructor",
+  "url": "https://github.com/governance-evidence/decision-trace-reconstructor",
+  "codeRepository": "https://github.com/governance-evidence/decision-trace-reconstructor",
   "keywords": [
     "governance evidence",
     "decision trace reconstruction",
@@ -64,5 +61,6 @@
       "softwareVersion": ">=7,<8",
       "description": "Optional PROV-O JSON-LD validation in tests"
     }
-  ]
+  ],
+  "releaseNotes": "Unpublished local preparation; no release date or version DOI assigned. See CHANGELOG.md."
 }

@@ -64,7 +64,7 @@ def build_summary(
     nonzero = ", ".join(f"{k}={v}" for k, v in feas_payload["feasibility_counts"].items() if v)
     lines.append("")
     lines.append(f"Feasibility counts: {nonzero}")
-    return "\n".join(lines) + "\n"
+    return "\n".join(line.rstrip() for line in lines) + "\n"
 
 
 def main() -> None:

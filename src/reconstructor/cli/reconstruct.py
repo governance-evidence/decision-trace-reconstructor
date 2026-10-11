@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from ..core.actors import actor_inventory
 from ..core.manifest import FragmentManifest
 from ..mapping.feasibility import FeasibilityCategory, PropertyFeasibility
 from ..mapping.mapper import map_chain_to_schema_aggregate
@@ -33,11 +34,13 @@ def _cmd_reconstruct(args: argparse.Namespace) -> int:
         architecture=manifest.architecture,
         stack_tier=manifest.stack_tier,
         chain_id=manifest.scenario_id,
+        evidence_contract=manifest.evidence_contract,
     )
     chain_feas = map_chain_to_schema_aggregate(
         report.chain,
         manifest.architecture,
         manifest.stack_tier,
+        manifest.evidence_contract,
     )
 
     args.out.mkdir(parents=True, exist_ok=True)
@@ -98,6 +101,8 @@ def _feasibility_payload(
         "architecture": manifest.architecture.value,
         "stack_tier": manifest.stack_tier.value,
         "fragments": len(manifest.fragments),
+        "evidence_contract": manifest.evidence_contract,
+        "actor_inventory": actor_inventory(manifest.fragments),
         "units_detected": len(report.chain.units),
         "completeness_pct": round(report.completeness * 100, 1),
         "dominant_mode": dominant_mode.value if dominant_mode is not None else None,

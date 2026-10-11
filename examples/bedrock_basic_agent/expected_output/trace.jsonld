@@ -75,6 +75,7 @@
         "DecisionChain"
       ],
       "demm:scenarioId": "bedrock_basic_agent_demo",
+      "demm:evidenceContract": "fragment-coverage-v2",
       "architecture": "single_agent",
       "stackTier": "within_stack",
       "completeness": 1.0,

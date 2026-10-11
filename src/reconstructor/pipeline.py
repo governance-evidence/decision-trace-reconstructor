@@ -40,6 +40,7 @@ class ReconstructionReport:
     completeness: float  # share of property-slots counting toward completeness
     total_property_slots: int
     unrecoverable_modes: list[OperationalMode]
+    evidence_contract: str = "fragment-coverage-v2"
 
     def dominant_mode(self) -> OperationalMode | None:
         if not self.unrecoverable_modes:
@@ -60,6 +61,7 @@ def reconstruct(
     stack_tier: StackTier,
     chain_id: str = "chain_0001",
     boundary_config: BoundaryConfig | None = None,
+    evidence_contract: str = "fragment-coverage-v2",
 ) -> ReconstructionReport:
     """Run the six-stage pipeline on a fragment list."""
     arch = coerce_architecture(architecture)
@@ -67,7 +69,7 @@ def reconstruct(
     units = detect_boundaries(ordered, boundary_config)
     chain = DecisionChain(chain_id=chain_id, units=units, source_fragments=ordered)
     per_unit = map_chain_to_schema(chain, arch, stack_tier)
-    aggregated = map_chain_to_schema_aggregate(chain, arch, stack_tier)
+    aggregated = map_chain_to_schema_aggregate(chain, arch, stack_tier, evidence_contract)
 
     total = len(aggregated)
     completeness_score = (
@@ -88,4 +90,5 @@ def reconstruct(
         completeness=completeness_score,
         total_property_slots=total,
         unrecoverable_modes=unrec_modes,
+        evidence_contract=evidence_contract,
     )

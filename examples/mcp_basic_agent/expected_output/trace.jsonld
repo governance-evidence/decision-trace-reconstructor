@@ -75,11 +75,12 @@
         "DecisionChain"
       ],
       "demm:scenarioId": "mcp_basic_agent_demo",
+      "demm:evidenceContract": "fragment-coverage-v2",
       "architecture": "single_agent",
       "stackTier": "cross_stack",
-      "completeness": 0.5714,
-      "dominantMode": 3,
-      "dominantBreak": "evidence_fragmentation",
+      "completeness": 0.7143,
+      "dominantMode": null,
+      "dominantBreak": null,
       "members": [
         "trace:mcp_basic_agent_demo#unit/unit_0000",
         "trace:mcp_basic_agent_demo#unit/unit_0001",
@@ -92,9 +93,9 @@
           "@id": "trace:mcp_basic_agent_demo#chain/feas/inputs",
           "@type": "PropertyFeasibility",
           "property": "schema:inputs",
-          "category": "partially_fillable",
-          "gap": "cross-stack evidence partial",
-          "demm:confidence": 0.5
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
         },
         {
           "@id": "trace:mcp_basic_agent_demo#chain/feas/policy_basis",
@@ -140,9 +141,9 @@
           "@id": "trace:mcp_basic_agent_demo#chain/feas/post_condition_state",
           "@type": "PropertyFeasibility",
           "property": "schema:post_condition_state",
-          "category": "partially_fillable",
-          "gap": "cross-stack evidence partial",
-          "demm:confidence": 0.5
+          "category": "fully_fillable",
+          "gap": null,
+          "demm:confidence": 1.0
         }
       ]
     },
