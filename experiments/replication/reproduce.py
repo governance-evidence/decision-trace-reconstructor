@@ -1,4 +1,4 @@
-"""Verify exact inputs and reproduce the retained Paper23 comparisons offline."""
+"""Verify exact inputs and reproduce the retained decision-evidence comparisons offline."""
 
 from __future__ import annotations
 

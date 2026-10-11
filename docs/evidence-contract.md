@@ -2,7 +2,7 @@
 
 The working mapper separates deployment topology, stored-record visibility and evidence sufficiency. A cross-stack label, multiple record producers, several agents or a human participant no longer imposes a sufficiency downgrade. Nor does a topology label alone diagnose decision diffusion, a missing evidence channel or responsibility ambiguity.
 
-The published Paper23 v0.1.0 results and V5 use separately pinned source. This change does not update that release, its scientific results or the paper. Re-running historical fixtures with the working mapper intentionally produces different structural coverage scores.
+The published v0.1.0 fixture results and frozen V5 assessments use separately pinned source. This release preserves those instruments and scientific results. Re-running historical fixtures with the current mapper intentionally produces different structural coverage scores.
 
 ## Two explicit assessment contracts
 
@@ -56,12 +56,12 @@ decision-trace reconstruct examples/evidence_contract_case/input/wrong_receipt.j
 
 The wrong-receipt example retains all record classes but cannot fully support post-condition state. Regression tests cover topology invariance, role counting, explicit visibility, wrong scope/version/call bindings, observer independence, state conflicts across units, malformed fields, untyped extra actions and the public CLI.
 
-The 2026-10-11 Paper23 challenge freezes 20 authored cases and their target labels before implementation. Its runner is `experiments/paper23_evidence_challenge/run.py`. The cases are development conformance requirements, not an independent holdout. Its separate run archive preserves pre-change/current/pinned comparisons, original example expectations and V5 hashes. Ten positive and ten negative target judgments all pass with the typed contract; both the baseline and coverage-only mode pass 10/20. These results establish the implemented bounded checks, not population accuracy or journal readiness.
+The 2026-10-11 evidence challenge freezes 20 authored cases and their target labels before implementation. Its runner is `experiments/paper23_evidence_challenge/run.py`. The cases are development conformance requirements, not an independent holdout. Its separate run archive preserves pre-change/current/pinned comparisons, original example expectations and V5 hashes. Ten positive and ten negative target judgments all pass with the typed contract; both the baseline and coverage-only mode pass 10/20. These results establish the implemented bounded checks, not population accuracy or journal readiness.
 
-## Paper23 retained-packet adapter
+## Retained-packet adapter
 
 `experiments.paper23_typed_replay.adapter` provides a versioned packet-only
-projection onto `decision-evidence-v1`; the original Paper23 adapter remains
+projection onto `decision-evidence-v1`; the original study adapter remains
 unchanged. Read the adjacent `PROTOCOL.md` before interpreting the comparison.
 It preserves original records and transformation provenance, excludes read-only
 acquisition calls from material decisions, and does not manufacture missing

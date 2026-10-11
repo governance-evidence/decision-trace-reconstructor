@@ -69,6 +69,7 @@ The report is intentionally diagnostic, not narrative:
 - [Adapter documentation](docs/adapters/README.md)
 - [Reports and output artifacts](docs/reports.md)
 - [Reconstruction architecture](docs/architecture.md)
+- [v0.2.0 release notes and migration](docs/releases/0.2.0.md)
 - [Development](docs/development.md)
 - [Roadmap](docs/roadmap.md)
 
@@ -84,7 +85,7 @@ Worked examples live under `examples/<adapter>_basic_agent/` and are pinned by i
 ## Citation
 
 `CITATION.cff`, `codemeta.json`, and `ro-crate-metadata.json` ship with the package.
-Version `v0.1.0` is archived on Zenodo at <https://doi.org/10.5281/zenodo.19851574>. That deposit identifies the original fixture evaluation, including the retained `results/` files. The current `0.2.0` tree is an unpublished release preparation; it has no new version DOI. Later Paper23 experiments require their own replication deposit and must not be cited as part of v0.1.0.
+Version `v0.1.0` is archived on Zenodo at <https://doi.org/10.5281/zenodo.19851574>. That deposit identifies the original fixture evaluation, including the retained `results/` files. Version `0.2.0` is prepared for release; its version DOI will be recorded after archival publication. The later live-model study requires a separate replication deposit and must not be cited as part of v0.1.0.
 
 ## License
 
@@ -92,8 +93,8 @@ Apache-2.0. See [`LICENSE`](LICENSE).
 
 ## Evidence assessment contracts
 
-The working mapper now separates topology from evidence visibility and record producers from action issuers. Existing manifests report structural coverage (`fragment-coverage-v2`). The opt-in `decision-evidence-v1` contract checks structured scope, request/receipt binding and independent state observations; it is not a general semantic or authentication verifier. See [the contract and examples](docs/evidence-contract.md). Published v0.1.0/Paper23 V5 results remain tied to their preserved code.
+The mapper separates topology from evidence visibility and record producers from action issuers. Existing manifests report structural coverage (`fragment-coverage-v2`). The opt-in `decision-evidence-v1` contract checks structured scope, request/receipt binding and independent state observations; it is not a general semantic or authentication verifier. See [the contract and examples](docs/evidence-contract.md). Historical v0.1.0 results and frozen V5 assessments remain tied to their preserved instruments.
 
-## Paper23 replication package
+## Replication study
 
-See [the replication guide](docs/paper23-replication.md) for the immutable run inventory, portable offline reproduction command and local package preparation. Study data are delivered separately from the runtime wheel. The source distribution includes the experiment tools, but cannot recreate frozen model responses unless the replication data are supplied.
+See [the replication guide](docs/replication-study.md) for the immutable run inventory, portable offline reproduction command and local package preparation. Study data are delivered separately from the runtime wheel. The source distribution includes the experiment tools, but cannot recreate frozen model responses unless the replication data are supplied.

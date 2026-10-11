@@ -1,4 +1,4 @@
-# Paper23 replication package
+# Decision evidence replication study
 
 Local deposit candidate, version 1.0.0. No DOI or publication date has been assigned. The included DTR 0.2.0 source is an unpublished release preparation. Publication is a separate author action.
 
@@ -9,16 +9,18 @@ Use Python 3.11 or newer. The verified environment is CPython 3.14 on macOS arm6
 Create the environment and output directory outside this immutable package:
 
 ```bash
-python3 -m venv ../paper23-env
-../paper23-env/bin/python -m pip install --no-index --find-links wheelhouse -r requirements-replay.txt
-../paper23-env/bin/python -B reproduce.py --output ../paper23-reproduced
+python3 -m venv ../dtr-replication-env
+../dtr-replication-env/bin/python -m pip install --no-index --find-links wheelhouse -r requirements-replay.txt
+../dtr-replication-env/bin/python -B reproduce.py --output ../dtr-reproduced
 ```
 
-For another platform, replace only the installation command with `../paper23-env/bin/python -m pip install -r requirements-replay.txt`. Reproduction itself makes no model or API requests and needs no credentials. Python network operations are blocked in the parent and child interpreters. It uses paths relative to the unpacked package and refuses an existing output directory or output inside the package.
+For another platform, replace only the installation command with `../dtr-replication-env/bin/python -m pip install -r requirements-replay.txt`. Reproduction itself makes no model or API requests and needs no credentials. Python network operations are blocked in the parent and child interpreters. It uses paths relative to the unpacked package and refuses an existing output directory or output inside the package.
 
 The command verifies the entire checksum inventory, revalidates all 82 retained assessor responses, recomputes the ten-control gate, executes pinned DTR v0.1.0 on all 72 V5 packets, executes coverage and typed reconstruction on the same 72 packets, and replays the 20 contract cases under all retained instruments. It compares all 432 original rows, all 432 replay rows, metrics and challenge predictions with the saved results. It writes `verification.json`, `comparison.csv` and complete new outputs outside the package. Timing and machine paths are execution metadata and are not expected to match historical values.
 
 ## Run map and scientific boundaries
+
+Public documentation and new packages use descriptive names: `replication-study.md`, `experiments.replication` and `dtr-replication-1.0.0.zip`. Historical run directories, frozen instrument modules and identifiers retain their recorded names because the freeze verifies both their paths and their bytes. Earlier packages are preserved; the naming change does not revise observations or results.
 
 | Artifact under `study-data/` | Role |
 |---|---|
@@ -43,16 +45,17 @@ Code and authored study material use the repository's Apache-2.0 license. Preser
 
 ## Maintainer assembly
 
-From the DTR checkout, supply the pre-edit preservation inventory and a prepared dependency wheelhouse:
+From the DTR checkout, supply the pre-edit preservation inventory, a prepared dependency wheelhouse and the verified software distributions from the same source preparation:
 
 ```bash
-PYTHONPATH=.:src .venv/bin/python -m experiments.paper23_replication.build \
-  --preservation study-data/paper23-release-preparation-20261011/preservation-before.json \
-  --wheelhouse study-data/paper23-release-preparation-20261011/wheelhouse \
-  --output study-data/paper23-release-preparation-20261011/paper23-replication-1.0.0
+PYTHONPATH=.:src .venv/bin/python -m experiments.replication.build \
+  --preservation /path/to/preservation-before.json \
+  --wheelhouse /path/to/wheelhouse \
+  --distributions /path/to/verified-distributions \
+  --output study-data/dtr-replication-1.0.0
 ```
 
-Assembly refuses overwritten destinations, changed historical files, symlinks and detected credential material. All historical files named in the preservation inventory are retained; the directory holding the new preparation is excluded to prevent recursive packaging. The builder creates the ZIP, delivery hash, manifest and checksum inventory. Verify the actual ZIP in a fresh directory before publication. Keep a failed preparation if verification fails and create a new candidate after repairs.
+Assembly refuses overwritten destinations, changed historical files, symlinks and detected credential material. All historical files named in the preservation inventory are retained; the directory holding the new preparation is excluded to prevent recursive packaging. The builder copies the explicitly selected wheel and source distribution, then creates the ZIP, delivery hash, manifest and checksum inventory. It does not select older distributions from the default `dist/` directory. Verify the actual ZIP in a fresh directory before publication. Keep a failed preparation if verification fails and create a new candidate after repairs.
 
 The software wheel packages `reconstructor`; experiment runners ship in the source distribution and this replication package. Study data are deliberately excluded from the software distributions. Publishing a software wheel alone cannot deliver this study.
 

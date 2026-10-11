@@ -1,4 +1,4 @@
-"""Assemble a local, non-overwriting Paper23 replication deposit candidate."""
+"""Assemble a local, non-overwriting decision-evidence replication deposit candidate."""
 
 from __future__ import annotations
 
@@ -31,7 +31,7 @@ def copy_tree(source, destination):
     shutil.copytree(source, destination, ignore=ignored)
 
 
-def build(output, preservation, wheelhouse):
+def build(output, preservation, wheelhouse, distributions):
     output = output.resolve()
     archive = output.with_name(output.name + ".zip")
     if output.exists() or archive.exists():
@@ -40,6 +40,13 @@ def build(output, preservation, wheelhouse):
     for name, digest in frozen["files"].items():
         if sha(REPO / name) != digest:
             raise ValueError("Historical input changed: " + name)
+    selected_distributions = [
+        distributions / ("decision_trace_reconstructor-0.2.0" + suffix)
+        for suffix in ("-py3-none-any.whl", ".tar.gz")
+    ]
+    for path in selected_distributions:
+        if not path.is_file() or path.is_symlink():
+            raise ValueError("Missing or unsafe selected distribution: " + str(path))
     output.mkdir(parents=True)
     for name in (
         "src",
@@ -76,21 +83,20 @@ def build(output, preservation, wheelhouse):
     copy_tree(wheelhouse, output / "wheelhouse")
     if (wheelhouse.parent / "compatibility").exists():
         copy_tree(wheelhouse.parent / "compatibility", output / "compatibility")
-    distributions = output / "software-distributions"
-    distributions.mkdir()
-    for suffix in ("-py3-none-any.whl", ".tar.gz"):
-        name = "decision_trace_reconstructor-0.2.0" + suffix
-        shutil.copyfile(REPO / "dist" / name, distributions / name)
+    distribution_output = output / "software-distributions"
+    distribution_output.mkdir()
+    for path in selected_distributions:
+        shutil.copyfile(path, distribution_output / path.name)
     for name in ("requirements-replay.txt", "runtime-environment.json"):
         shutil.copyfile(wheelhouse.parent / name, output / name)
-    shutil.copyfile(REPO / "docs/paper23-replication.md", output / "README.md")
+    shutil.copyfile(REPO / "docs/replication-study.md", output / "README.md")
     (output / "reproduce.py").write_text(
-        "from experiments.paper23_replication.reproduce import main\n"
+        "from experiments.replication.reproduce import main\n"
         "if __name__ == '__main__':\n    main()\n"
     )
     (output / "CITATION.cff").write_text(
         'cff-version: 1.2.0\nmessage: "Unpublished deposit candidate; no DOI or publication date assigned. Cite the exact published version after deposit. Historical software citations are in software-metadata/."\n'
-        'type: dataset\ntitle: "Paper23: frozen V5 assessments, typed evidence contract and retrospective replay"\n'
+        'type: dataset\ntitle: "Decision Trace Reconstructor: frozen V5 assessments, typed evidence contract and retrospective replay"\n'
         'version: "1.0.0"\nlicense: Apache-2.0\n'
         "authors:\n  - family-names: Solozobov\n    given-names: Oleg\n"
         '    orcid: "https://orcid.org/0009-0009-0105-7459"\n'
@@ -99,7 +105,7 @@ def build(output, preservation, wheelhouse):
         output / "zenodo-metadata-draft.json",
         {
             "status": "local preparation; not an API request; not published",
-            "title": "Paper23: frozen V5 assessments, typed evidence contract and retrospective replay",
+            "title": "Decision Trace Reconstructor: frozen V5 assessments, typed evidence contract and retrospective replay",
             "version": "1.0.0",
             "resource_type": "dataset",
             "license": "Apache-2.0",
@@ -124,7 +130,7 @@ def build(output, preservation, wheelhouse):
     write(
         output / "replication-manifest.json",
         {
-            "schema": "paper23-replication-package-v1",
+            "schema": "dtr-replication-package-v1",
             "version": "1.0.0",
             "publication_status": "unpublished",
             "dtr_prepared_version": "0.2.0",
@@ -163,8 +169,9 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--preservation", type=Path, required=True)
     parser.add_argument("--wheelhouse", type=Path, required=True)
+    parser.add_argument("--distributions", type=Path, required=True)
     args = parser.parse_args()
-    build(args.output, args.preservation, args.wheelhouse)
+    build(args.output, args.preservation, args.wheelhouse, args.distributions)
 
 
 if __name__ == "__main__":

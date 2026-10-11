@@ -62,5 +62,5 @@
       "description": "Optional PROV-O JSON-LD validation in tests"
     }
   ],
-  "releaseNotes": "Unpublished local preparation; no release date or version DOI assigned. See CHANGELOG.md."
+  "releaseNotes": "Version 0.2.0 is prepared for release: separate structural coverage from typed decision evidence and add offline replication tooling. See docs/releases/0.2.0.md and CHANGELOG.md. Publication date and version DOI remain unassigned."
 }

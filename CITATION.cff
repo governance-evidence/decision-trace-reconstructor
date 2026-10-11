@@ -1,9 +1,10 @@
 cff-version: 1.2.0
 message: >-
   If you use the Decision Trace Reconstructor in academic work, please
-  cite the exact version used. This is an unpublished local 0.2.0 preparation;
-  no release date or version DOI has been assigned. References identify
-  published predecessors, not this snapshot or the later Paper23 study.
+  cite the exact version used. Version 0.2.0 is prepared for release;
+  its publication date and version DOI will be recorded after publication.
+  References identify published predecessors, not this version or the
+  separate live-model replication study.
 type: software
 title: "Decision Trace Reconstructor"
 abstract: >-

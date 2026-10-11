@@ -78,7 +78,7 @@
           "@id": "experiments/"
         }
       ],
-      "creativeWorkStatus": "Unpublished local release preparation"
+      "creativeWorkStatus": "Unreleased"
     },
     {
       "@id": "https://orcid.org/0009-0009-0105-7459",
@@ -249,7 +249,7 @@
       "@id": "experiments/",
       "@type": "Dataset",
       "name": "Study and offline replication tools",
-      "description": "Paper23 experimental code; data are supplied in a separate replication bundle."
+      "description": "Retained-assessment replay and typed evidence contract experiments; frozen data are supplied in a separate replication bundle."
     }
   ]
 }
